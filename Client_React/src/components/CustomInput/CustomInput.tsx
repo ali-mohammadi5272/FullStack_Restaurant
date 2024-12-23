@@ -17,24 +17,16 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
 }) => {
   const defaultPrefix = (): React.ReactNode => {
     if (type === "email") {
-      return (
-        <FontAwesomeIcon icon="faAt" className="text-xl text-[#00000040]" />
-      );
+      return <FontAwesomeIcon icon="faAt" className="base-input-icon" />;
     }
     else if (type === "password") {
       return (
-        <FontAwesomeIcon
-          icon="faUnlockKeyhole"
-          className="text-xl text-[#00000040]"
-        />
+        <FontAwesomeIcon icon="faUnlockKeyhole" className="base-input-icon" />
       );
     }
     else if (type === "search") {
       return (
-        <FontAwesomeIcon
-          icon="faMagnifyingGlass"
-          className="text-xl text-[#00000040]"
-        />
+        <FontAwesomeIcon icon="faMagnifyingGlass" className="base-input-icon" />
       );
     }
     else {
