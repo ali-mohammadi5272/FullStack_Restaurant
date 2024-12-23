@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { ContainerPropsType } from "./container";
+import { ContainerPropsType } from "./container.types";
 
 const Container: React.FC<PropsWithChildren<ContainerPropsType>> = ({
   children,
