@@ -2,7 +2,7 @@ import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
 import { Checkbox, Flex, Form } from "antd";
 
-const LoginForm = (): React.ReactNode => {
+const RegisterForm = (): React.ReactNode => {
   const [form] = Form.useForm();
   return (
     <Form
@@ -46,4 +46,4 @@ const LoginForm = (): React.ReactNode => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
