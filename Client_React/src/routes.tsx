@@ -1,10 +1,17 @@
 import { RouteObject } from "react-router-dom";
 import LoginPage from "./pages/Login";
+import AuthLayout from "./layouts/Auth/Auth";
 
 const routes: RouteObject[] = [
   {
-    path: "/login",
-    element: <LoginPage />,
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
+    ],
   },
 ];
 
