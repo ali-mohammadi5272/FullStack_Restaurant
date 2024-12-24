@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .base-input {
-  @apply h-14 text-xl;
+  @apply h-14 text-xl rounded-[10px];
 }
 
 .base-input-icon {
@@ -11,5 +11,5 @@
 }
 
 .base-button {
-  @apply w-full text-lg h-14;
+  @apply w-full text-lg h-14 rounded-[10px];
 }
