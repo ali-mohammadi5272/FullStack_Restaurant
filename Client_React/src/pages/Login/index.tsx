@@ -10,7 +10,7 @@ const LoginPage = (): React.ReactNode => {
           <h1 className="font-bold text-5xl my-6">Login</h1>
           <p className="text-lg mb-10 space-x-2">
             <span className="text-#5C4529">Don't have an account?</span>
-            <Link className="text-blue-400 font-medium	" to="/register">
+            <Link className="text-blue-400 font-medium	" to="/auth/register">
               Sign up
             </Link>
           </p>
