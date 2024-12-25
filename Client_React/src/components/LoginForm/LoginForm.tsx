@@ -5,6 +5,7 @@ import { Checkbox, Flex, Form } from "antd";
 
 const LoginForm = (): React.ReactNode => {
   const [form] = Form.useForm();
+
   return (
     <Form
       name="wrap"
@@ -12,8 +13,6 @@ const LoginForm = (): React.ReactNode => {
       form={form}
       labelWrap
       wrapperCol={{ flex: 1 }}
-      colon={false}
-      style={{ maxWidth: 600 }}
     >
       <CustomInput
         rules={[{ required: true }]}
@@ -38,7 +37,7 @@ const LoginForm = (): React.ReactNode => {
         </Flex>
       </Form.Item>
       <Form.Item>
-        <CustomButton className="bg-primary" title="Log in" />
+        <CustomButton htmlType="submit" className="bg-primary" title="Log in" />
       </Form.Item>
     </Form>
   );
