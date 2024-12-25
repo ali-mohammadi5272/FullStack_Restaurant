@@ -5,7 +5,7 @@ import { useLayoutEffect } from "react";
 
 const LoginPage = (): React.ReactNode => {
   useLayoutEffect(() => {
-    document.title = "Login";
+    document.title = "Log in";
   }, []);
 
   return (
