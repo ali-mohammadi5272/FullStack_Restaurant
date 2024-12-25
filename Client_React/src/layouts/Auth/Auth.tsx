@@ -6,7 +6,7 @@ const AuthLayout = (): React.ReactNode => {
 
   useEffect(() => {
     navigate("/auth/login", { replace: true });
-  }, [navigate]);
+  }, []);
 
   return (
     <div>
