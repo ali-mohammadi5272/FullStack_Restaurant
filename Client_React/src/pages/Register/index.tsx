@@ -1,8 +1,13 @@
 import foodImage from "./../../assets/images/unsplash_8Nc_oQsc2qQ.png";
 import { Link } from "react-router-dom";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import { useLayoutEffect } from "react";
 
 const LoginPage = (): React.ReactNode => {
+  useLayoutEffect(() => {
+    document.title = "Sign up";
+  }, []);
+
   return (
     <main className="flex h-screen">
       <section className="w-full md:w-1/2 flex items-center">
