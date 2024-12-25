@@ -1,5 +1,5 @@
 import CustomInput from "../CustomInput/CustomInput";
-import CustomButton from "../CustomButton/CustomButton";
+import FormButton from "../FormButton/FormButton";
 import { Checkbox, Flex, Form } from "antd";
 
 const RegisterForm = (): React.ReactNode => {
@@ -39,11 +39,7 @@ const RegisterForm = (): React.ReactNode => {
         </Flex>
       </Form.Item>
       <Form.Item>
-        <CustomButton
-          htmlType="submit"
-          className="bg-primary"
-          title="Sign up"
-        />
+        <FormButton htmlType="submit" className="bg-primary" title="Sign up" />
       </Form.Item>
     </Form>
   );
