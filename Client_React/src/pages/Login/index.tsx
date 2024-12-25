@@ -5,8 +5,8 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 const LoginPage = (): React.ReactNode => {
   return (
     <main className="flex h-screen">
-      <section className="w-1/2 flex items-center">
-        <div className="w-3/4">
+      <section className="w-full md:w-1/2 flex items-center">
+        <div className="px-5 sm:px-10 w-full xl:w-5/6">
           <h1 className="font-bold text-5xl my-6">Login</h1>
           <p className="text-lg mb-14 space-x-2">
             <span className="text-#5C4529">Don't have an account?</span>
@@ -17,7 +17,7 @@ const LoginPage = (): React.ReactNode => {
           <LoginForm />
         </div>
       </section>
-      <section className="w-1/2 flex justify-between">
+      <section className="hidden w-1/2 md:flex justify-between">
         <img className="w-full h-auto" src={foodImage} alt="" />
       </section>
     </main>
