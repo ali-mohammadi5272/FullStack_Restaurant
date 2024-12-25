@@ -1,11 +1,24 @@
 import { useEffect } from "react";
-import { NavigateFunction, Outlet, useNavigate } from "react-router-dom";
+import { authLayoutRoutePattern } from "../../utils/patterns";
+import {
+  Location,
+  NavigateFunction,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 const AuthLayout = (): React.ReactNode => {
   const navigate: NavigateFunction = useNavigate();
+  const location: Location = useLocation();
 
   useEffect(() => {
-    navigate("/auth/login", { replace: true });
+    const isOnlyAuthLayoutRoute = authLayoutRoutePattern.test(
+      location.pathname
+    );
+    if (isOnlyAuthLayoutRoute) {
+      navigate("/auth/login", { replace: true });
+    }
   }, []);
 
   return (
