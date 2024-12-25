@@ -12,7 +12,7 @@ const CustomButton: React.FC<ButtonPropsType> = ({
     <Button
       type={type ? type : "primary"}
       htmlType={htmlType ? htmlType : "button"}
-      className={`base-button ${className}`}
+      className={`base-button rounded-[162.94px] ${className}`}
       onClick={onClick}
     >
       {title}
