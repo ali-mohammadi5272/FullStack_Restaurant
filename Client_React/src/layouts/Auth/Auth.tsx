@@ -13,7 +13,7 @@ const AuthLayout = (): React.ReactNode => {
   const location: Location = useLocation();
 
   useEffect(() => {
-    const isOnlyAuthLayoutRoute = authLayoutRoutePattern.test(
+    const isOnlyAuthLayoutRoute: boolean = authLayoutRoutePattern.test(
       location.pathname
     );
     if (isOnlyAuthLayoutRoute) {
