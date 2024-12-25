@@ -1,5 +1,5 @@
 import CustomInput from "../CustomInput/CustomInput";
-import CustomButton from "../CustomButton/CustomButton";
+import FormButton from "../FormButton/FormButton";
 import { Link } from "react-router-dom";
 import { Checkbox, Flex, Form } from "antd";
 
@@ -37,7 +37,7 @@ const LoginForm = (): React.ReactNode => {
         </Flex>
       </Form.Item>
       <Form.Item>
-        <CustomButton htmlType="submit" className="bg-primary" title="Log in" />
+        <FormButton htmlType="submit" className="bg-primary" title="Log in" />
       </Form.Item>
     </Form>
   );
