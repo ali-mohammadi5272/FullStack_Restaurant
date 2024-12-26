@@ -1,10 +1,15 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
+import Container from "../../components/Container/Container";
 
 const DefaultLayout = (): React.ReactNode => {
   return (
-    <div>
-      <Outlet />
-    </div>
+    <>
+      <Navbar />
+      <Container>
+        <Outlet />
+      </Container>
+    </>
   );
 };
 
