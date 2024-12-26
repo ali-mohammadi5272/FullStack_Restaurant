@@ -2,6 +2,7 @@ import { RouteObject } from "react-router-dom";
 import LoginPage from "./pages/Login";
 import AuthLayout from "./layouts/Auth/Auth";
 import RegisterPage from "./pages/Register";
+import DefaultLayout from "./layouts/Default/Default";
 
 const routes: RouteObject[] = [
   {
@@ -17,6 +18,11 @@ const routes: RouteObject[] = [
         element: <RegisterPage />,
       },
     ],
+  },
+  {
+    path: "/",
+    element: <DefaultLayout />,
+    children: [],
   },
 ];
 
