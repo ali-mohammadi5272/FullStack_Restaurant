@@ -1,4 +1,4 @@
-type icon =
+type IconType =
   | "faAt"
   | "faMagnifyingGlass"
   | "faLock"
@@ -8,7 +8,7 @@ type icon =
 
 interface FontAwesomeIconPropsType {
   className?: string;
-  icon: icon;
+  icon: IconType;
 }
 
 export type { FontAwesomeIconPropsType };
