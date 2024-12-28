@@ -39,7 +39,11 @@ const RegisterForm = (): React.ReactNode => {
         </Flex>
       </Form.Item>
       <Form.Item>
-        <FormButton htmlType="submit" className="bg-primary" title="Sign up" />
+        <FormButton
+          htmlType="submit"
+          className="bg-primary w-full"
+          title="Sign up"
+        />
       </Form.Item>
     </Form>
   );
