@@ -37,7 +37,11 @@ const LoginForm = (): React.ReactNode => {
         </Flex>
       </Form.Item>
       <Form.Item>
-        <FormButton htmlType="submit" className="bg-primary" title="Log in" />
+        <FormButton
+          htmlType="submit"
+          className="bg-primary w-full"
+          title="Log in"
+        />
       </Form.Item>
     </Form>
   );
