@@ -6,6 +6,7 @@ import {
 } from "vue-router";
 import AuthLayout from "./layouts/Auth/Auth.vue";
 import LoginPage from "./pages/Login/index.vue";
+import RegisterPage from "./pages/Register/index.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,6 +16,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: "login",
         component: LoginPage,
+      },
+      {
+        path: "register",
+        component: RegisterPage,
       },
     ],
   },
