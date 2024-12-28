@@ -11,6 +11,6 @@ interface CustomInputPropsType {
   variant?: "outlined" | "borderless" | "filled";
   class?: string;
   allowClear?: boolean;
-  value?: string;
+  value?: string | number;
 }
 export type { CustomInputPropsType };
