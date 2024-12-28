@@ -21,9 +21,9 @@
     <a-form-item>
       <a-flex justify="space-between" align="center">
         <a-form-item name="remember" valuePropName="checked" noStyle>
-          <Checkbox className="text-lg">Remember me</Checkbox>
+          <a-checkbox class="text-lg">Remember me</a-checkbox>
         </a-form-item>
-        <router-link to="#" className="text-lg"> Forgot password </router-link>
+        <router-link to="#" class="text-lg">Forgot password</router-link>
       </a-flex>
     </a-form-item>
     <a-form-item>
