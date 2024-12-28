@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import { useLayoutEffect } from "react";
 
-const LoginPage = (): React.ReactNode => {
+const RegisterPage = (): React.ReactNode => {
   useLayoutEffect(() => {
     document.title = "Sign up";
   }, []);
@@ -29,4 +29,4 @@ const LoginPage = (): React.ReactNode => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
