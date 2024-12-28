@@ -4,8 +4,15 @@ import {
   type Router,
   type RouteRecordRaw,
 } from "vue-router";
+import AuthLayout from "./layouts/Auth/Auth.vue";
 
-const routes: RouteRecordRaw[] = [];
+const routes: RouteRecordRaw[] = [
+  {
+    path: "/auth",
+    component: AuthLayout,
+    children: [],
+  },
+];
 
 const router: Router = createRouter({
   history: createWebHashHistory(),
