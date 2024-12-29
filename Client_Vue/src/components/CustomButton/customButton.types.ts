@@ -1,7 +1,7 @@
 interface ButtonPropsType {
   type?: "link" | "text" | "default" | "primary" | "dashed";
   htmlType?: "button" | "submit" | "reset";
-  className?: string;
+  class?: string;
   title: string;
 }
 
