@@ -7,6 +7,7 @@ import {
 import AuthLayout from "./layouts/Auth/Auth.vue";
 import LoginPage from "./pages/Login/index.vue";
 import RegisterPage from "./pages/Register/index.vue";
+import DefaultLayout from "./layouts/Default/Default.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -22,6 +23,11 @@ const routes: RouteRecordRaw[] = [
         component: RegisterPage,
       },
     ],
+  },
+  {
+    path: "/",
+    component: DefaultLayout,
+    children: [],
   },
 ];
 
