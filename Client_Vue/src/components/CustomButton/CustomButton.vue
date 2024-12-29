@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from "vue";
 import { Button } from "ant-design-vue";
 import type { ButtonPropsType } from "./customButton.types";
 

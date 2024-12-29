@@ -50,7 +50,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits } from "vue";
 import type { CustomInputPropsType } from "./customInput.types";
 import FontAwesomeIcon from "./../FontAwesomeIcon/FontAwesomeIcon.vue";
 

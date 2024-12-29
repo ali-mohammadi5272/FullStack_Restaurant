@@ -9,7 +9,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from "vue";
 import { FormButtonPropsType } from "./formButton.types";
 
 const props = defineProps<FormButtonPropsType>();

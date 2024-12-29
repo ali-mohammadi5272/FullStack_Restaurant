@@ -3,12 +3,11 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from "vue";
 import { FontAwesomeIcon as Icon } from "@fortawesome/vue-fontawesome";
 import { icons } from "../../utils/icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import type { FontAwesomeIconPropsType } from "./fontAwesomeIcon.types";
-import { library, type IconDefinition} from "@fortawesome/fontawesome-svg-core";
+import { library, type IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 const props = defineProps<FontAwesomeIconPropsType>();
 
