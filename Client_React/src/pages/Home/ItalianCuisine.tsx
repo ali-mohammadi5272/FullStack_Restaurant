@@ -5,7 +5,7 @@ const ItalianCuisine = (): React.ReactNode => {
   return (
     <div className="flex justify-between items-center mt-10 sm:mt-20 flex-col md:flex-row gap-10">
       <section className="w-full md:w-1/2">
-        <h1 className="font-bold text-6xl">
+        <h1 className="font-bold text-5xl sm:text-6xl">
           <span className="block">Italian</span>
           <span className="block">Cuisine</span>
         </h1>
@@ -14,7 +14,7 @@ const ItalianCuisine = (): React.ReactNode => {
           Exercitationem quibusdam voluptate alias est? Sunt eaque aspernatur
           molestias dolor itaque beatae suscipit consequuntur, autem repellat.
         </p>
-        <div className="flex gap-6">
+        <div className="flex gap-3 sm:gap-6">
           <CustomButton
             title="Order now"
             className="w-1/2 bg-primary py-7 font-semibold"
