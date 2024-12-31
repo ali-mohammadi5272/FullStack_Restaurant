@@ -4,7 +4,7 @@ import { ContainerPropsType } from "./container.types";
 const Container: React.FC<PropsWithChildren<ContainerPropsType>> = ({
   children,
 }) => {
-  return <div className="max-w-[1450px] mx-auto">{children}</div>;
+  return <div className="max-w-[1450px] px-5 mx-auto">{children}</div>;
 };
 
 export default Container;
