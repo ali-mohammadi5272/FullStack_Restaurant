@@ -43,7 +43,7 @@ const Navbar = (): React.ReactNode => {
   return (
     <nav>
       <Container>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center px-5">
           <section className="w-[30%]">
             <img src={logo} alt="logo" />
           </section>
@@ -60,8 +60,15 @@ const Navbar = (): React.ReactNode => {
           </section>
           <section className="flex items-center justify-end w-[35%]">
             <ShoppingCart />
-            <CustomButton title="Log in" className="bg-secondary px-9 hidden lg:inline-block" />
-            <img className="lg:hidden" src={mobileSizeMenu} alt="mobileSizeMenu" />
+            <CustomButton
+              title="Log in"
+              className="bg-secondary px-9 hidden lg:inline-block"
+            />
+            <img
+              className="lg:hidden"
+              src={mobileSizeMenu}
+              alt="mobileSizeMenu"
+            />
           </section>
         </div>
       </Container>
