@@ -9,7 +9,7 @@ const ItalianCuisine = (): React.ReactNode => {
           <span className="block">Italian</span>
           <span className="block">Cuisine</span>
         </h1>
-        <p className="text-lg text-[#5C4529] mt-7 mb-14 text-justify">
+        <p className="text-lg text-[#5C4529] mt-10 mb-20 text-justify">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem quibusdam voluptate alias est? Sunt eaque aspernatur
           molestias dolor itaque beatae suscipit consequuntur, autem repellat.
