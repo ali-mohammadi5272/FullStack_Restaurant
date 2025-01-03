@@ -8,10 +8,10 @@ const WelcomeToDelizioso = (): React.ReactNode => {
         <img className="w-full h-auto" src={foodImage} alt="Foo's Image" />
       </section>
       <section className="w-full md:w-1/2">
-        <h1 className="font-bold text-5xl sm:text-6xl">
+        <h2 className="font-bold text-5xl sm:text-6xl">
           <span className="block">Welcome to</span>
           <span className="block text-primary">delizioso</span>
-        </h1>
+        </h2>
         <p className="text-lg text-[#5C4529] mt-10 mb-20 text-justify">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem quibusdam voluptate alias est? Sunt eaque aspernatur
