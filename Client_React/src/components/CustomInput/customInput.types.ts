@@ -17,6 +17,6 @@ interface CustomInputPropsType {
         clearIcon?: React.ReactNode;
       };
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string | number;
+  value?: string | number;
 }
 export type { CustomInputPropsType };
