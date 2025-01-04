@@ -4,7 +4,8 @@ type IconType =
   | "faLock"
   | "faUnlockKeyhole"
   | "faHashtag"
-  | "faCartShopping";
+  | "faCartShopping"
+  | "faPlus";
 
 interface FontAwesomeIconPropsType {
   className?: string;
