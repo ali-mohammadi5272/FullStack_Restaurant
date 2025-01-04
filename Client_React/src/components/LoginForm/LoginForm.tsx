@@ -2,6 +2,7 @@ import CustomInput from "../CustomInput/CustomInput";
 import FormButton from "../FormButton/FormButton";
 import { Link } from "react-router-dom";
 import { Checkbox, Flex, Form } from "antd";
+import { memo } from "react";
 
 const LoginForm = (): React.ReactNode => {
   const [form] = Form.useForm();
@@ -47,4 +48,4 @@ const LoginForm = (): React.ReactNode => {
   );
 };
 
-export default LoginForm;
+export default memo(LoginForm);
