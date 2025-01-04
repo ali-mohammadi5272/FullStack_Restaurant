@@ -1,6 +1,7 @@
 import { ConfigProvider, Form, Input } from "antd";
 import { CustomInputPropsType } from "./customInput.types";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { memo } from "react";
 
 const CustomInput: React.FC<CustomInputPropsType> = ({
   label,
@@ -19,18 +20,15 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
   const defaultPrefix = (): React.ReactNode => {
     if (type === "email") {
       return <FontAwesomeIcon icon="faAt" className="base-input-icon" />;
-    }
-    else if (type === "password") {
+    } else if (type === "password") {
       return (
         <FontAwesomeIcon icon="faUnlockKeyhole" className="base-input-icon" />
       );
-    }
-    else if (type === "search") {
+    } else if (type === "search") {
       return (
         <FontAwesomeIcon icon="faMagnifyingGlass" className="base-input-icon" />
       );
-    }
-    else {
+    } else {
       return <></>;
     }
   };
@@ -67,4 +65,4 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
   );
 };
 
-export default CustomInput;
+export default memo(CustomInput);
