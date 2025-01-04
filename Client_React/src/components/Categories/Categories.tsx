@@ -16,7 +16,7 @@ const Categories = (): React.ReactNode => {
     setActiveCategoryId(categoryId);
   };
 
-  const categoryHandler = (category: CategoryType): void => {
+  const categoryClickHandler = (category: CategoryType): void => {
     changeActiveCategory(category.id);
   };
 
@@ -25,7 +25,7 @@ const Categories = (): React.ReactNode => {
       <CustomButton
         key={category.id}
         title={category.title}
-        onClick={() => categoryHandler(category)}
+        onClick={() => categoryClickHandler(category)}
         className={`
           flex-grow py-7 px-10 md:px-0
           ${
