@@ -5,6 +5,7 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import CustomButton from "../CustomButton/CustomButton";
 import Container from "../Container/Container";
 import { NavbarLinkType } from "./navbar.types";
+import { memo } from "react";
 
 const Navbar = (): React.ReactNode => {
   const links: NavbarLinkType[] = [
@@ -76,4 +77,4 @@ const Navbar = (): React.ReactNode => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);
