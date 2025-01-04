@@ -20,13 +20,14 @@ const Categories = (): React.ReactNode => {
     changeActiveCategory(category.id);
   };
 
-  const renderedCategories: JSX.Element[] = useMemo(() => {
-    return categories.map((category) => (
-      <CustomButton
-        key={category.id}
-        title={category.title}
-        onClick={() => categoryClickHandler(category)}
-        className={`
+  return (
+    <div className="flex justify-between gap-5 md:gap-10 my-20 overflow-x-auto">
+      {categories.map((category) => (
+        <CustomButton
+          key={category.id}
+          title={category.title}
+          onClick={() => categoryClickHandler(category)}
+          className={`
           flex-grow py-7 px-10 md:px-0
           ${
             category.id === activeCategoryId
@@ -34,13 +35,8 @@ const Categories = (): React.ReactNode => {
               : "bg-gray-50 text-[#311F09]"
           }
         `}
-      />
-    ));
-  }, []);
-
-  return (
-    <div className="flex justify-between gap-5 md:gap-10 my-20 overflow-x-auto">
-      {renderedCategories}
+        />
+      ))}
     </div>
   );
 };
