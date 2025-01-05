@@ -29,7 +29,7 @@ const Cards = (): React.ReactNode => {
       src: foodImage_2,
     },
     {
-      id: 2,
+      id: 3,
       title: "Rovioli",
       rate: 4,
       description:
@@ -38,7 +38,7 @@ const Cards = (): React.ReactNode => {
       src: foodImage_3,
     },
     {
-      id: 2,
+      id: 4,
       title: "Penne Alla Vodak",
       rate: 4,
       description:
@@ -47,7 +47,7 @@ const Cards = (): React.ReactNode => {
       src: foodImage_4,
     },
     {
-      id: 2,
+      id: 5,
       title: "Risoto",
       rate: 4,
       description:
@@ -56,7 +56,7 @@ const Cards = (): React.ReactNode => {
       src: foodImage_5,
     },
     {
-      id: 2,
+      id: 6,
       title: "Splitza Signature",
       rate: 4,
       description:
