@@ -7,6 +7,8 @@ import {
   faHashtag,
   faCartShopping,
   faPlus,
+  faAngleLeft,
+  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icons: Record<string, IconDefinition> = {
@@ -17,6 +19,8 @@ const icons: Record<string, IconDefinition> = {
   faHashtag,
   faCartShopping,
   faPlus,
+  faAngleLeft,
+  faAngleRight,
 };
 
 export { icons };
