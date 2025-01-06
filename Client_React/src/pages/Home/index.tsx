@@ -1,5 +1,6 @@
 import ItalianCuisine from "./ItalianCuisine";
 import OurPopularMenu from "./OurPopularMenu";
+import ReserveATable from "./ReserveATable";
 import WelcomeToDelizioso from "./WelcomeToDelizioso";
 
 const HomePage = (): React.ReactNode => {
@@ -8,6 +9,7 @@ const HomePage = (): React.ReactNode => {
       <ItalianCuisine />
       <WelcomeToDelizioso />
       <OurPopularMenu />
+      <ReserveATable />
     </main>
   );
 };
