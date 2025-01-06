@@ -7,6 +7,7 @@ import foodImage_3 from "./../../assets/images/Mask Group (5).png";
 import foodImage_4 from "./../../assets/images/Mask Group (6).png";
 import foodImage_5 from "./../../assets/images/Mask Group (7).png";
 import foodImage_6 from "./../../assets/images/Mask Group.png";
+import PaginationComponent from "../Pagination/Pagination";
 
 const MenuCards = (): React.ReactNode => {
   const menuCards: MenuCardType[] = [
@@ -71,6 +72,9 @@ const MenuCards = (): React.ReactNode => {
         {menuCards.map((card) => (
           <Card key={card.id} {...card} />
         ))}
+      </div>
+      <div className="py-14">
+        <PaginationComponent />
       </div>
     </div>
   );
