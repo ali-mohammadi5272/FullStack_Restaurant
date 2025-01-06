@@ -1,4 +1,4 @@
-import Cards from "../../components/Cards/Cards";
+import MenuCards from "../../components/MenuCards/MenuCards";
 import Categories from "../../components/Categories/Categories";
 
 const OurPopularMenu = (): React.ReactNode => {
@@ -8,7 +8,7 @@ const OurPopularMenu = (): React.ReactNode => {
         Our popular menu
       </h2>
       <Categories />
-      <Cards />
+      <MenuCards />
     </div>
   );
 };
