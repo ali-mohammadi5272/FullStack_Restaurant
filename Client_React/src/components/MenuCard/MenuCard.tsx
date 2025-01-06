@@ -1,9 +1,9 @@
 import { Rate } from "antd";
 import CustomButton from "../CustomButton/CustomButton";
-import { CardPropsType } from "./card.types";
+import { MenuCardPropsType } from "./menuCard.types";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 
-const Card: React.FC<CardPropsType> = ({
+const MenuCard: React.FC<MenuCardPropsType> = ({
   title,
   description,
   src,
@@ -43,4 +43,4 @@ const Card: React.FC<CardPropsType> = ({
   );
 };
 
-export default Card;
+export default MenuCard;

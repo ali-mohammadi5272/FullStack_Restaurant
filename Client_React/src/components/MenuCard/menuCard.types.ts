@@ -1,4 +1,4 @@
-interface CardPropsType {
+interface MenuCardPropsType {
   title: string;
   description: string;
   src: string;
@@ -6,4 +6,4 @@ interface CardPropsType {
   rate: 1 | 2 | 3 | 4 | 5;
 }
 
-export type { CardPropsType };
+export type { MenuCardPropsType };
