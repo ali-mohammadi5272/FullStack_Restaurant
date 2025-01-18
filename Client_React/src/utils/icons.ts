@@ -1,5 +1,10 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import {
   faAt,
   faMagnifyingGlass,
   faLock,
@@ -21,6 +26,9 @@ const icons: Record<string, IconDefinition> = {
   faPlus,
   faAngleLeft,
   faAngleRight,
+  faInstagram,
+  faFacebookF,
+  faTwitter,
 };
 
 export { icons };
