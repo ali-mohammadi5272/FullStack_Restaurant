@@ -7,7 +7,10 @@ type IconType =
   | "faCartShopping"
   | "faPlus"
   | "faAngleLeft"
-  | "faAngleRight";
+  | "faAngleRight"
+  | "faInstagram"
+  | "faFacebookF"
+  | "faTwitter";
 
 interface FontAwesomeIconPropsType {
   className?: string;
