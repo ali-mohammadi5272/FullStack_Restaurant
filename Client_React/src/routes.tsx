@@ -2,7 +2,7 @@ import { RouteObject } from "react-router-dom";
 import LoginPage from "./pages/Login";
 import AuthLayout from "./layouts/Auth/Auth";
 import RegisterPage from "./pages/Register";
-import DefaultLayout from "./layouts/Default/Default";
+import MainLayout from "./layouts/Main/MainLayout";
 import HomePage from "./pages/Home";
 
 const routes: RouteObject[] = [
@@ -22,7 +22,7 @@ const routes: RouteObject[] = [
   },
   {
     path: "/",
-    element: <DefaultLayout />,
+    element: <MainLayout />,
     children: [
       {
         index: true,
