@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Container from "../Container/Container";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-import logo from "./../../assets/images/Logo Delizioso.png";
+import logo from "./../../assets/images/Logo Delizioso2.png";
 import styles from "./footer.module.scss";
 
 const Footer = (): React.ReactNode => {
