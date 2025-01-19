@@ -38,7 +38,7 @@ const Footer = (): React.ReactNode => {
               </div>
             </div>
           </section>
-          <section className="md:flex justify-between md:w-3/5 space-y-10 sm:space-y-0 md:gap-4">
+          <section className="md:flex justify-between md:w-3/5 space-y-10 md:space-y-0 md:gap-4">
             <div className={styles.footer__linksSection}>
               <h3 className={styles.footer__linksSectionTitle}>Page</h3>
               <Link to="/">Home</Link>
