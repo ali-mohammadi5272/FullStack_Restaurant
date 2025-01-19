@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Container from "../../components/Container/Container";
 import Footer from "../../components/Footer/Footer";
 
-const DefaultLayout = (): React.ReactNode => {
+const MainLayout = (): React.ReactNode => {
   return (
     <>
       <Navbar />
@@ -15,4 +15,4 @@ const DefaultLayout = (): React.ReactNode => {
   );
 };
 
-export default DefaultLayout;
+export default MainLayout;
