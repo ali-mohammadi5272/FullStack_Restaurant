@@ -1,0 +1,17 @@
+.footer {
+  &__iconWrapper {
+    @apply bg-[#E3E2E0] flex justify-center items-center rounded-full w-[40px] h-[40px] sm:w-[60px] sm:h-[60px];
+  }
+
+  &__icon {
+    @apply w-[20px] h-[20px] sm:w-[30px] sm:h-[30px] text-black;
+  }
+
+  &__linksSection {
+    @apply flex flex-col gap-5 flex-grow;
+  }
+
+  &__linksSectionTitle {
+    @apply text-primary mb-3 text-md sm:text-2xl;
+  }
+}
