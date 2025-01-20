@@ -12,13 +12,13 @@
     <a-form-item :label="props.label" :name="props.name" :rules="props.rules">
       <a-input
         v-if="props.type !== 'password'"
-        :type="props.type"
-        :value="props.value"
+        :allowClear="props.allowClear"
+        :bordered="props.variant !== 'borderless'"
         :class="`base-input ${props.class}`"
         :prefix="props.prefix"
         :suffix="props.suffix"
-        :allowClear="props.allowClear"
-        :bordered="props.variant === 'borderless' ? false : true"
+        :type="props.type"
+        :value="props.value"
         @input="emit('update:modelValue', $event.target.value)"
       >
         <template v-if="!props.prefix && props.type === 'email'" #prefix>
@@ -33,12 +33,12 @@
       </a-input>
       <a-input-password
         v-else
-        type="password"
-        :value="props.value"
+        :allowClear="props.allowClear"
+        :bordered="props.variant !== 'borderless'"
         :class="`base-input ${props.class}`"
         :prefix="props.prefix"
-        :allowClear="props.allowClear"
-        :bordered="props.variant === 'borderless' ? false : true"
+        :value="props.value"
+        type="password"
         @input="emit('update:modelValue', $event.target.value)"
       >
         <template v-if="!props.prefix" #prefix>
