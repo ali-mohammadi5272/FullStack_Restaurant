@@ -74,7 +74,7 @@ const MenuCards = (): React.ReactNode => {
         ))}
       </div>
       <div className="py-14">
-        <PaginationComponent />
+        <PaginationComponent onChange={() => {}} />
       </div>
     </div>
   );
