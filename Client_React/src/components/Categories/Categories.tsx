@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from "react";
+import React, { memo, useState } from "react";
 import { CategoryType } from "./categories.types";
 import CustomButton from "../CustomButton/CustomButton";
 
