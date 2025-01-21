@@ -19,7 +19,7 @@ const AuthLayout = (): React.ReactNode => {
     if (isOnlyAuthLayoutRoute) {
       navigate("/auth/login", { replace: true });
     }
-  }, []);
+  }, [location]);
 
   return (
     <>
