@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { OuterContainerPropsType } from "./outerContainer";
+import { OuterContainerPropsType } from "./outerContainer.type";
 
 const OuterContainer: React.FC<PropsWithChildren<OuterContainerPropsType>> = ({
   children,
