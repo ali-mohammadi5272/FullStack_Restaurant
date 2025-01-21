@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import Container from "../Container/Container";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import logo from "./../../assets/images/Logo Delizioso2.png";
 import styles from "./footer.module.scss";
+import InnerContainer from "../InnerContainer/InnerContainer";
 
 const Footer = (): React.ReactNode => {
   return (
     <footer
       className={`${styles.footer} bg-[#311F09] text-[#E3E2E0] text-sm sm:text-xl py-14`}
     >
-      <Container>
+      <InnerContainer>
         <div className="md:flex justify-between py-24">
           <section className="space-y-8 md:w-2/5">
             <img src={logo} alt="Logo" className="text-[#E3E2E0]" />
@@ -62,7 +62,7 @@ const Footer = (): React.ReactNode => {
           </section>
         </div>
         <p className="md:text-center">Copyright c 2022 Delizioso</p>
-      </Container>
+      </InnerContainer>
     </footer>
   );
 };
