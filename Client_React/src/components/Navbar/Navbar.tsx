@@ -3,7 +3,7 @@ import logo from "./../../assets/images/Logo Delizioso.png";
 import mobileSizeMenu from "./../../assets/images/Home.svg";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import CustomButton from "../CustomButton/CustomButton";
-import Container from "../Container/Container";
+import InnerContainer from "../InnerContainer/InnerContainer";
 import { NavbarLinkType } from "./navbar.types";
 import { memo } from "react";
 
@@ -43,7 +43,7 @@ const Navbar = (): React.ReactNode => {
 
   return (
     <nav>
-      <Container>
+      <InnerContainer>
         <div className="flex justify-between items-center px-5">
           <section className="w-[30%]">
             <img src={logo} alt="logo" />
@@ -72,7 +72,7 @@ const Navbar = (): React.ReactNode => {
             />
           </section>
         </div>
-      </Container>
+      </InnerContainer>
     </nav>
   );
 };
