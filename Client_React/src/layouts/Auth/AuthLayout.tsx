@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { authLayoutRoutePattern } from "../../utils/patterns";
-import OuterContainer from "../../components/OuterContainer/OuterContainer";
 import {
   Location,
   NavigateFunction,
@@ -23,9 +22,9 @@ const AuthLayout = (): React.ReactNode => {
   }, []);
 
   return (
-    <OuterContainer>
+    <>
       <Outlet />
-    </OuterContainer>
+    </>
   );
 };
 
