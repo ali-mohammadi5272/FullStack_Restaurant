@@ -38,7 +38,7 @@ const ChefCards = (): React.ReactNode => {
   ];
 
   return (
-    <div className="grid justify-center grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 md:gap-6">
+    <div className="grid justify-center grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 md:gap-6 my-10 sm:my-20">
       {chefCards.map((card) => (
         <ChefCard key={card.id} {...card} />
       ))}
