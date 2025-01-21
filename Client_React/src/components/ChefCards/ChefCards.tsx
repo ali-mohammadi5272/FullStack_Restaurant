@@ -3,7 +3,7 @@ import { ChefCardType } from "./chefCards.type.ts";
 import chefImage_1 from "./../../assets/images/image 1.png";
 import chefImage_2 from "./../../assets/images/image 3.png";
 import chefImage_3 from "./../../assets/images/image 2.png";
-import React from "react";
+import React, { memo } from "react";
 
 const ChefCards = (): React.ReactNode => {
   const chefCards: ChefCardType[] = [
@@ -46,4 +46,4 @@ const ChefCards = (): React.ReactNode => {
   );
 };
 
-export default ChefCards;
+export default memo(ChefCards);
