@@ -44,7 +44,7 @@ const Navbar = (): React.ReactNode => {
   return (
     <nav>
       <InnerContainer>
-        <div className="flex justify-between items-center px-5">
+        <div className="flex justify-between items-center">
           <section className="w-[30%]">
             <img src={logo} alt="logo" />
           </section>
