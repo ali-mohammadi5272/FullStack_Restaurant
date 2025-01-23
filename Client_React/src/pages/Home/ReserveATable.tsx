@@ -4,7 +4,7 @@ import foodImage from "./../../assets/images/Let's reserve a table.png";
 
 const ReserveATable = (): React.ReactNode => {
   return (
-    <div className="mt-10 sm:mt-20 bg-[#FFF4E7] py-10">
+    <div className="my-20 sm:my-40 bg-[#FFF4E7] py-10">
       <InnerContainer>
         <div className="flex justify-between items-center flex-col-reverse md:flex-row gap-10">
           <section className="w-full md:w-1/2 relative">

@@ -5,7 +5,7 @@ import customersImage from "./../../assets/images/User.png";
 
 const OurCustomersSay = (): React.ReactNode => {
   return (
-    <div className="bg-[#fbfafa] sm:py-16 mt-10 sm:mt-20">
+    <div className="bg-[#fbfafa] sm:py-16 my-20 sm:my-40">
       <div className="bg-no-repeat bg-right-top sm:bg-left-top bg-[url('./../../assets/images/Ball.png')] sm:bg-[url('./../../assets/images/Round.png')] text-center flex flex-col justify-between items-center">
         <h2 className="font-bold text-4xl sm:text-6xl my-24">
           Our Customers say

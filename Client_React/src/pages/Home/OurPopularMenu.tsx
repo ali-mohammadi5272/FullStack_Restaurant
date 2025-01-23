@@ -4,7 +4,7 @@ import InnerContainer from "../../components/InnerContainer/InnerContainer";
 
 const OurPopularMenu = (): React.ReactNode => {
   return (
-    <div className="mt-10 sm:mt-20">
+    <div className="my-20 sm:my-40">
       <InnerContainer>
         <h2 className="block font-bold text-5xl sm:text-6xl text-center">
           Our popular menu

@@ -5,7 +5,7 @@ import React from "react";
 const WeAreOpenFrom = (): React.ReactNode => {
   return (
     <InnerContainer>
-      <div className="mt-10 sm:mt-20 bg-[url('./../../assets/images/unsplash_gKN5m528N6o.png')] rounded-[80px] py-20">
+      <div className="my-20 sm:my-40 bg-[url('./../../assets/images/unsplash_gKN5m528N6o.png')] rounded-[80px] py-20">
         <div className="flex justify-center items-center flex-col-reverse md:flex-row gap-10 text-center">
           <div className="w-full md:w-1/2">
             <h2 className="font-bold text-5xl sm:text-6xl text-white">

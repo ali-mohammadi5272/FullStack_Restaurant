@@ -4,7 +4,7 @@ import React from "react";
 
 const OurGreatestChef = (): React.ReactNode => {
   return (
-    <div className="mt-10 sm:mt-20">
+    <div className="my-20 sm:my-40">
       <h2 className="font-bold text-5xl sm:text-6xl text-center">
         Our greatest chef
       </h2>
