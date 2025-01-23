@@ -4,7 +4,7 @@ import foodImage from "./../../assets/images/Picture (3).png";
 
 const WelcomeToDelizioso = (): React.ReactNode => {
   return (
-    <div className="my-20 sm:my-40 bg-[#ecfaf1] py-10">
+    <div className="my-20 sm:my-40 bg-[#ecfaf1] py-24">
       <InnerContainer>
         <div className="flex justify-between items-center flex-col-reverse md:flex-row gap-10">
           <section className="w-full md:w-1/2">
