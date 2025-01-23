@@ -4,7 +4,7 @@ import {
   type Router,
   type RouteRecordRaw,
 } from "vue-router";
-import AuthLayout from "./layouts/Auth/Auth.vue";
+import AuthLayout from "./layouts/Auth/AuthLayout.vue";
 import LoginPage from "./pages/Login/index.vue";
 import RegisterPage from "./pages/Register/index.vue";
 import MainLayout from "./layouts/Main/MainLayout.vue";
