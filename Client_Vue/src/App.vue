@@ -1,7 +1,11 @@
 <template>
-  <router-view />
+  <OuterContainer>
+    <router-view />
+  </OuterContainer>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup>
+import OuterContainer from "./components/OuterContainer/OuterContainer.vue";
+</script>
 
 <style lang="scss" scoped></style>
