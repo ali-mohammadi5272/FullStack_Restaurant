@@ -1,11 +1,7 @@
 <template>
-  <Container>
-    <router-view></router-view>
-  </Container>
+  <router-view></router-view>
 </template>
 
-<script lang="ts" setup>
-import Container from "../../components/Container/Container.vue";
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped></style>
