@@ -1,14 +1,11 @@
 <template>
   <div>
     <Navbar />
-    <Container>
-      <slot></slot>
-    </Container>
+    <slot></slot>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Container from "../../components/Container/Container.vue";
 import Navbar from "../../components/Navbar/Navbar.vue";
 </script>
 
