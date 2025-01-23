@@ -1,25 +1,25 @@
 <template>
   <nav>
-    <Container>
+    <InnerContainer>
       <div class="flex justify-between items-center">
         <section class="w-[30%]">
           <img :src="logo" alt="logo" />
         </section>
         <section class="hidden lg:flex justify-between w-[65%]">
-          <router-link v-for="link in links" :to="link.to" :key="link.id">{{
-            link.title
-          }}</router-link>
+          <router-link v-for="link in links" :key="link.id" :to="link.to">
+            {{ link.title }}
+          </router-link>
         </section>
         <section class="flex items-center justify-end w-[35%]">
           <ShoppingCart />
           <CustomButton
-            title="Log in"
             class="bg-secondary px-9 hidden lg:inline-block"
+            title="Log in"
           />
-          <img class="lg:hidden" :src="mobileSizeMenu" alt="mobileSizeMenu" />
+          <img :src="mobileSizeMenu" alt="mobileSizeMenu" class="lg:hidden" />
         </section>
       </div>
-    </Container>
+    </InnerContainer>
   </nav>
 </template>
 
@@ -28,8 +28,8 @@ import type { NavbarLinkType } from "./navbar.types";
 import logo from "./../../assets/images/Logo Delizioso.png";
 import mobileSizeMenu from "./../../assets/images/Home.svg";
 import CustomButton from "../CustomButton/CustomButton.vue";
-import Container from "../Container/Container.vue";
 import ShoppingCart from "../ShoppingCart/ShoppingCart.vue";
+import InnerContainer from "../InnerContainer/InnerContainer.vue";
 
 const links: NavbarLinkType[] = [
   { id: 1, title: "Home", to: "/" },
