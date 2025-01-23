@@ -1,4 +1,4 @@
-import { memo } from "react";
+import React, { memo } from "react";
 import { MenuCardType } from "./menuCards.types";
 import Card from "../MenuCard/MenuCard";
 import foodImage_1 from "./../../assets/images/Mask Group (1).png";
@@ -73,7 +73,7 @@ const MenuCards = (): React.ReactNode => {
           <Card key={card.id} {...card} />
         ))}
       </div>
-      <div className="py-14">
+      <div className="mt-20">
         <PaginationComponent onChange={() => {}} />
       </div>
     </div>
