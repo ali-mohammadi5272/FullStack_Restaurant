@@ -5,6 +5,7 @@ import ReserveATable from "./ReserveATable";
 import WelcomeToDelizioso from "./WelcomeToDelizioso";
 import OurGreatestChef from "./OurGreatestChef.tsx";
 import OurCustomersSay from "./OurCustomersSay.tsx";
+import WeAreOpenFrom from "./WeAreOpenFrom.tsx";
 
 const HomePage = (): React.ReactNode => {
   return (
@@ -15,6 +16,7 @@ const HomePage = (): React.ReactNode => {
       <ReserveATable />
       <OurGreatestChef />
       <OurCustomersSay />
+      <WeAreOpenFrom />
     </main>
   );
 };
