@@ -11,5 +11,6 @@
 }
 
 .base-button {
-  @apply text-lg h-[50px];
+  @apply text-lg h-[50px] flex items-center justify-center;
 }
+
