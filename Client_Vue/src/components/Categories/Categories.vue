@@ -31,7 +31,9 @@ const categories: CategoryType[] = [
   { id: 5, title: "Drink" },
 ];
 
-const categoryClickHandler = (id: number) => (activeCategoryId.value = id);
+const categoryClickHandler = (id: number): void => {
+  activeCategoryId.value = id;
+};
 </script>
 
 <style lang="scss" scoped></style>
