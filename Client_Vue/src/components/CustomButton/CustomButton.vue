@@ -3,7 +3,8 @@
     :class="`base-button rounded-[162.94px] ${props.class}`"
     :htmlType="props.htmlType ? props.htmlType : 'button'"
     :type="props.type ? props.type : 'primary'"
-    >{{ props.title }}
+  >
+    {{ props.title }}
   </Button>
 </template>
 
