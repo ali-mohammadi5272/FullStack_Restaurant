@@ -3,6 +3,7 @@ import AuthLayout from "../layouts/Auth/AuthLayout.vue";
 import LoginPage from "../pages/Login/index.vue";
 import RegisterPage from "../pages/Register/index.vue";
 import MainLayout from "../layouts/Main/MainLayout.vue";
+import HomePage from "../pages/Home/index.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -23,7 +24,12 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/",
     component: MainLayout,
-    children: [],
+    children: [
+      {
+        path: "",
+        component: HomePage,
+      },
+    ],
   },
 ];
 
