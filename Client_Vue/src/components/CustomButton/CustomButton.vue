@@ -1,10 +1,10 @@
 <template>
   <Button
-    :type="props.type ? props.type : 'primary'"
-    :htmlType="props.htmlType ? props.htmlType : 'button'"
     :class="`base-button rounded-[162.94px] ${props.class}`"
-    >{{ props.title }}</Button
-  >
+    :htmlType="props.htmlType ? props.htmlType : 'button'"
+    :type="props.type ? props.type : 'primary'"
+    >{{ props.title }}
+  </Button>
 </template>
 
 <script lang="ts" setup>
