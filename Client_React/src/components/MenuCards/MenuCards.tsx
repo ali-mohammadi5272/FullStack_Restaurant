@@ -16,7 +16,7 @@ const MenuCards = (): React.ReactNode => {
       title: "Spaghetti",
       rate: 4,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam.",
+        "Lorem ipsum dooolllor sittt ammmet, consectetur adipiscing elit. Egestas consequat mi eget auctor diam.",
       price: 12,
       src: foodImage_1,
     },
@@ -25,7 +25,7 @@ const MenuCards = (): React.ReactNode => {
       title: "Gnocchi",
       rate: 4,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam.",
+        "Lorem ipsum dooolllor sittt ammmet, consectetur adipiscing elit. Egestas consequat mi eget auctor diam.",
       price: 12,
       src: foodImage_2,
     },
@@ -34,7 +34,7 @@ const MenuCards = (): React.ReactNode => {
       title: "Rovioli",
       rate: 4,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam.",
+        "Lorem ipsum dooolllor sittt ammmet, consectetur adipiscing elit. Egestas consequat mi eget auctor diam.",
       price: 12,
       src: foodImage_3,
     },
@@ -43,7 +43,7 @@ const MenuCards = (): React.ReactNode => {
       title: "Penne Alla Vodak",
       rate: 4,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam.",
+        "Lorem ipsum dooolllor sittt ammmet, consectetur adipiscing elit. Egestas consequat mi eget auctor diam.",
       price: 12,
       src: foodImage_4,
     },
@@ -52,7 +52,7 @@ const MenuCards = (): React.ReactNode => {
       title: "Risoto",
       rate: 4,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam.",
+        "Lorem ipsum dooolllor sittt ammmet, consectetur adipiscing elit. Egestas consequat mi eget auctor diam.",
       price: 12,
       src: foodImage_5,
     },
@@ -61,7 +61,7 @@ const MenuCards = (): React.ReactNode => {
       title: "Splitza Signature",
       rate: 4,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam.",
+        "Lorem ipsum dooolllor sittt ammmet, consectetur adipiscing elit. Egestas consequat mi , ",
       price: 12,
       src: foodImage_6,
     },
