@@ -68,7 +68,7 @@ const MenuCards = (): React.ReactNode => {
   ];
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-x-5 space-y-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {menuCards.map((card) => (
           <Card key={card.id} {...card} />
         ))}
