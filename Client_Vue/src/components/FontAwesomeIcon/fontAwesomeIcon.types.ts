@@ -4,7 +4,8 @@ type IconType =
   | "lock-open"
   | "unlock-keyhole"
   | "hashtag"
-  | "cart-shopping";
+  | "cart-shopping"
+  | "plus";
 
 interface FontAwesomeIconPropsType {
   class?: string;

@@ -6,6 +6,7 @@ import {
   faLock,
   faMagnifyingGlass,
   faUnlockKeyhole,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icons: Record<string, IconDefinition> = {
@@ -15,6 +16,7 @@ const icons: Record<string, IconDefinition> = {
   "unlock-keyhole": faUnlockKeyhole,
   hashtag: faHashtag,
   "cart-shopping": faCartShopping,
+  plus: faPlus,
 };
 
 export { icons };
