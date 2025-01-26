@@ -5,6 +5,7 @@
     :type="props.type ? props.type : 'primary'"
   >
     {{ props.title }}
+    <slot v-if="!props.title"></slot>
   </a-button>
 </template>
 
