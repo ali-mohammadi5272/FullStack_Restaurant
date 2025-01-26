@@ -2,6 +2,7 @@ import { Rate } from "antd";
 import CustomButton from "../CustomButton/CustomButton";
 import { MenuCardPropsType } from "./menuCard.types";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import React from "react";
 
 const MenuCard: React.FC<MenuCardPropsType> = ({
   title,
@@ -11,22 +12,18 @@ const MenuCard: React.FC<MenuCardPropsType> = ({
   rate,
 }): React.ReactNode => {
   return (
-    <article className="flex-grow bg-gray-50 rounded-[70px] overflow-hidden">
+    <article className="bg-gray-50 rounded-[70px] overflow-hidden">
       <section>
-        <img
-          className="w-full h-auto rounded-full"
-          src={src}
-          alt="Food's Image"
-        />
+        <img className="w-full h-auto" src={src} alt="Food's Image" />
       </section>
-      <section className="px-7 pb-10">
+      <section className="px-7 pb-10 text-center">
         <header>
-          <h1 className="text-center text-3xl font-bold">{title}</h1>
+          <h1 className="text-3xl font-bold">{title}</h1>
         </header>
-        <div className="text-center my-5">
+        <div className="my-5">
           <Rate disabled defaultValue={rate} className="text-primary" />
         </div>
-        <p className="mb-8">{description}</p>
+        <p className="mb-8 leading-7">{description}</p>
         <footer className="flex items-center">
           <strong className="flex-grow w-1/2 text-2xl">${price}</strong>
           <CustomButton
