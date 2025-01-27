@@ -1,0 +1,57 @@
+<template>
+  <div class="pagination-component">
+    <a-pagination
+      :current="props.current"
+      :total="props.total"
+      @change="handleChange"
+    />
+  </div>
+</template>
+
+<script lang="ts" setup>
+import type { PaginationPropsType } from "./pagination.types.ts";
+
+const props = defineProps<PaginationPropsType>();
+const emit = defineEmits(["update:modelValue", "change"]);
+
+const handleChange = (page: number, pageSize: number) => {
+  emit("change", page, pageSize);
+};
+</script>
+
+<style lang="scss" scoped>
+.pagination-component {
+  ul.ant-pagination.ant-pagination-center.css-dev-only-do-not-override-1kf000u {
+    li.ant-pagination-item {
+      scale: 1.2;
+      background-color: #fff4e7;
+      margin: 0 7.5px;
+
+      a {
+        @apply text-primary;
+      }
+    }
+
+    .ant-pagination-item-active {
+      @apply border-primary;
+    }
+
+    li.ant-pagination-next,
+    li.ant-pagination-prev {
+      background-color: #311f09;
+      scale: 1.2;
+      margin: 0 7.5px;
+      color: white;
+    }
+
+    .ant-pagination-next.ant-pagination-disabled,
+    .ant-pagination-prev.ant-pagination-disabled {
+      background-color: #b3b3b3;
+    }
+
+    .ant-pagination-options {
+      display: none;
+    }
+  }
+}
+</style>
