@@ -4,6 +4,7 @@
     <WelcomeToDelizioso />
     <OurPopularMenu />
     <ReserveATable />
+    <OurCustomersSay />
     <WeAreOpenFrom />
   </main>
 </template>
@@ -14,6 +15,7 @@ import WelcomeToDelizioso from "./WelcomeToDelizioso.vue";
 import OurPopularMenu from "./OurPopularMenu.vue";
 import ReserveATable from "./ReserveATable.vue";
 import WeAreOpenFrom from "./WeAreOpenFrom.vue";
+import OurCustomersSay from "./OurCustomersSay.vue";
 </script>
 
 <style lang="scss" scoped></style>
