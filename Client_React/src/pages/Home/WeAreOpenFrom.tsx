@@ -14,7 +14,7 @@ const WeAreOpenFrom = (): React.ReactNode => {
             <h3 className="font-bold text-lg sm:text-2xl lg:text-3xl xl:text-4xl text-white my-5 sm:my-7 md:my-10">
               Monday-Sunday
             </h3>
-            <div className="text-xs sm:text-sm md:text-base lg:text-lg text-[#5C4529] mb-10 mb-20 text-white space-y-1">
+            <div className="text-xs sm:text-sm md:text-base lg:text-lg mb-10 text-white space-y-1">
               <div className="flex justify-center gap-2">
                 <p>Launch: Mon-Sun :</p>
                 <p>11:00am-02:00pm</p>
