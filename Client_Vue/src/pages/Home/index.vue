@@ -3,6 +3,7 @@
     <ItalianCuisine />
     <WelcomeToDelizioso />
     <OurPopularMenu />
+    <ReserveATable />
   </main>
 </template>
 
@@ -10,6 +11,7 @@
 import ItalianCuisine from "./ItalianCuisine.vue";
 import WelcomeToDelizioso from "./WelcomeToDelizioso.vue";
 import OurPopularMenu from "./OurPopularMenu.vue";
+import ReserveATable from "./ReserveATable.vue";
 </script>
 
 <style lang="scss" scoped></style>
