@@ -8,6 +8,11 @@ import {
   faUnlockKeyhole,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const icons: Record<string, IconDefinition> = {
   at: faAt,
@@ -17,6 +22,9 @@ const icons: Record<string, IconDefinition> = {
   hashtag: faHashtag,
   "cart-shopping": faCartShopping,
   plus: faPlus,
+  instagram: faInstagram,
+  facebook: faFacebook,
+  twitter: faTwitter,
 };
 
 export { icons };
