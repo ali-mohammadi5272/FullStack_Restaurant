@@ -1,5 +1,3 @@
-import React, {memo} from "react";
-
 <template>
   <div
       class="grid justify-center grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 md:gap-6 my-10 sm:my-20">
