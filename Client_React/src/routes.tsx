@@ -4,6 +4,7 @@ import AuthLayout from "./layouts/Auth/AuthLayout";
 import RegisterPage from "./pages/Register";
 import MainLayout from "./layouts/Main/MainLayout";
 import HomePage from "./pages/Home";
+import MenuPage from "./pages/Menu";
 
 const routes: RouteObject[] = [
   {
@@ -27,6 +28,10 @@ const routes: RouteObject[] = [
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "/menus",
+        element: <MenuPage />,
       },
     ],
   },
