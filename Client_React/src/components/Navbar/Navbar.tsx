@@ -17,7 +17,7 @@ const Navbar = (): React.ReactNode => {
     {
       id: 2,
       title: "Menu",
-      to: "/menu",
+      to: "/menus",
     },
     {
       id: 3,
