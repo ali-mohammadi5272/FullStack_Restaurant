@@ -32,11 +32,11 @@ const routes: RouteRecordRaw[] = [
         component: HomePage,
       },
       {
-        path: "/menus",
+        path: "menus",
         component: MenuPage,
       },
       {
-        path: "/about-us",
+        path: "about-us",
         component: AboutUsPage,
       },
     ],
