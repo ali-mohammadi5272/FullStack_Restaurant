@@ -1,5 +1,5 @@
 <template>
-  <div class="my-20 sm:my-40 py-24 md:py-12">
+  <div class="my-10 sm:my-20 py-12 md:py-6">
     <InnerContainer>
       <h2 class="font-bold text-5xl sm:text-6xl md:hidden text-center mb-16">
         <span class="text-primary">Our </span>
@@ -14,27 +14,27 @@
             <span class="block">Restaurant</span>
           </h2>
           <p class="text-lg text-[#5C4529] mt-10 mb-20 text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem quibusdam voluptate alias est? Sunt eaque aspernatur
-            molestias dolor itaque beatae suscipit consequuntur, autem repellat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse.
           </p>
         </section>
         <section class="w-full md:w-1/2">
           <img :src="foodImage_2" alt="Food's Image" class="w-full h-auto" />
         </section>
       </div>
-    </InnerContainer>
-  </div>
-  <div class="my-20 sm:my-40 py-24 md:py-12">
-    <InnerContainer>
       <div
         class="flex justify-between items-center flex-col-reverse md:flex-row gap-10"
       >
         <section class="w-full md:w-1/2">
           <p class="text-lg text-[#5C4529] mt-10 mb-20 text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem quibusdam voluptate alias est? Sunt eaque aspernatur
-            molestias dolor itaque beatae suscipit consequuntur, autem repellat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse.
           </p>
         </section>
         <section class="w-full md:w-1/2">
