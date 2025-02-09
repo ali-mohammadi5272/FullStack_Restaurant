@@ -34,7 +34,7 @@ import InnerContainer from "../InnerContainer/InnerContainer.vue";
 const links: NavbarLinkType[] = [
   { id: 1, title: "Home", to: "/" },
   { id: 2, title: "Menu", to: "/menus" },
-  { id: 3, title: "About us", to: "/about" },
+  { id: 3, title: "About us", to: "/about-us" },
   { id: 4, title: "Order Online", to: "/order-online" },
   { id: 5, title: "Reservation", to: "/reservation" },
   { id: 6, title: "Contact us", to: "/contact-us" },
