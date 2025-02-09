@@ -1,7 +1,11 @@
 <template>
-  <main></main>
+  <main>
+    <OurRestaurant />
+  </main>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import OurRestaurant from "./OurRestaurant.vue";
+</script>
 
 <style lang="scss" scoped></style>
