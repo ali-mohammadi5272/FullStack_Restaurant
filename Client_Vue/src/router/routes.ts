@@ -5,6 +5,7 @@ import RegisterPage from "../pages/Register/index.vue";
 import MainLayout from "../layouts/Main/MainLayout.vue";
 import HomePage from "../pages/Home/index.vue";
 import MenuPage from "../pages/Menu/index.vue";
+import AboutUsPage from "../pages/About_Us/index.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -33,6 +34,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: "/menus",
         component: MenuPage,
+      },
+      {
+        path: "/about-us",
+        component: AboutUsPage,
       },
     ],
   },
