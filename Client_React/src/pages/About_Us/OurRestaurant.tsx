@@ -1,3 +1,4 @@
+import React from "react";
 import InnerContainer from "../../components/InnerContainer/InnerContainer.tsx";
 import foodImage_2 from "../../assets/images/Picture_2.png";
 import foodImage_1 from "../../assets/images/Picture_1.png";
