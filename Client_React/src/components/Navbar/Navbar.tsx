@@ -22,7 +22,7 @@ const Navbar = (): React.ReactNode => {
     {
       id: 3,
       title: "About us",
-      to: "/about",
+      to: "/about-us",
     },
     {
       id: 4,
