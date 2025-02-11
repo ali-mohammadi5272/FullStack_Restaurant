@@ -1,7 +1,7 @@
 import React from "react";
 
-const AboutUs = (): React.ReactNode => {
+const AboutUsPage = (): React.ReactNode => {
   return <main></main>;
 };
 
-export default AboutUs;
+export default AboutUsPage;
