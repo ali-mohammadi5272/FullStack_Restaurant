@@ -21,12 +21,10 @@ const WelcomeToDelizioso = (): React.ReactNode => {
               aspernatur molestias dolor itaque beatae suscipit consequuntur,
               autem repellat.
             </p>
-            <div className="flex gap-3 sm:gap-6">
-              <CustomButton
-                title="See our menu"
-                className="w-1/2 bg-primary py-7 font-semibold"
-              />
-            </div>
+            <CustomButton
+              title="See our menu"
+              className="w-1/2 bg-primary py-7 font-semibold"
+            />
           </section>
         </div>
       </InnerContainer>
