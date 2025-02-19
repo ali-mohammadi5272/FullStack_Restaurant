@@ -1,7 +1,7 @@
 import { ConfigProvider, Form, Input } from "antd";
 import { CustomInputPropsType } from "./customInput.types";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-import { memo } from "react";
+import React, { memo } from "react";
 
 const CustomInput: React.FC<CustomInputPropsType> = ({
   label,
