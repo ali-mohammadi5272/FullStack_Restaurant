@@ -7,10 +7,11 @@ interface CustomInputPropsType {
   rules?: Rule[];
   prefix?: string | Slot;
   suffix?: string | Slot;
-  type: "text" | "number" | "email" | "password" | "search";
+  type: "text" | "number" | "email" | "password" | "search" | "time" | "date";
   variant?: "outlined" | "borderless" | "filled";
   class?: string;
   allowClear?: boolean;
   value?: string | number;
 }
+
 export type { CustomInputPropsType };
