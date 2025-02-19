@@ -31,9 +31,11 @@ const BookATableForm = (): React.ReactNode => {
         rules={[{ required: true }]}
         label="Party Size"
         name="Party Size"
+        layout="vertical"
       >
         <InputNumber
           min={1}
+          variant="filled"
           className="base-input w-full flex items-center"
           type="number"
         />
