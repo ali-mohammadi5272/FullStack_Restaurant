@@ -17,12 +17,10 @@
             Exercitationem quibusdam voluptate alias est? Sunt eaque aspernatur
             molestias dolor itaque beatae suscipit consequuntur, autem repellat.
           </p>
-          <div class="flex gap-3 sm:gap-6">
-            <CustomButton
-              class="w-1/2 bg-primary py-7 font-semibold"
-              title="Reservation"
-            />
-          </div>
+          <CustomButton
+            class="w-1/2 bg-primary py-7 font-semibold"
+            title="Reservation"
+          />
         </section>
       </div>
     </InnerContainer>
