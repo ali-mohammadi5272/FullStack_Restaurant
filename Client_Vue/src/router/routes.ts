@@ -6,6 +6,7 @@ import MainLayout from "../layouts/Main/MainLayout.vue";
 import HomePage from "../pages/Home/index.vue";
 import MenuPage from "../pages/Menu/index.vue";
 import AboutUsPage from "../pages/About_Us/index.vue";
+import ReservationPage from "../pages/Reservation/index.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -38,6 +39,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: "about-us",
         component: AboutUsPage,
+      },
+      {
+        path: "reservation",
+        component: ReservationPage,
       },
     ],
   },
