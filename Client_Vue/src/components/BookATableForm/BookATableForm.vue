@@ -19,7 +19,7 @@
       type="time"
     />
     <a-form-item
-      :rules="{ required: true }"
+      :rules="[{ required: true }]"
       label="Party Size"
       name="Party Size"
     >
