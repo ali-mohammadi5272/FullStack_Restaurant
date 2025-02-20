@@ -1,12 +1,12 @@
 <template>
   <main>
-    <ItalianCuisine/>
-    <WelcomeToDelizioso/>
-    <OurPopularMenu/>
-    <ReserveATable/>
-    <OurGreatestChef/>
-    <OurCustomersSay/>
-    <WeAreOpenFrom/>
+    <ItalianCuisine />
+    <WelcomeToDelizioso />
+    <OurPopularMenu />
+    <ReserveATable />
+    <OurGreatestChef />
+    <OurCustomersSay />
+    <WeAreOpenFrom />
   </main>
 </template>
 
