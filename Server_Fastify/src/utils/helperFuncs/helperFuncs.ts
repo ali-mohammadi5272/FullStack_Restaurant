@@ -9,6 +9,16 @@ const generateAccessToken = (payload: AccessTokenPayloadType) => {
   return token;
 };
 
+const getAccessTokenPayload = (token: string) => {
+  try {
+    const payload = jwt.verify(token, env.tokens.accessToken.key);
+    return payload;
+  } catch (err) {
+    return false;
+  }
+};
+
 module.exports = {
   generateAccessToken,
+  getAccessTokenPayload,
 };
