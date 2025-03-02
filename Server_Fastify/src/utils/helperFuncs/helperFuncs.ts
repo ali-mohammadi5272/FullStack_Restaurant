@@ -1,6 +1,9 @@
 import jwt from "jsonwebtoken";
 import { env } from "../env/env";
-import { AccessTokenPayloadType } from "./helperFuncs.type";
+import {
+  AccessTokenPayloadType,
+  RefreshTokenPayloadType,
+} from "./helperFuncs.type";
 
 const generateAccessToken = (payload: AccessTokenPayloadType) => {
   const token = jwt.sign(payload, env.tokens.accessToken.key, {
@@ -18,7 +21,15 @@ const getAccessTokenPayload = (token: string) => {
   }
 };
 
+const generateRefreshToken = (payload: RefreshTokenPayloadType) => {
+  const token = jwt.sign(payload, env.tokens.refreshToken.key, {
+    expiresIn: env.tokens.refreshToken.expireIn,
+  });
+  return token;
+};
+
 module.exports = {
   generateAccessToken,
+  generateRefreshToken,
   getAccessTokenPayload,
 };
