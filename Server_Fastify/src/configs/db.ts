@@ -1,12 +1,13 @@
 const { Sequelize } = require("sequelize");
+import { env } from "../utils/env/env";
 
 const sequelize = new Sequelize({
-  database: "fullstack_restaurant",
-  username: "root",
-  password: "",
-  host: "localhost",
-  dialect: "mysql",
-  port: 3306,
+  database: env.db.name,
+  username: env.db.username,
+  password: env.db.password,
+  host: env.db.host,
+  dialect: env.db.dialect,
+  port: env.db.port,
 });
 
 module.exports = sequelize;
