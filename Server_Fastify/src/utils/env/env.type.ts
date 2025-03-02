@@ -1,6 +1,8 @@
 import { Dialect } from "sequelize";
 
-interface EnvType {
+export type NumericType = `${number}s` | `${number}m` | `${number}h` | `${number}d`;
+
+export interface EnvType {
   db: {
     username: string;
     password: string;
@@ -10,7 +12,18 @@ interface EnvType {
     dialect: Dialect;
   };
 
+  token: {
+    accessTokenKey: {
+      key: string;
+      expireIn: NumericType;
+    };
+    refreshTokenKey: {
+      key: string;
+      expireIn: NumericType;
+    };
+  };
+
+  version: string;
+
   port: number;
 }
-
-export type { EnvType };
