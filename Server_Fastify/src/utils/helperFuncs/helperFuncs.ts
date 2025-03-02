@@ -28,8 +28,18 @@ const generateRefreshToken = (payload: RefreshTokenPayloadType) => {
   return token;
 };
 
+const getRefreshTokenPayload = (token: string) => {
+  try {
+    const payload = jwt.verify(token, env.tokens.refreshToken.key);
+    return payload;
+  } catch (err) {
+    return false;
+  }
+};
+
 module.exports = {
   generateAccessToken,
   generateRefreshToken,
   getAccessTokenPayload,
+  getRefreshTokenPayload,
 };
