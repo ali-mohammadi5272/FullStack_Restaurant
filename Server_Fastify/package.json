@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "dotenv -e .env -- nodemon -- tsc -p tsconfig.json",
     "build": "tsc -p tsconfig.json",
-    "start": "node ./dist/app.js"
+    "start": "dotenv -e .env -- node ./dist/app.js"
   },
   "keywords": [],
   "author": "",
