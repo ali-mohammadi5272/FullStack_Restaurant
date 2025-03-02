@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 import { env } from "../env/env";
 import {
   AccessTokenPayloadType,
@@ -42,10 +43,18 @@ const decodedToken = (token: string) => {
   return payload;
 };
 
+const hashPassword = async (password: string) => {
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+
+  return hashedPassword;
+};
+
 module.exports = {
   generateAccessToken,
   generateRefreshToken,
   getAccessTokenPayload,
   getRefreshTokenPayload,
   decodedToken,
+  hashPassword,
 };
