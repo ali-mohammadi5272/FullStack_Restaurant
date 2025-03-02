@@ -1,6 +1,10 @@
 import { Dialect } from "sequelize";
 
-export type NumericType = `${number}s` | `${number}m` | `${number}h` | `${number}d`;
+export type NumericType =
+  | `${number}s`
+  | `${number}m`
+  | `${number}h`
+  | `${number}d`;
 
 export interface EnvType {
   db: {
