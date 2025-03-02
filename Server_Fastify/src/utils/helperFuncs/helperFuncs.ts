@@ -50,6 +50,15 @@ const hashPassword = async (password: string) => {
   return hashedPassword;
 };
 
+const isValidHashedPassword = async (
+  password: string,
+  hashedPassword: string
+) => {
+  const isValidPassword = await bcrypt.compare(password, hashedPassword);
+
+  return isValidPassword;
+};
+
 module.exports = {
   generateAccessToken,
   generateRefreshToken,
@@ -57,4 +66,5 @@ module.exports = {
   getRefreshTokenPayload,
   decodedToken,
   hashPassword,
+  isValidHashedPassword,
 };
