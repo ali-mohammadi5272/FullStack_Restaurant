@@ -13,11 +13,11 @@ export interface EnvType {
   };
 
   token: {
-    accessTokenKey: {
+    accessToken: {
       key: string;
       expireIn: NumericType;
     };
-    refreshTokenKey: {
+    refreshToken: {
       key: string;
       expireIn: NumericType;
     };

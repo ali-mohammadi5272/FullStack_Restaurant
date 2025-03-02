@@ -12,11 +12,11 @@ const env: EnvType = {
   },
 
   token: {
-    accessTokenKey: {
+    accessToken: {
       key: process.env.ACCESS_TOKEN_SECRET_KEY as string,
       expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as NumericType,
     },
-    refreshTokenKey: {
+    refreshToken: {
       key: process.env.REFRESH_TOKEN_SECRET_KEY as string,
       expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as NumericType,
     },
