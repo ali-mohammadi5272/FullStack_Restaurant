@@ -59,7 +59,7 @@ const isValidHashedPassword = async (
   return isValidPassword;
 };
 
-module.exports = {
+export {
   generateAccessToken,
   generateRefreshToken,
   getAccessTokenPayload,
