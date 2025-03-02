@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+import { Sequelize } from "sequelize";
 import { env } from "../utils/env/env";
 
 const sequelize = new Sequelize({
