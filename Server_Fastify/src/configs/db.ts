@@ -10,4 +10,4 @@ const sequelize = new Sequelize({
   port: env.db.port,
 });
 
-module.exports = sequelize;
+export { sequelize };
