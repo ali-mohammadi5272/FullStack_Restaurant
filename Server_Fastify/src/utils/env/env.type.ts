@@ -1,6 +1,6 @@
 import { Dialect } from "sequelize";
 
-export type NumericType =
+export type TimeFormatType =
   | `${number}s`
   | `${number}m`
   | `${number}h`
@@ -19,11 +19,11 @@ export interface EnvType {
   token: {
     accessToken: {
       key: string;
-      expireIn: NumericType;
+      expireIn: TimeFormatType;
     };
     refreshToken: {
       key: string;
-      expireIn: NumericType;
+      expireIn: TimeFormatType;
     };
   };
 

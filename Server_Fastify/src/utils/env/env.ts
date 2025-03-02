@@ -1,5 +1,5 @@
 import { Dialect } from "sequelize";
-import { EnvType, NumericType } from "./env.type";
+import { EnvType, TimeFormatType } from "./env.type";
 
 const env: EnvType = {
   db: {
@@ -14,11 +14,11 @@ const env: EnvType = {
   token: {
     accessToken: {
       key: process.env.ACCESS_TOKEN_SECRET_KEY as string,
-      expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as NumericType,
+      expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as TimeFormatType,
     },
     refreshToken: {
       key: process.env.REFRESH_TOKEN_SECRET_KEY as string,
-      expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as NumericType,
+      expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as TimeFormatType,
     },
   },
 
