@@ -16,7 +16,7 @@ export interface EnvType {
     dialect: Dialect;
   };
 
-  token: {
+  tokens: {
     accessToken: {
       key: string;
       expireIn: TimeFormatType;

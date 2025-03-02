@@ -11,7 +11,7 @@ const env: EnvType = {
     dialect: process.env.DB_DIALECT as Dialect,
   },
 
-  token: {
+  tokens: {
     accessToken: {
       key: process.env.ACCESS_TOKEN_SECRET_KEY as string,
       expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as TimeFormatType,
