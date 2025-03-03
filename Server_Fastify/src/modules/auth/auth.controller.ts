@@ -2,9 +2,11 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import userService from "../user/user.service";
 import refreshTokenService from "../refreshToken/refreshToken.service";
 import { CreateOneDtoType } from "../user/dto/create-one.dto";
+import { LoginDtoType } from "./dto/login.dto";
 import {
   generateAccessToken,
   generateRefreshToken,
+  isValidHashedPassword,
 } from "../../utils/helperFuncs/helperFuncs";
 
 const controller = {
@@ -43,6 +45,58 @@ const controller = {
       return res.status(201).send({
         statusCode: 201,
         messages: ["User created successfully"],
+        data: { refreshToken, accessToken },
+      });
+    } catch (error) {
+      return res.status(500).send({
+        statusCode: 500,
+        error,
+        messages: ["Inernal Server Error"],
+      });
+    }
+  },
+
+  async login(req: FastifyRequest<{ Body: LoginDtoType }>, res: FastifyReply) {
+    try {
+      const user = await userService.getOneByIdentifier(req.body.identifier);
+
+      if (!user) {
+        return res.status(404).send({
+          statusCode: 404,
+          error: "Not Found",
+          messages: ["User not Found"],
+        });
+      }
+
+      const isValidPassword = await isValidHashedPassword(
+        req.body.password,
+        user.password
+      );
+
+      if (!isValidPassword) {
+        return res.status(400).send({
+          statusCode: 400,
+          error: "Bad Request",
+          messages: ["Userame/Email or Password is not valid"],
+        });
+      }
+
+      const refreshToken = generateRefreshToken({
+        userId: user.id,
+      });
+
+      const accessToken = generateAccessToken({
+        userId: user.id,
+      });
+
+      await refreshTokenService.createOne({
+        token: refreshToken,
+        user_id: user.id,
+      });
+
+      return res.status(200).send({
+        statusCode: 200,
+        messages: ["Login successfully"],
         data: { refreshToken, accessToken },
       });
     } catch (error) {
