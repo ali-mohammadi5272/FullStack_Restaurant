@@ -1,11 +1,14 @@
 import fastify from "fastify";
 import cors from "@fastify/cors";
+import authRouter from "./src/modules/auth/auth.route";
 import { env } from "./src/utils/env/env";
 import { sequelize } from "./src/configs/db";
 
 const server = fastify();
 
 server.register(cors, { origin: "*" });
+
+server.register(authRouter);
 
 server.listen({ port: env.port }, async (err, address) => {
   if (err) {
