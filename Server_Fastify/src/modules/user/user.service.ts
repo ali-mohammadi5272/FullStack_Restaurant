@@ -11,6 +11,10 @@ const service = {
     return User.count();
   },
 
+  async getOne(userId: number) {
+    return await User.findOne({ where: { id: userId } });
+  },
+
   async createOne(body: CreateOneDtoType) {
     const usersCount = await this.getAllCount();
 
