@@ -7,7 +7,7 @@ import { CreateOneDtoType } from "../user/dto/create-one.dto";
 
 const router = (server: FastifyInstance) => {
   server.post(
-    `/api/${env.version}/auth/register`,
+    `${env.baseUrl}/auth/register`,
     {
       preHandler: [bodyValidator<CreateOneDtoType>(registerSchema)],
     },
