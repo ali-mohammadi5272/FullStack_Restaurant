@@ -24,6 +24,14 @@ const service = {
     });
   },
 
+  async getOneByIdentifier(identifier: string) {
+    return await User.findOne({
+      where: {
+        [Op.or]: [{ userName: identifier }, { email: identifier }],
+      },
+    });
+  },
+
   async createOne(body: CreateOneDtoType) {
     const usersCount = await this.getAllCount();
 
