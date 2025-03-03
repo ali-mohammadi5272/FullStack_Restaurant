@@ -14,12 +14,8 @@ const generateAccessToken = (payload: AccessTokenPayloadType) => {
 };
 
 const getAccessTokenPayload = (token: string) => {
-  try {
-    const payload = jwt.verify(token, env.tokens.accessToken.key);
-    return payload;
-  } catch (err) {
-    return false;
-  }
+  const payload = jwt.verify(token, env.tokens.accessToken.key);
+  return payload;
 };
 
 const generateRefreshToken = (payload: RefreshTokenPayloadType) => {
@@ -30,12 +26,8 @@ const generateRefreshToken = (payload: RefreshTokenPayloadType) => {
 };
 
 const getRefreshTokenPayload = (token: string) => {
-  try {
-    const payload = jwt.verify(token, env.tokens.refreshToken.key);
-    return payload;
-  } catch (err) {
-    return false;
-  }
+  const payload = jwt.verify(token, env.tokens.refreshToken.key);
+  return payload;
 };
 
 const decodedToken = (token: string) => {
