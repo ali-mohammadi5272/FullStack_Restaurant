@@ -5,7 +5,7 @@ import { env } from "../../utils/env/env";
 import { bodyValidator } from "../../utils/middlewares/bodyValidator";
 import { CreateOneDtoType } from "../user/dto/create-one.dto";
 
-const route = (server: FastifyInstance) => {
+const router = (server: FastifyInstance) => {
   server.post(
     `/api/${env.version}/auth/register`,
     {
@@ -15,4 +15,4 @@ const route = (server: FastifyInstance) => {
   );
 };
 
-export default route;
+export default router;
