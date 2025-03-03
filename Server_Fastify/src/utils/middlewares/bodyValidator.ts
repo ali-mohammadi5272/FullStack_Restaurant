@@ -27,4 +27,4 @@ const bodyValidator =
     }
   };
 
-module.exports = { bodyValidator };
+export { bodyValidator };
