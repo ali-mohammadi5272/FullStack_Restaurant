@@ -7,14 +7,17 @@ import {
   Model,
   InferCreationAttributes,
   InferAttributes,
+  CreationOptional,
 } from "sequelize";
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
-  declare id: number;
+  declare id: CreationOptional<number>;
   declare userName: string;
   declare email: string;
   declare role: Roles;
   declare password: string;
+  declare createdAt: CreationOptional<Date>;
+  declare updatedAt: CreationOptional<Date>;
 }
 
 User.init(
@@ -47,6 +50,18 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: new Date(),
+    },
+
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: new Date(),
     },
   },
   { tableName: "users", timestamps: true, sequelize }
