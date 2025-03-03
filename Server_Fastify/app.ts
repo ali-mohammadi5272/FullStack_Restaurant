@@ -11,7 +11,8 @@ server.listen({ port: env.port }, async (err, address) => {
   }
   try {
     await sequelize.sync();
-    console.log(`Server listening at ${address}`);
+    console.log("✅ Connecting to Database successfully");
+    console.log(`💻 Server listening at ${address}`);
   } catch (error) {
     console.error(error);
     process.exit(1);
