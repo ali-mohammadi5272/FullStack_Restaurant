@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "dotenv -e .env -- nodemon -- tsc -p tsconfig.json",
+    "dev": "dotenv -e .env -- nodemon",
     "build": "tsc -p tsconfig.json",
     "start": "dotenv -e .env -- node ./dist/app.js"
   },
