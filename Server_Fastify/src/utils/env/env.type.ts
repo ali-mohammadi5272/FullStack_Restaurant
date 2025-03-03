@@ -1,10 +1,6 @@
 import { Dialect } from "sequelize";
 
-export type TimeFormatType =
-  | `${number}s`
-  | `${number}m`
-  | `${number}h`
-  | `${number}d`;
+export type TimeFormatType = `${number}${"s" | "m" | "h" | "d"}`;
 
 export interface EnvType {
   db: {
