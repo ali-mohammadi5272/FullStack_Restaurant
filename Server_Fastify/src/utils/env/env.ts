@@ -14,11 +14,11 @@ const env: EnvType = {
   tokens: {
     accessToken: {
       key: process.env.ACCESS_TOKEN_SECRET_KEY as string,
-      expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as TimeFormatType,
+      expireIn: process.env.ACCESS_TOKEN_EXPIRES_TIME as TimeFormatType,
     },
     refreshToken: {
       key: process.env.REFRESH_TOKEN_SECRET_KEY as string,
-      expireIn: process.env.ACCESS_TOKEN_SECRET_KEY as TimeFormatType,
+      expireIn: process.env.REFRESH_TOKEN_EXPIRES_TIME as TimeFormatType,
     },
   },
 
