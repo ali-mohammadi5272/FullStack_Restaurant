@@ -1,4 +1,6 @@
 import User from "./user.model";
+import { CreateOneDtoType } from "./dto/create-one.dto";
+import { Roles } from "./enum/roles.enum";
 
 const service = {
   async getAll() {
@@ -7,6 +9,15 @@ const service = {
 
   async getAllCount() {
     return User.count();
+  },
+
+  async createOne(body: CreateOneDtoType) {
+    const usersCount = await this.getAllCount();
+
+    return await User.create({
+      ...body,
+      role: usersCount === 0 ? Roles.ADMIN : Roles.USER,
+    });
   },
 };
 
