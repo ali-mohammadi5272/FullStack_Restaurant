@@ -2,7 +2,6 @@ import User from "./user.model";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 import { Roles } from "./enum/roles.enum";
 import { Op } from "sequelize";
-import { UserType } from "./entity/user.entity";
 
 const service = {
   async getAll() {
@@ -17,7 +16,7 @@ const service = {
     return await User.findOne({ where: { id: userId } });
   },
 
-  async getOneByUserNameOrEmail(user: Pick<UserType, "userName" | "email">) {
+  async getOneByUserNameOrEmail(user: Pick<User, "userName" | "email">) {
     return await User.findOne({
       where: {
         [Op.or]: [{ userName: user.userName }, { email: user.email }],
