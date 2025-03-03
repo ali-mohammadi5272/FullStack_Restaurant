@@ -37,6 +37,7 @@ const service = {
 
     return await User.create({
       ...body,
+      userName: body.userName.toLocaleLowerCase(),
       role: usersCount === 0 ? Roles.ADMIN : Roles.USER,
     });
   },
