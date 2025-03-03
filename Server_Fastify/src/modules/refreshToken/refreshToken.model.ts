@@ -1,6 +1,7 @@
 import User from "../user/user.model";
 import { sequelize } from "../../configs/db";
 import {
+  CreationOptional,
   DataTypes,
   InferAttributes,
   InferCreationAttributes,
@@ -11,9 +12,11 @@ class RefreshToken extends Model<
   InferAttributes<RefreshToken>,
   InferCreationAttributes<RefreshToken>
 > {
-  declare id: number;
+  declare id: CreationOptional<number>;
   declare token: string;
   declare user_id: number;
+  declare createdAt: CreationOptional<Date>;
+  declare updatedAt: CreationOptional<Date>;
 }
 
 RefreshToken.init(
@@ -40,6 +43,18 @@ RefreshToken.init(
       },
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
+    },
+
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: new Date(),
+    },
+
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: new Date(),
     },
   },
   {
