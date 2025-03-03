@@ -28,4 +28,4 @@ const env: EnvType = {
   port: process.env.PORT ? +process.env.PORT : 3000,
 };
 
-export default env;
+export { env };

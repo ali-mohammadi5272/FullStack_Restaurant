@@ -1,6 +1,5 @@
 import authController from "./auth.controller";
 import registerSchema from "../../utils/validators/Auth/register";
-import env from "../../utils/env/env";
 import { FastifyInstance } from "fastify";
 import { env } from "../../utils/env/env";
 import { bodyValidator } from "../../utils/middlewares/bodyValidator";

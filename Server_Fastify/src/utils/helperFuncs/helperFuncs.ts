@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import env from "../env/env";
+import { env } from "../env/env";
 import {
   AccessTokenPayloadType,
   RefreshTokenPayloadType,
