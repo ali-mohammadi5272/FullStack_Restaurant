@@ -1,7 +1,7 @@
 export interface AccessTokenPayloadType {
-  id: number;
+  userId: number;
 }
 
 export interface RefreshTokenPayloadType {
-  id: number;
+  userId: number;
 }
