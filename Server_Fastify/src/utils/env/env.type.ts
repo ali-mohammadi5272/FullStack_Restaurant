@@ -24,6 +24,7 @@ export interface EnvType {
   };
 
   version: string;
+  baseUrl: string;
 
   port: number;
 }
