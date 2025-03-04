@@ -8,7 +8,12 @@ const server = fastify();
 
 server.register(cors, { origin: "*" });
 
-server.register(authRouter);
+server.register(
+  (server) => {
+    server.register(authRouter, { prefix: "/auth" });
+  },
+  { prefix: env.baseUrl }
+);
 
 server.listen({ port: env.port }, async (err, address) => {
   if (err) {
