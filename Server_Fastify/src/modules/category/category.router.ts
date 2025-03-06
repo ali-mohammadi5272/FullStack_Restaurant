@@ -1,5 +1,3 @@
-import { FastifyInstance } from "fastify";
-
-const router = (server: FastifyInstance) => {};
+const router = () => {};
 
 export default router;
