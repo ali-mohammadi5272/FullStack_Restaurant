@@ -51,7 +51,7 @@ const controller = {
       return res.status(500).send({
         statusCode: 500,
         error,
-        messages: ["Inernal Server Error"],
+        messages: ["Internal Server Error"],
       });
     }
   },
@@ -103,7 +103,7 @@ const controller = {
       return res.status(500).send({
         statusCode: 500,
         error,
-        messages: ["Inernal Server Error"],
+        messages: ["Internal Server Error"],
       });
     }
   },
