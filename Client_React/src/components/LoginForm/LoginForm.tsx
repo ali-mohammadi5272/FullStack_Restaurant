@@ -16,13 +16,16 @@ const LoginForm = (): React.ReactNode => {
       wrapperCol={{ flex: 1 }}
     >
       <CustomInput
-        rules={[{ required: true }]}
+        rules={[{ required: true, message: "Email is required" }]}
         label="Email"
         type="email"
         name="Email"
       />
       <CustomInput
-        rules={[{ required: true }]}
+        rules={[
+          { required: true, message: "Password is required" },
+          { min: 8, message: "Password must be at least 8 Characters" },
+        ]}
         label="Password"
         type="password"
         name="Password"
