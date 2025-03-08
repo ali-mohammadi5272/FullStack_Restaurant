@@ -11,17 +11,9 @@ const bodyValidator =
       });
     } catch (err) {
       if (err instanceof ValidationError) {
-        const parsedErrors = err.inner.reduce<Record<string, string>>(
-          (prev, current) => ({
-            ...prev,
-            [current.path ?? "unknown"]: current.message,
-          }),
-          {}
-        );
-
         return res.status(400).send({
           statusCode: 400,
-          messages: Object.entries(parsedErrors).map(([_, value]) => value),
+          messages: err.errors,
         });
       }
     }
