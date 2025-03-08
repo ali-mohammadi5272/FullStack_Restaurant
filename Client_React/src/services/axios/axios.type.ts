@@ -1,4 +1,10 @@
-import { AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosRequestConfig, AxiosResponse, HttpStatusCode } from "axios";
+
+interface SuccessResponse<T> {
+  statusCode: HttpStatusCode;
+  messages: string[] | null;
+  data: T;
+}
 
 interface RequestsObject {
   POST: <D, B>(req: RequestWithBody<B>) => Promise<AxiosResponse<D>>;
