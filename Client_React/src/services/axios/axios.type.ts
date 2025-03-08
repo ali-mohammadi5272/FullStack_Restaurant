@@ -13,10 +13,17 @@ interface ErrorResponse {
 }
 
 interface RequestsObject {
-  POST: <D, B>(req: RequestWithBody<B>) => Promise<AxiosResponse<D>>;
-  PUT: <D, B>(req: RequestWithBody<B>) => Promise<AxiosResponse<D>>;
-  DELETE: <D>(req: Request) => Promise<AxiosResponse<D>>;
-  GET: <D>(req: Request) => Promise<AxiosResponse<D>>;
+  POST: <D, B>(
+    req: RequestWithBody<B>,
+  ) => Promise<AxiosResponse<SuccessResponse<D>>>;
+
+  PUT: <D, B>(
+    req: RequestWithBody<B>,
+  ) => Promise<AxiosResponse<SuccessResponse<D>>>;
+
+  DELETE: <D>(req: Request) => Promise<AxiosResponse<SuccessResponse<D>>>;
+
+  GET: <D>(req: Request) => Promise<AxiosResponse<SuccessResponse<D>>>;
 }
 
 interface Request {
