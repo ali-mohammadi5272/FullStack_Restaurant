@@ -6,6 +6,12 @@ interface SuccessResponse<T> {
   data: T;
 }
 
+interface ErrorResponse {
+  statusCode: HttpStatusCode;
+  messages: string[];
+  error: string;
+}
+
 interface RequestsObject {
   POST: <D, B>(req: RequestWithBody<B>) => Promise<AxiosResponse<D>>;
   PUT: <D, B>(req: RequestWithBody<B>) => Promise<AxiosResponse<D>>;
@@ -22,4 +28,4 @@ interface RequestWithBody<T> extends Request {
   body: T;
 }
 
-export type { Request, RequestWithBody, RequestsObject };
+export type { ErrorResponse, Request, RequestWithBody, RequestsObject };
