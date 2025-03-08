@@ -1,11 +1,62 @@
 import CustomInput from "../CustomInput/CustomInput";
 import FormButton from "../FormButton/FormButton";
-import { Link } from "react-router-dom";
+import useFormValidator from "../../hooks/formValidator/formValidator";
+import React, { memo, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Checkbox, Flex, Form } from "antd";
-import { memo } from "react";
+import { request } from "../../services/axios/axios";
+import { setCookie } from "../../utils/helperFuncs/helperFuncs";
+import { CookieEnum } from "../../utils/helperFuncs/helperFuncs.type";
+import { LoginBodyType, LoginResponseType } from "./loginForm.type";
 
 const LoginForm = (): React.ReactNode => {
-  const [form] = Form.useForm();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [form, submittable] = useFormValidator<LoginBodyType>();
+  const debounceRef: React.MutableRefObject<number> = useRef(Date.now());
+  const navigate = useNavigate();
+
+  const formOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (debounceRef.current > Date.now()) return;
+
+    try {
+      setIsLoading(true);
+
+      debounceRef.current = Date.now() + 5000;
+
+      await form.validateFields({ validateOnly: true });
+
+      const response = await request.POST<LoginResponseType, LoginBodyType>({
+        url: "/auth/login",
+        body: {
+          identifier: form.getFieldValue("identifier"),
+          password: form.getFieldValue("password"),
+        },
+      });
+
+      setCookie({
+        key: CookieEnum.ACCESS_TOKEN,
+        value: response.data.data.accessToken,
+        maxAge: 60 * 60 * 24,
+        path: "/",
+      });
+
+      setCookie({
+        key: CookieEnum.REFRESH_TOKEN,
+        value: response.data.data.refreshToken,
+        maxAge: 60 * 60 * 24 * 30,
+        path: "/",
+      });
+
+      form.resetFields();
+
+      navigate("/");
+    } catch (err) {
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <Form
@@ -14,12 +65,13 @@ const LoginForm = (): React.ReactNode => {
       form={form}
       labelWrap
       wrapperCol={{ flex: 1 }}
+      onSubmitCapture={formOnSubmit}
     >
       <CustomInput
         rules={[{ required: true, message: "Email is required" }]}
         label="Email"
         type="email"
-        name="Email"
+        name="identifier"
       />
       <CustomInput
         rules={[
@@ -28,7 +80,7 @@ const LoginForm = (): React.ReactNode => {
         ]}
         label="Password"
         type="password"
-        name="Password"
+        name="password"
       />
       <Form.Item>
         <Flex justify="space-between" align="center">
@@ -45,6 +97,7 @@ const LoginForm = (): React.ReactNode => {
           htmlType="submit"
           className="bg-primary w-full"
           title="Log in"
+          disabled={!submittable || isLoading}
         />
       </Form.Item>
     </Form>
