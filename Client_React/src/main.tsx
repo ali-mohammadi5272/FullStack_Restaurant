@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.tsx";
 import "./assets/styles/main.scss";
 import OuterContainer from "./components/OuterContainer/OuterContainer.tsx";
+import { ToastContainer } from "react-toastify";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -11,6 +12,7 @@ createRoot(document.getElementById("root")!).render(
       <OuterContainer>
         <App />
       </OuterContainer>
+      <ToastContainer />
     </BrowserRouter>
   </StrictMode>
 );
