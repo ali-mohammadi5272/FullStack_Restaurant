@@ -3,6 +3,7 @@ interface FormButtonPropsType {
   htmlType?: "button" | "submit" | "reset";
   className?: string;
   title: string;
+  disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 

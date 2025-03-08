@@ -1,11 +1,13 @@
 import React from "react";
 import { Button } from "antd";
 import { FormButtonPropsType } from "./formButton.types";
+
 const FormButton: React.FC<FormButtonPropsType> = ({
   type,
   htmlType,
   className,
   title,
+  disabled,
   onClick,
 }) => {
   return (
@@ -14,6 +16,7 @@ const FormButton: React.FC<FormButtonPropsType> = ({
       htmlType={htmlType ? htmlType : "button"}
       className={`base-button rounded-[10px] ${className}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {title}
     </Button>
