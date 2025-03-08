@@ -35,4 +35,10 @@ interface RequestWithBody<T> extends Request {
   body: T;
 }
 
-export type { ErrorResponse, Request, RequestWithBody, RequestsObject };
+export type {
+  SuccessResponse,
+  ErrorResponse,
+  Request,
+  RequestWithBody,
+  RequestsObject,
+};
