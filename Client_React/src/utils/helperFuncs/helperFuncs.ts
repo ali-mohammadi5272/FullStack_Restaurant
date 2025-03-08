@@ -1,4 +1,4 @@
-import { CookieType } from "./helperFuncs.type.ts";
+import { CookieEnum, CookieType } from "./helperFuncs.type.ts";
 
 const setCookie = (cookie: CookieType) => {
   const { key, value, maxAge, path } = cookie;
@@ -6,7 +6,7 @@ const setCookie = (cookie: CookieType) => {
   document.cookie = `${key}=${value}; max-age=${maxAge}; path=${path}`;
 };
 
-const getCookie = (key: string): string | undefined => {
+const getCookie = (key: CookieEnum): string | undefined => {
   return document.cookie
     ?.split("; ")
     .find((item) => item.includes(`${key}`))
