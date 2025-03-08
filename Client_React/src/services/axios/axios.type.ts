@@ -2,7 +2,7 @@ import { AxiosRequestConfig, AxiosResponse, HttpStatusCode } from "axios";
 
 interface SuccessResponse<T> {
   statusCode: HttpStatusCode;
-  messages: string[] | null;
+  messages: string[];
   data: T;
 }
 
