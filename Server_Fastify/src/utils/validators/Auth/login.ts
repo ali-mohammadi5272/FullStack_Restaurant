@@ -1,7 +1,7 @@
 import { object, string } from "yup";
 
 const loginSchema = object().shape({
-  identifier: string().min(4).required(),
+  identifier: string().email().min(4).required(),
   password: string().min(8).required(),
 });
 
