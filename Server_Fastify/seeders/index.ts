@@ -1,6 +1,7 @@
 import usersSeed from "./users";
+import categoriesSeed from "./category";
 
-const seeds: (() => Promise<void>)[] = [usersSeed];
+const seeds: (() => Promise<void>)[] = [usersSeed, categoriesSeed];
 
 const seedAll = async () => {
   try {
