@@ -21,17 +21,25 @@ interface RequestsObject {
     req: RequestWithBody<B>
   ) => Promise<AxiosResponse<SuccessResponse<D>>>;
 
-  DELETE: <D>(req: Request) => Promise<AxiosResponse<SuccessResponse<D>>>;
+  DELETE: <D>(
+    req: Omit<Request, "cache">
+  ) => Promise<AxiosResponse<SuccessResponse<D>>>;
 
   GET: <D>(req: Request) => Promise<AxiosResponse<SuccessResponse<D>>>;
+}
+
+interface CacheType {
+  key: string;
+  revalidate?: number;
 }
 
 interface Request {
   url: string;
   configs?: Pick<AxiosRequestConfig, "headers" | "params" | "auth">;
+  cache?: CacheType;
 }
 
-interface RequestWithBody<T> extends Request {
+interface RequestWithBody<T> extends Omit<Request, "cache"> {
   body: T;
 }
 
