@@ -1,9 +1,12 @@
 import usersSeed from "./users";
 import categoriesSeed from "./category";
+import { sequelize } from "../src/configs/db";
 
 const seeds: (() => Promise<void>)[] = [usersSeed, categoriesSeed];
 
 const seedAll = async () => {
+  await sequelize.sync({ force: true });
+
   try {
     for (const seed of seeds) {
       await seed();
