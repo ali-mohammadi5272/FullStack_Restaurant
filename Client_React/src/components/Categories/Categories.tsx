@@ -4,7 +4,6 @@ import { CategoryType } from "./categories.types";
 import { request } from "../../services/axios/axios";
 
 const Categories = (): React.ReactNode => {
-  const [activeCategoryId, setActiveCategoryId] = useState<number>(1);
   const [categories, setCategories] = useState<CategoryType[]>([
     {
       id: 0.12345,
@@ -13,6 +12,9 @@ const Categories = (): React.ReactNode => {
       updatedAt: new Date(),
     },
   ]);
+  const [activeCategoryId, setActiveCategoryId] = useState<number>(
+    categories[0].id
+  );
 
   const memoCategories: JSX.Element[] = useMemo(() => {
     return categories.map((category) => (
@@ -30,7 +32,7 @@ const Categories = (): React.ReactNode => {
         `}
       />
     ));
-  }, [categories]);
+  }, [categories, activeCategoryId]);
 
   const getCategories = async () => {
     const response = await request.GET<CategoryType[]>({
