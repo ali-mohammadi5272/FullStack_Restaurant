@@ -4,3 +4,8 @@ export interface RegisterBodyType {
   email: string;
   password: string;
 }
+
+export interface RegisterResponseType {
+  accessToken: string;
+  refreshToken: string;
+}
