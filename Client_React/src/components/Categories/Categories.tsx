@@ -34,7 +34,7 @@ const Categories = (): React.ReactNode => {
     ));
   }, [categories, activeCategoryId]);
 
-  const getCategories = async () => {
+  const getCategories = async (): Promise<void> => {
     const response = await request.GET<CategoryType[]>({
       url: "/categories",
     });
