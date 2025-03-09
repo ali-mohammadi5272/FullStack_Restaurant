@@ -8,11 +8,7 @@ import { request } from "../../services/axios/axios";
 import { setCookie } from "../../utils/helperFuncs/helperFuncs";
 import { CookieEnum } from "../../utils/helperFuncs/helperFuncs.type";
 import { LoginBodyType, LoginResponseType } from "./loginForm.type";
-import {
-  combinePattern,
-  emailPattern,
-  userNamePattern,
-} from "../../utils/patterns";
+import { emailPattern, userNamePattern } from "../../utils/patterns";
 
 const LoginForm = (): React.ReactNode => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
