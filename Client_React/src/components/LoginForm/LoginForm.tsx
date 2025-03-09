@@ -8,6 +8,7 @@ import { request } from "../../services/axios/axios";
 import { setCookie } from "../../utils/helperFuncs/helperFuncs";
 import { CookieEnum } from "../../utils/helperFuncs/helperFuncs.type";
 import { LoginBodyType, LoginResponseType } from "./loginForm.type";
+import { emailPattern, userNamePattern } from "../../utils/patterns";
 
 const LoginForm = (): React.ReactNode => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -68,10 +69,17 @@ const LoginForm = (): React.ReactNode => {
       onSubmitCapture={formOnSubmit}
     >
       <CustomInput
-        rules={[{ required: true, message: "Email is required" }]}
-        label="Email"
-        type="email"
+        rules={[
+          { required: true, message: "Username/Email is required" },
+          {
+            pattern: new RegExp(userNamePattern || emailPattern),
+            message: "Inserted Username/Email is not valid a Username/Email",
+          },
+        ]}
+        label="Username/Email"
+        type="text"
         name="identifier"
+      
       />
       <CustomInput
         rules={[
