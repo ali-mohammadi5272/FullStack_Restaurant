@@ -5,7 +5,10 @@ const loginSchema = object().shape({
   identifier: string()
     .min(4)
     .trim()
-    .matches(new RegExp(userNamePattern || emailPattern), "Inserted Username/Email is not valid a Username/Email")
+    .matches(
+      new RegExp(`(${userNamePattern.source})|(${emailPattern.source})`),
+      "Inserted Username/Email is not a valid Username/Email"
+    )
     .required(),
   password: string().min(8).trim().required(),
 });
