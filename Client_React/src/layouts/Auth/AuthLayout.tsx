@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { authLayoutRoutePattern } from "../../utils/patterns";
+import { getCookie } from "../../utils/helperFuncs/helperFuncs";
+import { CookieEnum } from "../../utils/helperFuncs/helperFuncs.type";
 import {
   Location,
   NavigateFunction,
@@ -13,6 +15,11 @@ const AuthLayout = (): React.ReactNode => {
   const location: Location = useLocation();
 
   useEffect(() => {
+    const refreshToken: boolean = !!getCookie(CookieEnum.REFRESH_TOKEN);
+    if (refreshToken) {
+      navigate("/", { replace: true });
+    }
+
     const isOnlyAuthLayoutRoute: boolean = authLayoutRoutePattern.test(
       location.pathname
     );
