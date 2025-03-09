@@ -52,7 +52,7 @@ const LoginForm = (): React.ReactNode => {
 
       form.resetFields();
 
-      navigate("/");
+      navigate("/", { replace: true });
     } catch (err) {
     } finally {
       setIsLoading(false);
@@ -79,7 +79,6 @@ const LoginForm = (): React.ReactNode => {
         label="Username/Email"
         type="text"
         name="identifier"
-      
       />
       <CustomInput
         rules={[
