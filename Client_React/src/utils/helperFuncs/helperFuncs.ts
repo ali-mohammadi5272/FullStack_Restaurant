@@ -50,24 +50,11 @@ const createServices = (instances: AxiosInstance[]): RequestsObject[] =>
           return JSON.parse(cachedResponse);
         }
 
-        if (!cachedResponse) {
-          const response = await instance.get<D, AxiosResponse<D>>(
-            req.url,
-            req.configs
-          );
-          sessionStorage.setItem(req.cache.key, JSON.stringify(response));
-          sessionStorage.setItem(
-            `${req.cache.key}-revalidate`,
-            JSON.stringify(Date.now() + req.cache.revalidate)
-          );
-          return response;
-        }
-
         const cachedResponseRevalidate = sessionStorage.getItem(
           `${req.cache.key}-revalidate`
         );
-
         const needRevalidate = !(
+          cachedResponse &&
           cachedResponseRevalidate &&
           JSON.parse(cachedResponseRevalidate) > Date.now()
         );
