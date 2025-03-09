@@ -38,7 +38,7 @@ const Categories = (): React.ReactNode => {
     const response = await request.GET<CategoryType[]>({
       url: "/categories",
     });
-    console.log(response.data.data);
+
     setCategories([
       {
         id: 0.12345,
