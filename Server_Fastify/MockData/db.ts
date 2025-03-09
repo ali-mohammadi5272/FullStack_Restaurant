@@ -1,8 +1,10 @@
+import { CategoryType } from "../src/modules/category/entity/category.entity";
 import { UserType } from "../src/modules/user/entity/user.entity";
 import { Roles } from "../src/modules/user/enum/roles.enum";
 
 interface DatabaseType {
   users: UserType[];
+  categories: CategoryType[];
 }
 
 export const db: DatabaseType = {
@@ -44,6 +46,32 @@ export const db: DatabaseType = {
       email: "mary_jane@gmail.com",
       role: Roles.USER,
       password: "mary_jane_123",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  ],
+  categories: [
+    {
+      id: 1,
+      title: "Dinner",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 2,
+      title: "Lunch",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 3,
+      title: "Dessert",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 4,
+      title: "Drink",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
