@@ -20,6 +20,12 @@ const RegisterForm = (): React.ReactNode => {
         rules={[{ required: true }]}
       />
       <CustomInput
+        label="Username"
+        type="text"
+        name="username"
+        rules={[{ required: true }]}
+      />
+      <CustomInput
         label="Email"
         type="email"
         name="Email"
