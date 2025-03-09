@@ -9,6 +9,7 @@ export const db: DatabaseType = {
   users: [
     {
       id: 1,
+      fullName: "ali mohammadi",
       userName: "ali_mohammadi",
       email: "ali_mohammadi@gmail.com",
       role: Roles.ADMIN,
@@ -18,6 +19,7 @@ export const db: DatabaseType = {
     },
     {
       id: 2,
+      fullName: "john wick",
       userName: "john_wick",
       email: "john_wick@gmail.com",
       role: Roles.USER,
@@ -27,6 +29,7 @@ export const db: DatabaseType = {
     },
     {
       id: 3,
+      fullName: "tony stark",
       userName: "tony_stark",
       email: "tony_stark@gmail.com",
       role: Roles.USER,
@@ -36,6 +39,7 @@ export const db: DatabaseType = {
     },
     {
       id: 4,
+      fullName: "mary jane",
       userName: "mary_jane",
       email: "mary_jane@gmail.com",
       role: Roles.USER,
