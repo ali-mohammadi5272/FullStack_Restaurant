@@ -5,6 +5,8 @@ import { bodyValidator } from "../../utils/middlewares/bodyValidator";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 
 const router = (server: FastifyInstance) => {
+  server.get("/", categoryController.getAll);
+
   server.post(
     "/",
     { preHandler: [bodyValidator<CreateOneDtoType>(createCategorySchema)] },
