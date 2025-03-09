@@ -13,7 +13,7 @@ const seed = async () => {
   }
 
   await User.bulkCreate(users);
-  console.log("Users have been seeded!");
+  console.log("✅ Users have been seeded!");
 };
 
 export default seed;

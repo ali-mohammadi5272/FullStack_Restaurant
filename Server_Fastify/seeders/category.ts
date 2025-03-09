@@ -6,7 +6,7 @@ const seed = async () => {
   await sequelize.sync({ force: true });
 
   await Category.bulkCreate(db.categories);
-  console.log("Categories have been seeded!");
+  console.log("✅ Categories have been seeded!");
 };
 
 export default seed;
