@@ -29,7 +29,7 @@ const createServices = (instances: AxiosInstance[]) =>
       return await instance.post<D, AxiosResponse<D>, B>(
         req.url,
         req.body,
-        req.configs,
+        req.configs
       );
     },
 
@@ -37,7 +37,7 @@ const createServices = (instances: AxiosInstance[]) =>
       return await instance.post<D, AxiosResponse<D>, B>(
         req.url,
         req.body,
-        req.configs,
+        req.configs
       );
     },
   }));
