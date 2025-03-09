@@ -28,8 +28,11 @@ const RegisterForm = (): React.ReactNode => {
       <CustomInput
         label="Email"
         type="email"
-        name="Email"
-        rules={[{ required: true }]}
+        name="email"
+        rules={[
+          { required: true },
+          { pattern: emailPattern, message: "Email is not valid" },
+        ]}
       />
       <CustomInput
         label="Password"
