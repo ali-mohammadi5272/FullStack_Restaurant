@@ -37,6 +37,9 @@ const Categories = (): React.ReactNode => {
   const getCategories = async (): Promise<void> => {
     const response = await request.GET<CategoryType[]>({
       url: "/categories",
+      cache: {
+        key: "categories-component-uniqe-key",
+      },
     });
 
     setCategories([
