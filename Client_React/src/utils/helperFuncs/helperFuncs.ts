@@ -15,7 +15,10 @@ const setCookie = (cookie: CookieType) => {
 const getCookie = (key: CookieEnum): string | undefined => {
   return document.cookie
     ?.split("; ")
-    .find((item) => item.includes(`${key}`))
+    .find(
+      (item) =>
+        item.startsWith(`${key}=`) && new RegExp(`^${key}=(\\S+)$`).test(item)
+    )
     ?.split(`${key}=`)[1];
 };
 
