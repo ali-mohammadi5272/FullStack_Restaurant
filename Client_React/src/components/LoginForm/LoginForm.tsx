@@ -8,7 +8,11 @@ import { request } from "../../services/axios/axios";
 import { setCookie } from "../../utils/helperFuncs/helperFuncs";
 import { CookieEnum } from "../../utils/helperFuncs/helperFuncs.type";
 import { LoginBodyType, LoginResponseType } from "./loginForm.type";
-import { emailPattern, userNamePattern } from "../../utils/patterns";
+import {
+  combinePattern,
+  emailPattern,
+  userNamePattern,
+} from "../../utils/patterns";
 
 const LoginForm = (): React.ReactNode => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -72,8 +76,10 @@ const LoginForm = (): React.ReactNode => {
         rules={[
           { required: true, message: "Username/Email is required" },
           {
-            pattern: new RegExp(userNamePattern || emailPattern),
-            message: "Inserted Username/Email is not valid a Username/Email",
+            pattern: new RegExp(
+              `(${userNamePattern.source})|(${emailPattern.source})`
+            ),
+            message: "Inserted Username/Email is not a valid Username/Email",
           },
         ]}
         label="Username/Email"
