@@ -32,6 +32,24 @@ const controller = {
       });
     }
   },
+
+  async getAll(_: FastifyRequest, res: FastifyReply) {
+    try {
+      const categories = await categoryService.getAll();
+
+      return res.status(200).send({
+        statusCode: 200,
+        messages: [],
+        data: categories,
+      });
+    } catch (error) {
+      return res.status(500).send({
+        statusCode: 500,
+        error,
+        messages: ["Internal Server Error"],
+      });
+    }
+  },
 };
 
 export default controller;
