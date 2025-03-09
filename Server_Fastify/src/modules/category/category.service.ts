@@ -8,6 +8,10 @@ const service = {
     });
   },
 
+  async getAll() {
+    return await Category.findAll();
+  },
+
   async createOne(body: CreateOneDtoType) {
     return await Category.create(body);
   },
