@@ -12,6 +12,7 @@ import {
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   declare id: CreationOptional<number>;
+  declare fullName: string;
   declare userName: string;
   declare email: string;
   declare role: Roles;
@@ -27,6 +28,11 @@ User.init(
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
+    },
+
+    fullName: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
 
     userName: {
