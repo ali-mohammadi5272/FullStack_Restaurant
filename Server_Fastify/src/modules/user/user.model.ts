@@ -1,4 +1,4 @@
-import RefreshToken from "../refreshToken/refreshToken.model";
+import RefreshToken from "../refreshToken/model";
 import { sequelize } from "../../configs/db";
 import { Roles } from "./enum/roles.enum";
 import { hashPassword } from "../../utils/helperFuncs/helperFuncs";
