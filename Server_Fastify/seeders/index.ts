@@ -1,8 +1,15 @@
 import usersSeed from "./users";
 import categoriesSeed from "./categories";
+import foodsSeed from "./foods";
+import foodsCategoriesSeed from "./foodsCategories";
 import { sequelize } from "../src/configs/db";
 
-const seeds: (() => Promise<void>)[] = [usersSeed, categoriesSeed];
+const seeds: (() => Promise<void>)[] = [
+  usersSeed,
+  categoriesSeed,
+  foodsSeed,
+  foodsCategoriesSeed,
+];
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
