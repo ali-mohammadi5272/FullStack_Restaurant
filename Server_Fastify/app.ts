@@ -3,6 +3,7 @@ import cors from "@fastify/cors";
 import authRouter from "./src/modules/Auth/router";
 import categoriesRouter from "./src/modules/Category/router";
 import usersRouter from "./src/modules/User/router";
+import foodsRouter from "./src/modules/Food/router";
 import { env } from "./src/utils/env/env";
 import { sequelize } from "./src/configs/db";
 
@@ -15,6 +16,7 @@ server.register(
     server.register(authRouter, { prefix: "/auth" });
     server.register(usersRouter, { prefix: "/users" });
     server.register(categoriesRouter, { prefix: "/categories" });
+    server.register(foodsRouter, { prefix: "/foods" });
   },
   { prefix: env.baseUrl }
 );
