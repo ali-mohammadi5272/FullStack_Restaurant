@@ -1,4 +1,4 @@
-import authController from "./auth.controller";
+import authController from "./controller";
 import registerSchema from "../../utils/validators/Auth/register";
 import loginSchema from "../../utils/validators/Auth/login";
 import { FastifyInstance } from "fastify";
