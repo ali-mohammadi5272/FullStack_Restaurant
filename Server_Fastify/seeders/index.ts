@@ -1,5 +1,5 @@
 import usersSeed from "./users";
-import categoriesSeed from "./category";
+import categoriesSeed from "./categories";
 import { sequelize } from "../src/configs/db";
 
 const seeds: (() => Promise<void>)[] = [usersSeed, categoriesSeed];
