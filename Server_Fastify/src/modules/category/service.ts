@@ -1,4 +1,4 @@
-import Category from "./category.model";
+import Category from "./model";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 
 const service = {
