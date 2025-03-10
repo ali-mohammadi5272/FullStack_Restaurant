@@ -1,6 +1,6 @@
-import { FastifyReply, FastifyRequest } from "fastify";
 import userService from "../user/user.service";
-import refreshTokenService from "../refreshToken/refreshToken.service";
+import refreshTokenService from "../refreshToken/service";
+import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType } from "../user/dto/create-one.dto";
 import { LoginDtoType } from "./dto/login.dto";
 import {
