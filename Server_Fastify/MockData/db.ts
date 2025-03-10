@@ -1,10 +1,15 @@
 import { CategoryType } from "../src/modules/Category/entity/category.entity";
+import { FoodType } from "../src/modules/Food/entity/food.entity";
+import { FoodTypes } from "../src/modules/Food/enum/foodTypes.enum";
+import { FoodCategoryType } from "../src/modules/FoodCategory/entity/foodCategory.entity";
 import { UserType } from "../src/modules/User/entity/user.entity";
 import { Roles } from "../src/modules/User/enum/roles.enum";
 
 interface DatabaseType {
   users: UserType[];
   categories: CategoryType[];
+  foods: FoodType[];
+  foodsCategories: FoodCategoryType[];
 }
 
 export const db: DatabaseType = {
@@ -74,6 +79,50 @@ export const db: DatabaseType = {
       title: "Drink",
       createdAt: new Date(),
       updatedAt: new Date(),
+    },
+  ],
+  foods: [
+    {
+      id: 1,
+      title: "Veggie Garden",
+      price: 150,
+      foodType: FoodTypes.PASTA,
+      image: "default.png",
+      description: "This is a description",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 2,
+      title: "Penne Alla Vodak",
+      price: 100,
+      foodType: FoodTypes.PASTA,
+      image: "default.png",
+      description: "This is a description",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  ],
+  foodsCategories: [
+    {
+      id: 1,
+      food_id: 1,
+      category_id: 1,
+    },
+    {
+      id: 2,
+      food_id: 1,
+      category_id: 2,
+    },
+    {
+      id: 3,
+      food_id: 2,
+      category_id: 1,
+    },
+    {
+      id: 4,
+      food_id: 2,
+      category_id: 2,
     },
   ],
 };
