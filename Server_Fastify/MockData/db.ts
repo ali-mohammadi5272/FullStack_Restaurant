@@ -1,4 +1,4 @@
-import { CategoryType } from "../src/modules/category/entity/category.entity";
+import { CategoryType } from "../src/modules/Category/entity/category.entity";
 import { UserType } from "../src/modules/User/entity/user.entity";
 import { Roles } from "../src/modules/User/enum/roles.enum";
 
