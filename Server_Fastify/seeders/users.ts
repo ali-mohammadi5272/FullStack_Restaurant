@@ -1,4 +1,4 @@
-import User from "../src/modules/user/user.model";
+import User from "../src/modules/user/model";
 import { db } from "../MockData/db";
 import { UserType } from "../src/modules/user/entity/user.entity";
 import { hashPassword } from "../src/utils/helperFuncs/helperFuncs";
