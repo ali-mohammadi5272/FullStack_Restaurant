@@ -1,5 +1,5 @@
+import categoryService from "./service";
 import { FastifyReply, FastifyRequest } from "fastify";
-import categoryService from "../category/category.service";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 
 const controller = {
