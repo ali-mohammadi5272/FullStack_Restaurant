@@ -1,5 +1,5 @@
 import userService from "../User/service";
-import refreshTokenService from "../refreshToken/service";
+import refreshTokenService from "../RefreshToken/service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType } from "../User/dto/create-one.dto";
 import { LoginDtoType } from "./dto/login.dto";
