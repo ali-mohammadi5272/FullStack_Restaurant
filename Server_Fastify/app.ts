@@ -1,6 +1,6 @@
 import fastify from "fastify";
 import cors from "@fastify/cors";
-import authRouter from "./src/modules/auth/router";
+import authRouter from "./src/modules/Auth/router";
 import categoriesRouter from "./src/modules/Category/router";
 import usersRouter from "./src/modules/User/router";
 import { env } from "./src/utils/env/env";
