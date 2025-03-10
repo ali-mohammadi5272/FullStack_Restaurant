@@ -2,6 +2,7 @@ import fastify from "fastify";
 import cors from "@fastify/cors";
 import authRouter from "./src/modules/auth/router";
 import categoryRouter from "./src/modules/category/router";
+import usersRouter from "./src/modules/user/router";
 import { env } from "./src/utils/env/env";
 import { sequelize } from "./src/configs/db";
 
@@ -12,9 +13,10 @@ server.register(cors, { origin: "*" });
 server.register(
   (server) => {
     server.register(authRouter, { prefix: "/auth" });
+    server.register(usersRouter, { prefix: "/users" });
     server.register(categoryRouter, { prefix: "/categories" });
   },
-  { prefix: env.baseUrl },
+  { prefix: env.baseUrl }
 );
 
 server.listen({ port: env.port }, async (err, address) => {
