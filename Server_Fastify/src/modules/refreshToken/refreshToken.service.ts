@@ -1,5 +1,5 @@
+import RefreshToken from "./model";
 import { CreateOneDtoType } from "./dto/create-one.dto";
-import RefreshToken from "./refreshToken.model";
 
 const service = {
   async createOne(body: CreateOneDtoType) {
