@@ -2,7 +2,7 @@ import fastify from "fastify";
 import cors from "@fastify/cors";
 import authRouter from "./src/modules/auth/router";
 import categoriesRouter from "./src/modules/category/router";
-import usersRouter from "./src/modules/user/router";
+import usersRouter from "./src/modules/User/router";
 import { env } from "./src/utils/env/env";
 import { sequelize } from "./src/configs/db";
 

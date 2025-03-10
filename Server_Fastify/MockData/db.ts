@@ -1,6 +1,6 @@
 import { CategoryType } from "../src/modules/category/entity/category.entity";
-import { UserType } from "../src/modules/user/entity/user.entity";
-import { Roles } from "../src/modules/user/enum/roles.enum";
+import { UserType } from "../src/modules/User/entity/user.entity";
+import { Roles } from "../src/modules/User/enum/roles.enum";
 
 interface DatabaseType {
   users: UserType[];

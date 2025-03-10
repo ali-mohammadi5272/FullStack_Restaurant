@@ -1,7 +1,7 @@
-import userService from "../user/service";
+import userService from "../User/service";
 import refreshTokenService from "../refreshToken/service";
 import { FastifyReply, FastifyRequest } from "fastify";
-import { CreateOneDtoType } from "../user/dto/create-one.dto";
+import { CreateOneDtoType } from "../User/dto/create-one.dto";
 import { LoginDtoType } from "./dto/login.dto";
 import {
   generateAccessToken,

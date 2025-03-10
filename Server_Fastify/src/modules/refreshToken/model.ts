@@ -1,4 +1,4 @@
-import User from "../user/model";
+import User from "../User/model";
 import { sequelize } from "../../configs/db";
 import {
   CreationOptional,

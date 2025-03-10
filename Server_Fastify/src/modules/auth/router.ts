@@ -3,7 +3,7 @@ import registerSchema from "../../utils/validators/Auth/register";
 import loginSchema from "../../utils/validators/Auth/login";
 import { FastifyInstance } from "fastify";
 import { bodyValidator } from "../../utils/middlewares/bodyValidator";
-import { CreateOneDtoType } from "../user/dto/create-one.dto";
+import { CreateOneDtoType } from "../User/dto/create-one.dto";
 import { LoginDtoType } from "./dto/login.dto";
 
 const router = (server: FastifyInstance) => {
