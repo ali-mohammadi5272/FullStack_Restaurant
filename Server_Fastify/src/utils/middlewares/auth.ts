@@ -54,4 +54,4 @@ const auth = async (req: AuthenticatedRequest, res: FastifyReply) => {
   }
 };
 
-module.exports = { auth };
+export { auth };
