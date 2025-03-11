@@ -6,5 +6,5 @@ export interface CreateOneDto {
   foodType: FoodTypes;
   description: string;
   categories: number[];
-  file: string;
+  image: string;
 }
