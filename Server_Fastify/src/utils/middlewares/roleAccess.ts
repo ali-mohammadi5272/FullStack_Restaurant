@@ -13,4 +13,4 @@ const roleAccess =
     }
   };
 
-module.exports = { roleAccess };
+export { roleAccess };
