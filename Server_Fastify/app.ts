@@ -11,7 +11,7 @@ import { sequelize } from "./src/configs/db";
 const server = fastify();
 
 server.register(cors, { origin: "*" });
-server.register(fastifyMultipart, { attachFieldsToBody: "keyValues" });
+server.register(fastifyMultipart, { attachFieldsToBody: true });
 
 server.register(
   (server) => {
