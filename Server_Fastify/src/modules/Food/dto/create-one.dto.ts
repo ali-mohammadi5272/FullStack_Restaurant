@@ -1,6 +1,6 @@
 import { FoodTypes } from "../enum/foodTypes.enum";
 
-export interface CreateOneDto {
+export interface CreateOneDtoType {
   title: string;
   price: number;
   foodType: FoodTypes;
