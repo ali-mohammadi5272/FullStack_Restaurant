@@ -14,8 +14,12 @@ const generateAccessToken = (payload: AccessTokenPayloadType) => {
 };
 
 const getAccessTokenPayload = (token: string) => {
-  const payload = jwt.verify(token, env.tokens.accessToken.key);
-  return payload;
+  try {
+    const payload = jwt.verify(token, env.tokens.accessToken.key);
+    return payload;
+  } catch (error) {
+    return null;
+  }
 };
 
 const generateRefreshToken = (payload: RefreshTokenPayloadType) => {
