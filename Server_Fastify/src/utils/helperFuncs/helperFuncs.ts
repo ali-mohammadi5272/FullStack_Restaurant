@@ -30,8 +30,12 @@ const generateRefreshToken = (payload: RefreshTokenPayloadType) => {
 };
 
 const getRefreshTokenPayload = (token: string) => {
-  const payload = jwt.verify(token, env.tokens.refreshToken.key);
-  return payload;
+  try {
+    const payload = jwt.verify(token, env.tokens.refreshToken.key);
+    return payload;
+  } catch (error) {
+    return null;
+  }
 };
 
 const decodedToken = (token: string) => {
