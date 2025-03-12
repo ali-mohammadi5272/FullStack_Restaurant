@@ -1,4 +1,6 @@
 import { CategoryType } from "../src/modules/Category/entity/category.entity";
+import { ContactUsType } from "../src/modules/ContactUs/entity/contact-us.entity";
+import { AnsweredTypes } from "../src/modules/ContactUs/enum/Answered.enum";
 import { FoodType } from "../src/modules/Food/entity/food.entity";
 import { FoodTypes } from "../src/modules/Food/enum/foodTypes.enum";
 import { FoodCategoryType } from "../src/modules/FoodCategory/entity/foodCategory.entity";
@@ -10,6 +12,7 @@ interface DatabaseType {
   categories: CategoryType[];
   foods: FoodType[];
   foodsCategories: FoodCategoryType[];
+  contacts: ContactUsType[];
 }
 
 export const db: DatabaseType = {
@@ -123,6 +126,52 @@ export const db: DatabaseType = {
       id: 4,
       food_id: 2,
       category_id: 2,
+    },
+  ],
+  contacts: [
+    {
+      id: 1,
+      firstName: "John",
+      lastName: "Wick",
+      email: "john.wick@gmail.com",
+      subject: "Lorem ipsum",
+      message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+      answered: AnsweredTypes.PENDING,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 2,
+      firstName: "Tony",
+      lastName: "Stark",
+      email: "tony.stark@gmail.com",
+      subject: "Lorem ipsum",
+      message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+      answered: AnsweredTypes.ANSWERED,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 3,
+      firstName: "Peter",
+      lastName: "Parker",
+      email: "peter.parker@gmail.com",
+      subject: "Lorem ipsum",
+      message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+      answered: AnsweredTypes.PENDING,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 4,
+      firstName: "Anakin",
+      lastName: "Skywalker",
+      email: "darth.vader@gmail.com",
+      subject: "Lorem ipsum",
+      message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+      answered: AnsweredTypes.PENDING,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
   ],
 };
