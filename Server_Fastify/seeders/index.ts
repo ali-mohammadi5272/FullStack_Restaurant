@@ -1,6 +1,7 @@
 import usersSeed from "./users";
 import categoriesSeed from "./categories";
 import foodsSeed from "./foods";
+import contactsSeed from "./contacts";
 import foodsCategoriesSeed from "./foodsCategories";
 import { sequelize } from "../src/configs/db";
 
@@ -9,6 +10,7 @@ const seeds: (() => Promise<void>)[] = [
   categoriesSeed,
   foodsSeed,
   foodsCategoriesSeed,
+  contactsSeed,
 ];
 
 const seedAll = async () => {
