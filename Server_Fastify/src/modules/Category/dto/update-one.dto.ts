@@ -1,3 +1,3 @@
-export interface UpdateOneDtoType {
+export interface UpdateOneDto {
   title: string;
 }
