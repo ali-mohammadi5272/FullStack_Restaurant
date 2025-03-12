@@ -20,7 +20,7 @@ class Category extends Model<
 Category.init(
   {
     id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.SMALLINT.UNSIGNED,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
