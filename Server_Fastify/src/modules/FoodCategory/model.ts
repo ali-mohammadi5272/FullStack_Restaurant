@@ -38,7 +38,7 @@ FoodCategory.init(
     },
 
     category_id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.SMALLINT.UNSIGNED,
       allowNull: false,
       references: {
         model: Category,
