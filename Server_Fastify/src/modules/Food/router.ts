@@ -31,6 +31,8 @@ const router = (server: FastifyInstance) => {
     },
     foodController.createOne
   );
+
+  server.get("/", foodController.getAll);
 };
 
 export default router;
