@@ -60,6 +60,24 @@ const controller = {
       });
     }
   },
+
+  async getAll(_: FastifyRequest, res: FastifyReply) {
+    try {
+      const foods = await foodService.getAll();
+
+      return res.status(200).send({
+        statusCode: 200,
+        messages: [],
+        data: foods,
+      });
+    } catch (error) {
+      return res.status(500).send({
+        statusCode: 500,
+        error: "Internal Server Error",
+        messages: ["Internal Server Error"],
+      });
+    }
+  },
 };
 
 export default controller;
