@@ -1,6 +1,6 @@
 import Category from "./model";
 import { CreateOneDtoType } from "./dto/create-one.dto";
-import { UpdateOneDtoType } from "./dto/update-one.dto";
+import { UpdateOneDto } from "./dto/update-one.dto";
 
 const service = {
   async getOneById(categoryId: number) {
@@ -23,7 +23,7 @@ const service = {
     return await Category.create(body);
   },
 
-  async updateOne(body: UpdateOneDtoType, categoryId: number) {
+  async updateOne(body: UpdateOneDto, categoryId: number) {
     return await Category.update(body, { where: { id: categoryId } });
   },
 };
