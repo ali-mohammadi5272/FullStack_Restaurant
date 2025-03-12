@@ -5,6 +5,10 @@ const service = {
   async createOne(body: Omit<CreateOneDtoType, "categories">) {
     return await Food.create(body);
   },
+
+  async getAll() {
+    return await Food.findAll();
+  },
 };
 
 export default service;
