@@ -1,4 +1,5 @@
 export enum AnsweredTypes {
-  Pending = 0,
-  Answered = 1,
+  PENDING = "PENDING",
+  ANSWERED = "ANSWERED",
+  REJECTED = "ANSWERED",
 }
