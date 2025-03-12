@@ -1,6 +1,6 @@
 import { CategoryType } from "../src/modules/Category/entity/category.entity";
 import { ContactUsType } from "../src/modules/ContactUs/entity/contact-us.entity";
-import { AnsweredTypes } from "../src/modules/ContactUs/enum/Answered.enum";
+import { AnsweredTypes } from "../src/modules/ContactUs/enum/answered.enum";
 import { FoodType } from "../src/modules/Food/entity/food.entity";
 import { FoodTypes } from "../src/modules/Food/enum/foodTypes.enum";
 import { FoodCategoryType } from "../src/modules/FoodCategory/entity/foodCategory.entity";

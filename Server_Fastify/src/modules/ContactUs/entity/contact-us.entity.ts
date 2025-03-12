@@ -1,4 +1,4 @@
-import { AnsweredTypes } from "../enum/Answered.enum";
+import { AnsweredTypes } from "../enum/answered.enum";
 
 export interface ContactUsType {
   id: number;
