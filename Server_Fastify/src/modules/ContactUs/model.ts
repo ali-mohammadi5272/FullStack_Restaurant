@@ -1,5 +1,5 @@
 import { sequelize } from "../../configs/db";
-import { AnsweredTypes } from "./enum/Answered.enum";
+import { AnsweredTypes } from "./enum/answered.enum";
 import {
   CreationOptional,
   DataTypes,
