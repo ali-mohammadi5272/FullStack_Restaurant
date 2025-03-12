@@ -76,3 +76,5 @@ Contact.init(
     sequelize,
   }
 );
+
+export default Contact;
