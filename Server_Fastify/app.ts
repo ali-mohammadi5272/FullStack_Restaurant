@@ -4,6 +4,7 @@ import authRouter from "./src/modules/Auth/router";
 import categoriesRouter from "./src/modules/Category/router";
 import usersRouter from "./src/modules/User/router";
 import foodsRouter from "./src/modules/Food/router";
+import ContactRouter from "./src/modules/ContactUs/router";
 import fastifyMultipart from "@fastify/multipart";
 import { env } from "./src/utils/env/env";
 import { sequelize } from "./src/configs/db";
@@ -19,6 +20,7 @@ server.register(
     server.register(usersRouter, { prefix: "/users" });
     server.register(categoriesRouter, { prefix: "/categories" });
     server.register(foodsRouter, { prefix: "/foods" });
+    server.register(ContactRouter, { prefix: "/contact-us" });
   },
   { prefix: env.baseUrl }
 );
