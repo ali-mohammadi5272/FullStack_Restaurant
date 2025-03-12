@@ -3,7 +3,7 @@ import { db } from "../MockData/db";
 
 const seed = async () => {
   await Contact.bulkCreate(db.contacts);
-  console.log("✅ Foods have been seeded!");
+  console.log("✅ Contacts have been seeded!");
 };
 
 export default seed;
