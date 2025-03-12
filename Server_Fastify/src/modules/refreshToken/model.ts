@@ -22,7 +22,7 @@ class RefreshToken extends Model<
 RefreshToken.init(
   {
     id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.BIGINT.UNSIGNED,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
@@ -35,7 +35,7 @@ RefreshToken.init(
     },
 
     user_id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: User,
