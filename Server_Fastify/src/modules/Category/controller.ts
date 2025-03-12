@@ -1,15 +1,16 @@
 import categoryService from "./service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType } from "./dto/create-one.dto";
+import { UpdateOneDto } from "./dto/update-one.dto";
 
 const controller = {
   async createOne(
     req: FastifyRequest<{ Body: CreateOneDtoType }>,
-    res: FastifyReply,
+    res: FastifyReply
   ) {
     try {
       const isUserExistBefore = !!(await categoryService.getOneByTitle(
-        req.body.title,
+        req.body.title
       ));
       if (isUserExistBefore) {
         return res.status(400).send({
@@ -41,6 +42,50 @@ const controller = {
         statusCode: 200,
         messages: [],
         data: categories,
+      });
+    } catch (error) {
+      return res.status(500).send({
+        statusCode: 500,
+        error,
+        messages: ["Internal Server Error"],
+      });
+    }
+  },
+
+  async updateOne(
+    req: FastifyRequest<{ Body: UpdateOneDto; Params: { categoryId: number } }>,
+    res: FastifyReply
+  ) {
+    try {
+      const category = await categoryService.getOneById(req.params.categoryId);
+      if (!category) {
+        return res.status(404).send({
+          statusCode: 404,
+          error: "Not Found",
+          messages: ["Category not Found"],
+        });
+      }
+
+      const categoryWithTitle = await categoryService.getOneByTitle(
+        req.body.title
+      );
+      if (categoryWithTitle) {
+        if (category.id !== categoryWithTitle.id) {
+          return res.status(400).send({
+            statusCode: 400,
+            error: "Category Update",
+            messages: [
+              `Category with this title:'${req.body.title}' is exists`,
+            ],
+          });
+        }
+      }
+
+      await categoryService.updateOne(req.body, req.params.categoryId);
+      return res.status(200).send({
+        statusCode: 200,
+        data: null,
+        messages: ["Category updated successfully"],
       });
     } catch (error) {
       return res.status(500).send({
