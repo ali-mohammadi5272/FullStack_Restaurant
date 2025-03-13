@@ -15,7 +15,7 @@ const router = (server: FastifyInstance) => {
     authController.register
   );
 
-  server.post(
+  server.post<{ Body: LoginDtoType }>(
     "/login",
     {
       preHandler: [bodyValidator<LoginDtoType>(loginSchema)],
