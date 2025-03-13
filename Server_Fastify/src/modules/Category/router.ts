@@ -12,9 +12,11 @@ import { Roles } from "../User/enum/roles.enum";
 const router = (server: FastifyInstance) => {
   server.get("/", categoryController.getAll);
 
-  server.post(
+  server.post<{ Body: CreateOneDtoType }>(
     "/",
-    { preHandler: [bodyValidator<CreateOneDtoType>(createCategorySchema)] },
+    {
+      preHandler: [bodyValidator<CreateOneDtoType>(createCategorySchema)],
+    },
     categoryController.createOne
   );
 
