@@ -1,11 +1,7 @@
-import User from "./../../modules/User/model";
 import userService from "./../../modules/User/service";
-import { FastifyReply, FastifyRequest } from "fastify";
+import { FastifyReply } from "fastify";
 import { getAccessTokenPayload } from "../helperFuncs/helperFuncs";
-
-export interface AuthenticatedRequest extends FastifyRequest {
-  user?: User;
-}
+import { AuthenticatedRequest } from "../../types/AuthenticatedRequest";
 
 const auth = async (req: AuthenticatedRequest, res: FastifyReply) => {
   try {
