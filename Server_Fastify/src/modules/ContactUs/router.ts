@@ -14,7 +14,7 @@ const router = (server: FastifyInstance) => {
     controller.getAll
   );
 
-  server.post(
+  server.post<{ Body: CreateOneDto }>(
     "/",
     {
       preHandler: [bodyValidator<CreateOneDto>(createContactSchema)],
