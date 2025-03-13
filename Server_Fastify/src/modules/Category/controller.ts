@@ -1,7 +1,7 @@
 import categoryService from "./service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType } from "./dto/create-one.dto";
-import { UpdateOneDto } from "./dto/update-one.dto";
+import { UpdateOneDto, UpdateOneParamsDto } from "./dto/update-one.dto";
 
 const controller = {
   async createOne(
@@ -53,7 +53,7 @@ const controller = {
   },
 
   async updateOne(
-    req: FastifyRequest<{ Body: UpdateOneDto; Params: { categoryId: number } }>,
+    req: FastifyRequest<{ Body: UpdateOneDto; Params: UpdateOneParamsDto }>,
     res: FastifyReply
   ) {
     try {
