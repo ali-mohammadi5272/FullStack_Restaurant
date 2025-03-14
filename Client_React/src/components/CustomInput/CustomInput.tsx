@@ -19,6 +19,7 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
   placeholder,
   showCount,
   maxLength,
+  parentClassName,
 }) => {
   const defaultPrefix = (): React.ReactNode => {
     if (type === "email") {
@@ -52,6 +53,7 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
         name={name}
         layout={layout ? layout : "vertical"}
         rules={rules}
+        className={parentClassName}
       >
         <Input
           prefix={prefix ? prefix : defaultPrefix()}

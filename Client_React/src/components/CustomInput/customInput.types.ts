@@ -21,5 +21,6 @@ interface CustomInputPropsType {
   showCount?: boolean;
   maxLength?: number;
   placeholder?: string;
+  parentClassName?: string;
 }
 export type { CustomInputPropsType };
