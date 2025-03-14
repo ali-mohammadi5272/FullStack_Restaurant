@@ -35,7 +35,7 @@ const CustomTextArea: React.FC<CustomTextAreaPropsType> = ({
       >
         <Input.TextArea
           variant={variant ? variant : "filled"}
-          className={`base-input ${className}`}
+          className={`base-textArea ${className}`}
           allowClear={allowClear ? allowClear : false}
           onChange={onChange}
           value={value}
