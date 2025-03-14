@@ -18,5 +18,6 @@ interface CustomInputPropsType {
       };
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string | number;
+  placeholder?: string;
 }
 export type { CustomInputPropsType };

@@ -16,6 +16,7 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
   allowClear,
   onChange,
   value,
+  placeholder,
 }) => {
   const defaultPrefix = (): React.ReactNode => {
     if (type === "email") {
@@ -59,6 +60,7 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
           allowClear={allowClear ? allowClear : false}
           onChange={onChange}
           value={value}
+          placeholder={placeholder}
         />
       </Form.Item>
     </ConfigProvider>
