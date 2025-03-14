@@ -16,6 +16,7 @@ interface CustomTextAreaPropsType {
   maxLength?: number;
   placeholder?: string;
   style?: React.CSSProperties;
+  parentClassName?: string;
   allowClear?:
     | boolean
     | {

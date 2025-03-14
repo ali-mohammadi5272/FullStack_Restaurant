@@ -16,6 +16,7 @@ const CustomTextArea: React.FC<CustomTextAreaPropsType> = ({
   maxLength,
   placeholder,
   style,
+  parentClassName,
 }) => {
   return (
     <ConfigProvider
@@ -33,6 +34,7 @@ const CustomTextArea: React.FC<CustomTextAreaPropsType> = ({
         name={name}
         layout={layout ? layout : "vertical"}
         rules={rules}
+        className={parentClassName}
       >
         <Input.TextArea
           variant={variant ? variant : "filled"}
