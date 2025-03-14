@@ -11,11 +11,6 @@ interface CustomInputPropsType {
   type: "text" | "number" | "email" | "password" | "search";
   variant?: "outlined" | "borderless" | "filled";
   className?: string;
-  allowClear?:
-    | boolean
-    | {
-        clearIcon?: React.ReactNode;
-      };
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string | number;
   showCount?: boolean;
