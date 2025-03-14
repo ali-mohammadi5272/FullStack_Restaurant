@@ -15,6 +15,7 @@ const CustomTextArea: React.FC<CustomTextAreaPropsType> = ({
   showCount,
   maxLength,
   placeholder,
+  style,
 }) => {
   return (
     <ConfigProvider
@@ -41,6 +42,7 @@ const CustomTextArea: React.FC<CustomTextAreaPropsType> = ({
           value={value}
           showCount={showCount}
           maxLength={maxLength}
+          style={style}
           placeholder={placeholder}
         />
       </Form.Item>
