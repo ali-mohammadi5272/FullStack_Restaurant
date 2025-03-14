@@ -22,5 +22,10 @@ interface CustomInputPropsType {
   maxLength?: number;
   placeholder?: string;
   parentClassName?: string;
+  allowClear?:
+    | boolean
+    | {
+        clearIcon?: React.ReactNode;
+      };
 }
 export type { CustomInputPropsType };
