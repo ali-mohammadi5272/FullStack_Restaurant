@@ -111,7 +111,6 @@ const ContactUsFrom = (): React.ReactNode => {
       <Modal
         open={isModalOpen}
         title="Confirmation"
-        
         onOk={modalOnOkClick}
         onCancel={modalOnCancelClick}
         footer={(_, { OkBtn, CancelBtn }) => (
