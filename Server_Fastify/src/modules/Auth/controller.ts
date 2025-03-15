@@ -3,6 +3,7 @@ import refreshTokenService from "../RefreshToken/service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType } from "../User/dto/create-one.dto";
 import { LoginDtoType } from "./dto/login.dto";
+import { AuthenticatedRequest } from "../../types/AuthenticatedRequest";
 import {
   generateAccessToken,
   generateRefreshToken,
@@ -100,6 +101,32 @@ const controller = {
         statusCode: 200,
         messages: ["Login successfully"],
         data: { refreshToken, accessToken },
+      });
+    } catch (error) {
+      return res.status(500).send({
+        statusCode: 500,
+        error,
+        messages: ["Internal Server Error"],
+      });
+    }
+  },
+
+  async logout(req: AuthenticatedRequest, res: FastifyReply) {
+    try {
+      if (!req.refreshToken) {
+        return res.status(500).send({
+          statusCode: 500,
+          error: "Server Error",
+          messages: ["Internal Server Error"],
+        });
+      }
+
+      await refreshTokenService.removeOne(req.refreshToken);
+
+      return res.status(200).send({
+        statusCode: 200,
+        data: null,
+        messages: ["Log out successfully"],
       });
     } catch (error) {
       return res.status(500).send({
