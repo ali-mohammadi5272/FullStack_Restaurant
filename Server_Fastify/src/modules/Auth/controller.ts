@@ -34,6 +34,7 @@ const controller = {
       });
 
       const accessToken = generateAccessToken({
+        refreshToken,
         userId: newUser.id,
       });
 
@@ -86,6 +87,7 @@ const controller = {
       });
 
       const accessToken = generateAccessToken({
+        refreshToken,
         userId: user.id,
       });
 
