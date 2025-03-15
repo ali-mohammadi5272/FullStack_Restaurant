@@ -1,6 +1,20 @@
 import User from "../modules/User/model";
-import { FastifyRequestType, ResolveFastifyRequestType } from "fastify/types/type-provider";
-import { ContextConfigDefault, FastifyBaseLogger, FastifyRequest, FastifySchema, FastifyTypeProvider, FastifyTypeProviderDefault, RawRequestDefaultExpression, RawServerBase, RawServerDefault, RouteGenericInterface } from "fastify";
+import {
+  ContextConfigDefault,
+  FastifyBaseLogger,
+  FastifyRequest,
+  FastifySchema,
+  FastifyTypeProvider,
+  FastifyTypeProviderDefault,
+  RawRequestDefaultExpression,
+  RawServerBase,
+  RawServerDefault,
+  RouteGenericInterface,
+} from "fastify";
+import {
+  FastifyRequestType,
+  ResolveFastifyRequestType,
+} from "fastify/types/type-provider";
 
 export interface AuthenticatedRequest<
   RouteGeneric extends RouteGenericInterface = RouteGenericInterface,
