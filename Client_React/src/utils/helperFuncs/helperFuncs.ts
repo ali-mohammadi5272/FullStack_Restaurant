@@ -1,6 +1,7 @@
 import {
   CookieEnum,
   CookieType,
+  LocalStorageEnum,
   LocalStorageType,
 } from "./helperFuncs.type.ts";
 import { AxiosInstance, AxiosResponse } from "axios";
@@ -115,6 +116,10 @@ const setLocalStorage = <T>(config: LocalStorageType<T>) => {
   localStorage.setItem(config.key, JSON.stringify(config.value));
 };
 
+const removeFromLocalStorage = (key: LocalStorageEnum) => {
+  localStorage.removeItem(key);
+};
+
 export {
   setCookie,
   getCookie,
@@ -122,4 +127,5 @@ export {
   removeCookie,
   isUserLogin,
   setLocalStorage,
+  removeFromLocalStorage,
 };
