@@ -5,6 +5,7 @@ import { FastifyInstance } from "fastify";
 import { bodyValidator } from "../../utils/middlewares/bodyValidator";
 import { CreateOneDtoType } from "../User/dto/create-one.dto";
 import { LoginDtoType } from "./dto/login.dto";
+import { auth } from "../../utils/middlewares/auth";
 
 const router = (server: FastifyInstance) => {
   server.post<{ Body: CreateOneDtoType }>(
@@ -22,6 +23,8 @@ const router = (server: FastifyInstance) => {
     },
     authController.login
   );
+
+  server.post("/logout", { preHandler: [auth] }, authController.logout);
 };
 
 export default router;
