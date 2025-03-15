@@ -8,4 +8,9 @@ export interface RegisterBodyType {
 export interface RegisterResponseType {
   accessToken: string;
   refreshToken: string;
+  fullName: string;
+}
+
+export interface LocalStorageRegisterDataType {
+  fullName: string;
 }
