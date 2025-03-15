@@ -5,8 +5,14 @@ import React, { memo, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Checkbox, Flex, Form } from "antd";
 import { request } from "../../services/axios/axios";
-import { setCookie } from "../../utils/helperFuncs/helperFuncs";
-import { CookieEnum } from "../../utils/helperFuncs/helperFuncs.type";
+import {
+  setCookie,
+  setLocalStorage,
+} from "../../utils/helperFuncs/helperFuncs";
+import {
+  CookieEnum,
+  LocalStorageEnum,
+} from "../../utils/helperFuncs/helperFuncs.type";
 import { LoginBodyType, LoginResponseType } from "./loginForm.type";
 import { emailPattern, userNamePattern } from "../../utils/patterns";
 
@@ -51,6 +57,11 @@ const LoginForm = (): React.ReactNode => {
       });
 
       form.resetFields();
+
+      setLocalStorage<{ fullName: string }>({
+        key: LocalStorageEnum.USER,
+        value: { fullName: response.data.data.fullName },
+      });
 
       navigate("/", { replace: true });
     } catch (err) {
