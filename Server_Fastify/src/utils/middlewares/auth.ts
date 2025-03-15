@@ -2,6 +2,7 @@ import userService from "./../../modules/User/service";
 import { FastifyReply } from "fastify";
 import { getAccessTokenPayload } from "../helperFuncs/helperFuncs";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest";
+import { AccessTokenPayloadType } from "../helperFuncs/helperFuncs.type";
 
 const auth = async (req: AuthenticatedRequest, res: FastifyReply) => {
   try {
@@ -41,6 +42,7 @@ const auth = async (req: AuthenticatedRequest, res: FastifyReply) => {
     }
 
     req.user = user;
+    req.refreshToken = (<AccessTokenPayloadType>tokenPayload).refreshToken;
   } catch (error) {
     return res.status(500).send({
       statusCode: 500,
