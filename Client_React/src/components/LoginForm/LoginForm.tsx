@@ -42,8 +42,6 @@ const LoginForm = (): React.ReactNode => {
         },
       });
 
-      console.log(response.data);
-
       setCookie({
         key: CookieEnum.ACCESS_TOKEN,
         value: response.data.data.accessToken,

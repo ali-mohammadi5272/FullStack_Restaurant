@@ -69,7 +69,7 @@ const RegisterForm = (): React.ReactNode => {
 
       setLocalStorage<LocalStorageRegisterDataType>({
         key: LocalStorageEnum.USER,
-        value: { fullName: response.data.data.fullName },
+        value: response.data.data.user,
       });
 
       navigate("/", { replace: true });
