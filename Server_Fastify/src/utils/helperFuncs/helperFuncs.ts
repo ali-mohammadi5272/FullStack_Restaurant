@@ -7,7 +7,7 @@ import {
 } from "./helperFuncs.type";
 
 const generateAccessToken = (
-  payload: Omit<AccessTokenPayloadType, "exp" | "exp">
+  payload: Omit<AccessTokenPayloadType, "iat" | "exp">
 ) => {
   const token = jwt.sign(payload, env.tokens.accessToken.key, {
     expiresIn: env.tokens.accessToken.expireIn,
@@ -25,7 +25,7 @@ const getAccessTokenPayload = (token: string) => {
 };
 
 const generateRefreshToken = (
-  payload: Omit<RefreshTokenPayloadType, "exp" | "exp">
+  payload: Omit<RefreshTokenPayloadType, "iat" | "exp">
 ) => {
   const token = jwt.sign(payload, env.tokens.refreshToken.key, {
     expiresIn: env.tokens.refreshToken.expireIn,
