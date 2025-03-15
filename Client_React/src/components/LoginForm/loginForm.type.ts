@@ -6,7 +6,9 @@ export interface LoginBodyType {
 export interface LoginResponseType {
   accessToken: string;
   refreshToken: string;
-  fullName: string;
+  user: {
+    fullName: string;
+  };
 }
 
 export interface LocalStorageLoginDataType {

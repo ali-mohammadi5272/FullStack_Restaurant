@@ -42,6 +42,8 @@ const LoginForm = (): React.ReactNode => {
         },
       });
 
+      console.log(response.data);
+
       setCookie({
         key: CookieEnum.ACCESS_TOKEN,
         value: response.data.data.accessToken,
@@ -56,12 +58,12 @@ const LoginForm = (): React.ReactNode => {
         path: "/",
       });
 
-      form.resetFields();
-
       setLocalStorage<{ fullName: string }>({
         key: LocalStorageEnum.USER,
-        value: { fullName: response.data.data.fullName },
+        value: response.data.data.user,
       });
+
+      form.resetFields();
 
       navigate("/", { replace: true });
     } catch (err) {
