@@ -100,7 +100,13 @@ const controller = {
       return res.status(200).send({
         statusCode: 200,
         messages: ["Login successfully"],
-        data: { refreshToken, accessToken },
+        data: {
+          refreshToken,
+          accessToken,
+          user: {
+            fullName: user.fullName,
+          },
+        },
       });
     } catch (error) {
       return res.status(500).send({
