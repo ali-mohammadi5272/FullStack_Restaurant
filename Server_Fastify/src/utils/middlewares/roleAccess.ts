@@ -4,7 +4,7 @@ import { AuthenticatedRequest } from "../../types/AuthenticatedRequest";
 
 const roleAccess =
   (roles: Roles[]) => async (req: AuthenticatedRequest, res: FastifyReply) => {
-    if (!req.user || !roles.includes(req.user.role)) {
+    if (!roles.includes(req.user.role)) {
       return res.status(403).send({
         statusCode: 403,
         error: "Forbidden",
