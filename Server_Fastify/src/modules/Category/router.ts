@@ -15,7 +15,7 @@ const router = (server: FastifyInstance) => {
   server.post<{ Body: CreateOneDtoType }>(
     "/",
     {
-      preHandler: [bodyValidator<CreateOneDtoType>(createCategorySchema)],
+      preHandler: [auth, bodyValidator<CreateOneDtoType>(createCategorySchema)],
     },
     categoryController.createOne
   );
