@@ -47,7 +47,13 @@ const controller = {
       return res.status(201).send({
         statusCode: 201,
         messages: ["User registered successfully"],
-        data: { refreshToken, accessToken },
+        data: {
+          refreshToken,
+          accessToken,
+          user: {
+            fullName: newUser.fullName,
+          },
+        },
       });
     } catch (error) {
       return res.status(500).send({
