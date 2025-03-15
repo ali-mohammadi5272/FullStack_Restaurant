@@ -6,14 +6,19 @@ import InnerContainer from "../InnerContainer/InnerContainer";
 import { NavbarLinkType } from "./navbar.types";
 import { NavigateFunction, NavLink, useNavigate } from "react-router-dom";
 import { memo, useState } from "react";
+import { Modal } from "antd";
+import { requestWithHeader } from "../../services/axios/axios";
+import {
+  CookieEnum,
+  LocalStorageEnum,
+} from "../../utils/helperFuncs/helperFuncs.type";
+import { toast } from "react-toastify";
 import {
   getCookie,
   isUserLogin,
   removeCookie,
+  removeFromLocalStorage,
 } from "../../utils/helperFuncs/helperFuncs";
-import { Modal } from "antd";
-import { request } from "../../services/axios/axios";
-import { CookieEnum } from "../../utils/helperFuncs/helperFuncs.type";
 
 const Navbar = (): React.ReactNode => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -58,35 +63,44 @@ const Navbar = (): React.ReactNode => {
   const loginBtnOnClick = () => {
     navigate("/auth/login");
   };
-
   const logoutBtnOnClick = () => {
     openModal();
   };
 
   const onOk = async () => {
-    const token = getCookie(CookieEnum.ACCESS_TOKEN);
-    //TODO if(!token){
-    //
-    // }
+    await logout();
+  };
+  const onCancel = () => {
+    closeModal();
+  };
+  const authBtnClickHandler = () => {
+    isLogin ? logoutBtnOnClick() : loginBtnOnClick();
+  };
+
+  const logout = async (): Promise<void> => {
     try {
-      await request.POST<unknown, null>({
+      const accessToken = getCookie(CookieEnum.ACCESS_TOKEN);
+      if (!accessToken) {
+        toast.success("Log out successfully");
+
+        return;
+      }
+
+      await requestWithHeader.POST<null, {}>({
         url: "/auth/logout",
-        body: null,
+        body: {},
+        configs: {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        },
       });
     } catch (error) {
     } finally {
       removeCookie(CookieEnum.REFRESH_TOKEN);
       removeCookie(CookieEnum.ACCESS_TOKEN);
+      removeFromLocalStorage(LocalStorageEnum.USER);
       setIsLogin(false);
       closeModal();
     }
-  };
-  const onCancel = () => {
-    closeModal();
-  };
-
-  const authBtnClickHandler = () => {
-    isLogin ? logoutBtnOnClick() : loginBtnOnClick();
   };
 
   return (
