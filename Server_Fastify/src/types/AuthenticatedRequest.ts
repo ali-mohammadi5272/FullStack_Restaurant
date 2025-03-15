@@ -40,4 +40,5 @@ export interface AuthenticatedRequest<
     RequestType
   > {
   user?: User;
+  refreshToken?: string;
 }
