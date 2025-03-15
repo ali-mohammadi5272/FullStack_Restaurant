@@ -7,6 +7,7 @@ import HomePage from "./pages/Home";
 import MenuPage from "./pages/Menu";
 import AboutUsPage from "./pages/About_Us";
 import ReservationPage from "./pages/Reservation";
+import ContactUsPage from "./pages/Contact_Us";
 
 const routes: RouteObject[] = [
   {
@@ -42,6 +43,10 @@ const routes: RouteObject[] = [
       {
         path: "/reservation",
         element: <ReservationPage />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUsPage />,
       },
     ],
   },
