@@ -1,4 +1,8 @@
-import { CookieEnum, CookieType } from "./helperFuncs.type.ts";
+import {
+  CookieEnum,
+  CookieType,
+  LocalStorageType,
+} from "./helperFuncs.type.ts";
 import { AxiosInstance, AxiosResponse } from "axios";
 import {
   Request,
@@ -107,4 +111,15 @@ const createServices = (instances: AxiosInstance[]): RequestsObject[] =>
     })
   );
 
-export { setCookie, getCookie, createServices, removeCookie, isUserLogin };
+const setLocalStorage = <T>(config: LocalStorageType<T>) => {
+  localStorage.setItem(config.key, JSON.stringify(config.value));
+};
+
+export {
+  setCookie,
+  getCookie,
+  createServices,
+  removeCookie,
+  isUserLogin,
+  setLocalStorage,
+};
