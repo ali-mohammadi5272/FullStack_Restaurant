@@ -6,7 +6,9 @@ import {
   RefreshTokenPayloadType,
 } from "./helperFuncs.type";
 
-const generateAccessToken = (payload: AccessTokenPayloadType) => {
+const generateAccessToken = (
+  payload: Omit<AccessTokenPayloadType, "exp" | "exp">
+) => {
   const token = jwt.sign(payload, env.tokens.accessToken.key, {
     expiresIn: env.tokens.accessToken.expireIn,
   });
@@ -22,7 +24,9 @@ const getAccessTokenPayload = (token: string) => {
   }
 };
 
-const generateRefreshToken = (payload: RefreshTokenPayloadType) => {
+const generateRefreshToken = (
+  payload: Omit<RefreshTokenPayloadType, "exp" | "exp">
+) => {
   const token = jwt.sign(payload, env.tokens.refreshToken.key, {
     expiresIn: env.tokens.refreshToken.expireIn,
   });

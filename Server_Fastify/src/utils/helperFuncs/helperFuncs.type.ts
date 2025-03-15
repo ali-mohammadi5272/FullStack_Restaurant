@@ -1,8 +1,12 @@
 export interface AccessTokenPayloadType {
-  userId: number;
   refreshToken: string;
+  userId: number;
+  iat: number;
+  exp: number;
 }
 
 export interface RefreshTokenPayloadType {
   userId: number;
+  iat: number;
+  exp: number;
 }
