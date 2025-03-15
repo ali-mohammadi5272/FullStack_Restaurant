@@ -22,6 +22,15 @@ const getCookie = (key: CookieEnum): string | undefined => {
     ?.split(`${key}=`)[1];
 };
 
+const removeCookie = (key: CookieEnum) => {
+  setCookie({
+    key,
+    maxAge: 0,
+    path: "/",
+    value: "",
+  });
+};
+
 const createServices = (instances: AxiosInstance[]): RequestsObject[] =>
   instances.map(
     (instance): RequestsObject => ({
@@ -96,4 +105,4 @@ const createServices = (instances: AxiosInstance[]): RequestsObject[] =>
     })
   );
 
-export { setCookie, getCookie, createServices };
+export { setCookie, getCookie, createServices, removeCookie };
