@@ -31,6 +31,8 @@ const removeCookie = (key: CookieEnum) => {
   });
 };
 
+const isUserLogin = (): boolean => !!getCookie(CookieEnum.REFRESH_TOKEN);
+
 const createServices = (instances: AxiosInstance[]): RequestsObject[] =>
   instances.map(
     (instance): RequestsObject => ({
@@ -105,4 +107,4 @@ const createServices = (instances: AxiosInstance[]): RequestsObject[] =>
     })
   );
 
-export { setCookie, getCookie, createServices, removeCookie };
+export { setCookie, getCookie, createServices, removeCookie, isUserLogin };
