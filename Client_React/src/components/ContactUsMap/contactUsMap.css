@@ -1,0 +1,12 @@
+.map {
+  .leaflet-container {
+    .leaflet-popup-content-wrapper,
+    leaflet-popup-tip {
+      background-color: #ffffffad !important;
+    }
+
+    .leaflet-control-attribution.leaflet-control {
+      display: none;
+    }
+  }
+}
