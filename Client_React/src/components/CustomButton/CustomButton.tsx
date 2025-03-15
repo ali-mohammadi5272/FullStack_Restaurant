@@ -1,11 +1,12 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { Button } from "antd";
 import { ButtonPropsType } from "./customButton.types";
-const CustomButton: React.FC<ButtonPropsType> = ({
+const CustomButton: React.FC<PropsWithChildren<ButtonPropsType>> = ({
   type,
   htmlType,
   className,
   title,
+  children,
   onClick,
 }) => {
   return (
@@ -15,7 +16,7 @@ const CustomButton: React.FC<ButtonPropsType> = ({
       className={`base-button rounded-[162.94px] ${className}`}
       onClick={onClick}
     >
-      {title}
+      {children ? children : title}
     </Button>
   );
 };
