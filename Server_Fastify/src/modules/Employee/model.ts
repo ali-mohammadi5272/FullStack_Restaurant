@@ -76,6 +76,12 @@ Employee.init(
     sequelize,
     tableName: "employees",
     timestamps: true,
+    indexes: [
+      {
+        fields: ["firstName", "lastName"],
+        unique: true,
+      },
+    ],
   }
 );
 
