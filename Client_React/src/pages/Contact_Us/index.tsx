@@ -10,4 +10,3 @@ const ContactUsPage = (): React.ReactNode => {
 };
 
 export default ContactUsPage;
-1;
