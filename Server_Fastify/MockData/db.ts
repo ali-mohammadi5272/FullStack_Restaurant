@@ -1,10 +1,13 @@
 import { CategoryType } from "../src/modules/Category/entity/category.entity";
 import { ContactUsType } from "../src/modules/ContactUs/entity/contact-us.entity";
 import { AnsweredTypes } from "../src/modules/ContactUs/enum/answered.enum";
+import { EmployeeType } from "../src/modules/Employee/entity/employee.entity";
+import { EmployeeRoles } from "../src/modules/Employee/enum/employeeRoles.enum";
 import { FoodType } from "../src/modules/Food/entity/food.entity";
 import { FoodTypes } from "../src/modules/Food/enum/foodTypes.enum";
 import { FoodCategoryType } from "../src/modules/FoodCategory/entity/foodCategory.entity";
 import { UserType } from "../src/modules/User/entity/user.entity";
+import { Genders } from "../src/modules/User/enum/genders.enum";
 import { Roles } from "../src/modules/User/enum/roles.enum";
 
 interface DatabaseType {
@@ -13,6 +16,7 @@ interface DatabaseType {
   foods: FoodType[];
   foodsCategories: FoodCategoryType[];
   contacts: ContactUsType[];
+  employees: EmployeeType[];
 }
 
 export const db: DatabaseType = {
@@ -170,6 +174,48 @@ export const db: DatabaseType = {
       subject: "Lorem ipsum",
       message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
       answered: AnsweredTypes.PENDING,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  ],
+  employees: [
+    {
+      id: 1,
+      firstName: "Ismail",
+      lastName: "Marzuki",
+      gender: Genders.MALE,
+      role: EmployeeRoles.MANAGER,
+      image: "defaultPhoto.png",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 2,
+      firstName: "Betran",
+      lastName: "Komar",
+      gender: Genders.MALE,
+      role: EmployeeRoles.HEAD_CHEF,
+      image: "defaultPhoto.png",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 3,
+      firstName: "Ferry",
+      lastName: "Sauwi",
+      gender: Genders.MALE,
+      role: EmployeeRoles.CHEF,
+      image: "defaultPhoto.png",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: 4,
+      firstName: "Iswan",
+      lastName: "Dracho",
+      gender: Genders.MALE,
+      role: EmployeeRoles.CHEF,
+      image: "defaultPhoto.png",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
