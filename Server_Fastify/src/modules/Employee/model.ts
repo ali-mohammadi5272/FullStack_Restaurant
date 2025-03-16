@@ -78,3 +78,5 @@ Employee.init(
     timestamps: true,
   }
 );
+
+export default Employee;
