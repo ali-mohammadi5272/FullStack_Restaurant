@@ -8,6 +8,7 @@ import { roleAccess } from "../../utils/middlewares/roleAccess";
 import { Roles } from "../User/enum/roles.enum";
 import { ImageFormats } from "../Food/enum/imageFormats.enum";
 import { CreateOneEmployeeDto } from "./dto/create-one.dto";
+import { RemoveOneEmployeeParamsDto } from "./dto/remove-one.dto";
 
 const router = (server: FastifyInstance) => {
   server.get("/", controller.getAll);
@@ -32,6 +33,14 @@ const router = (server: FastifyInstance) => {
       ],
     },
     controller.createOne
+  );
+
+  server.delete<{ Params: RemoveOneEmployeeParamsDto }>(
+    "/:employeeId",
+    {
+      preHandler: [auth, roleAccess([Roles.ADMIN])],
+    },
+    controller.removeOne
   );
 };
 
