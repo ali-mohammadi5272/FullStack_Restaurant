@@ -7,6 +7,24 @@ import { EmployeeRoles } from "./enum/employeeRoles.enum";
 import { FastifyReply, FastifyRequest } from "fastify";
 
 const controller = {
+  async getAll(_: FastifyRequest, res: FastifyReply) {
+    try {
+      const employees = await employeeService.getAll();
+
+      return res.status(200).send({
+        statusCode: 200,
+        messages: [],
+        data: employees,
+      });
+    } catch (err) {
+      return res.status(500).send({
+        statusCode: 500,
+        error: "Internal Server Error",
+        messages: ["Internal Server Error"],
+      });
+    }
+  },
+
   async createOne(req: FastifyRequest, res: FastifyReply) {
     try {
       const formData: FormData = await req.formData();
