@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import employeeService from "./service";
 import { Genders } from "../User/enum/genders.enum";
-import { CreateOneEmployeeDto } from "./dto/create-one";
+import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 import { EmployeeRoles } from "./enum/employeeRoles.enum";
 import { FastifyReply, FastifyRequest } from "fastify";
 
