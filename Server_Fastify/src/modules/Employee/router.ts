@@ -10,6 +10,8 @@ import { ImageFormats } from "../Food/enum/imageFormats.enum";
 import { CreateOneEmployeeDto } from "./dto/create-one";
 
 const router = (server: FastifyInstance) => {
+  server.get("/", controller.getAll);
+
   server.post(
     "/",
     {
