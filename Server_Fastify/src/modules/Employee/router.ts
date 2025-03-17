@@ -7,7 +7,7 @@ import { auth } from "../../utils/middlewares/auth";
 import { roleAccess } from "../../utils/middlewares/roleAccess";
 import { Roles } from "../User/enum/roles.enum";
 import { ImageFormats } from "../Food/enum/imageFormats.enum";
-import { CreateOneEmployeeDto } from "./dto/create-one";
+import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 
 const router = (server: FastifyInstance) => {
   server.get("/", controller.getAll);
