@@ -1,4 +1,4 @@
-import { CreateOneEmployeeDto } from "./dto/create-one";
+import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 import Employee from "./model";
 
 const service = {
@@ -19,6 +19,10 @@ const service = {
 
   async getAll() {
     return await Employee.findAll();
+  },
+
+  async removeOne(employeeId: number) {
+    return await Employee.destroy({ where: { id: employeeId } });
   },
 };
 
