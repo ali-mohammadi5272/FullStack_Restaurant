@@ -16,6 +16,10 @@ const service = {
       },
     });
   },
+
+  async getAll() {
+    return await Employee.findAll();
+  },
 };
 
 export default service;
