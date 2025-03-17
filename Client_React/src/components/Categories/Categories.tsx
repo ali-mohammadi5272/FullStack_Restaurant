@@ -7,7 +7,7 @@ const Categories = (): React.ReactNode => {
   const [categories, setCategories] = useState<CategoryType[]>([
     {
       id: 0.12345,
-      title: "All catagory",
+      title: "All Categories",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
