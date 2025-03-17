@@ -5,6 +5,7 @@ import { Genders } from "../User/enum/genders.enum";
 import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 import { EmployeeRoles } from "./enum/employeeRoles.enum";
 import { FastifyReply, FastifyRequest } from "fastify";
+import { RemoveOneEmployeeParamsDto } from "./dto/remove-one.dto";
 
 const controller = {
   async getAll(_: FastifyRequest, res: FastifyReply) {
@@ -72,6 +73,27 @@ const controller = {
         messages: ["Employee created successfully"],
       });
     } catch (error) {
+      return res.status(500).send({
+        statusCode: 500,
+        error: "Internal Server Error",
+        messages: ["Internal Server Error"],
+      });
+    }
+  },
+
+  async removeOne(
+    req: FastifyRequest<{ Params: RemoveOneEmployeeParamsDto }>,
+    res: FastifyReply
+  ) {
+    try {
+      await employeeService.removeOne(req.params.employeeId);
+
+      return res.status(200).send({
+        statusCode: 200,
+        data: null,
+        messages: ["Employee removed successfully"],
+      });
+    } catch (err) {
       return res.status(500).send({
         statusCode: 500,
         error: "Internal Server Error",
