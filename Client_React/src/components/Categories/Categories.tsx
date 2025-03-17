@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useMemo, useState } from "react";
 import CustomButton from "../CustomButton/CustomButton";
-import { CategoryType } from "./categories.types";
 import { request } from "../../services/axios/axios";
+import { CategoryType } from "../../entities/category.entity";
 
 const Categories = (): React.ReactNode => {
   const [categories, setCategories] = useState<CategoryType[]>([
