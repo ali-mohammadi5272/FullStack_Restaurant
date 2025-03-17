@@ -9,7 +9,7 @@ const service = {
   async getOneByFirstNameAndLastName(
     employee: Pick<Employee, "firstName" | "lastName">
   ) {
-    await Employee.findOne({
+    return await Employee.findOne({
       where: {
         firstName: employee.firstName,
         lastName: employee.lastName,
