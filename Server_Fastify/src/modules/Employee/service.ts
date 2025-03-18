@@ -18,7 +18,7 @@ const service = {
   },
 
   async getAll() {
-    return await Employee.findAll();
+    return await Employee.findAll({ raw: true });
   },
 
   async removeOne(employeeId: number) {
