@@ -6,7 +6,6 @@ import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 import { EmployeeRoles } from "./enum/employeeRoles.enum";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { RemoveOneEmployeeParamsDto } from "./dto/remove-one.dto";
-import { env } from "../../utils/env/env";
 
 const controller = {
   async getAll(_: FastifyRequest, res: FastifyReply) {
@@ -14,15 +13,11 @@ const controller = {
       const employees = await employeeService.getAll();
 
       const changedEmployees = employees.map((employee) => {
-        const pathAddress = path.join(
-          `${env.domain}:${env.port}`,
-          `src/public/images/employees/${employee.image}`
-        );
+        const pathAddress = `/src/public/images/employees/${employee.image}`;
         employee.image = pathAddress.replace(/\\/g, "/");
-
         return employee;
       });
-      console.log(changedEmployees);
+
       return res.status(200).send({
         statusCode: 200,
         messages: [],
