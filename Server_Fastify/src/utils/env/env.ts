@@ -24,6 +24,7 @@ const env: EnvType = {
 
   version: process.env.VERSION as string,
   baseUrl: `/api/${process.env.VERSION}`,
+  domain: process.env.BASE_URL as string,
 
   port: process.env.PORT ? +process.env.PORT : 3000,
 };
