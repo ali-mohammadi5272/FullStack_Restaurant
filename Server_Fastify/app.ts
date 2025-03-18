@@ -7,12 +7,18 @@ import foodsRouter from "./src/modules/Food/router";
 import contactsRouter from "./src/modules/ContactUs/router";
 import employeesRouter from "./src/modules/Employee/router";
 import fastifyMultipart from "@fastify/multipart";
+import fastifyStatic from "@fastify/static";
+import path from "path";
 import { env } from "./src/utils/env/env";
 import { sequelize } from "./src/configs/db";
 
 const server = fastify();
 
 server.register(cors, { origin: "*" });
+server.register(fastifyStatic, {
+  root: path.join(__dirname, "/src/public"),
+  prefix: "/src/public/",
+});
 server.register(fastifyMultipart, { attachFieldsToBody: true });
 
 server.register(
