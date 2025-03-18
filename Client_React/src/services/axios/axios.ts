@@ -12,11 +12,11 @@ import {
 } from "./axios.type.ts";
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL_API,
 });
 
 const axiosInstanceWithHeader: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL_API,
   headers: {
     Authorization: `Bearer ${getCookie(CookieEnum.ACCESS_TOKEN)}`,
   },
@@ -29,7 +29,7 @@ axiosInstance.interceptors.request.use(
   (err) => {
     toast.error(err.response.data.message);
     return Promise.reject(err);
-  },
+  }
 );
 
 axiosInstance.interceptors.response.use(
@@ -48,7 +48,7 @@ axiosInstance.interceptors.response.use(
       });
     }
     return Promise.reject(err);
-  },
+  }
 );
 
 axiosInstanceWithHeader.interceptors.request.use(
@@ -58,7 +58,7 @@ axiosInstanceWithHeader.interceptors.request.use(
   (err) => {
     toast.error(err.response.data.message);
     return Promise.reject(err);
-  },
+  }
 );
 
 axiosInstanceWithHeader.interceptors.response.use(
@@ -77,7 +77,7 @@ axiosInstanceWithHeader.interceptors.response.use(
       });
     }
     return Promise.reject(err);
-  },
+  }
 );
 
 const [request, requestWithHeader]: RequestsObject[] = createServices([
