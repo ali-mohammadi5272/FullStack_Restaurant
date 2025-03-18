@@ -1,47 +1,32 @@
 import ChefCard from "../ChefCard/ChefCard.tsx";
-import { ChefCardType } from "./chefCards.type.ts";
-import chefImage_1 from "./../../assets/images/image 1.png";
-import chefImage_2 from "./../../assets/images/image 3.png";
-import chefImage_3 from "./../../assets/images/image 2.png";
-import React, { memo } from "react";
+import React, { memo, useEffect, useMemo, useState } from "react";
+import { EmployeeType } from "../../entities/employee.entity.ts";
+import { request } from "../../services/axios/axios.ts";
 
 const ChefCards = (): React.ReactNode => {
-  const chefCards: ChefCardType[] = [
-    {
-      id: 1,
-      name: "Betran Komar",
-      role: "Head chef",
-      img: chefImage_1,
-      imageClassName: "bg-[#C4C4C4]",
-    },
-    {
-      id: 2,
-      name: "Ferry Sauwi",
-      role: "Chef",
-      img: chefImage_2,
-      imageClassName: "bg-[#ffe8cc]",
-    },
-    {
-      id: 3,
-      name: "Iswan Dracho",
-      role: "Chef",
-      img: chefImage_3,
-      imageClassName: "bg-[#dce9e1]",
-    },
-    {
-      id: 4,
-      name: "Betran Komar",
-      role: "Head chef",
-      img: chefImage_1,
-      imageClassName: "bg-[#ebe0d9]",
-    },
-  ];
+  const [chefs, setChefs] = useState<EmployeeType[]>([]);
 
+  const getChefs = async (): Promise<void> => {
+    const response = await request.GET<EmployeeType[]>({
+      url: "/employees",
+      cache: {
+        key: "chefCards-component-unique-key",
+      },
+    });
+
+    setChefs(response.data.data);
+  };
+
+  useEffect(() => {
+    getChefs();
+  }, []);
+
+  const memoChefs: JSX.Element[] = useMemo(() => {
+    return chefs.map((card) => <ChefCard key={card.id} {...card} />);
+  }, [chefs]);
   return (
     <div className="grid justify-center grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 md:gap-6 my-10 sm:my-20">
-      {chefCards.map((card) => (
-        <ChefCard key={card.id} {...card} />
-      ))}
+      {memoChefs}
     </div>
   );
 };
