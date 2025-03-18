@@ -12,10 +12,20 @@ const controller = {
     try {
       const employees = await employeeService.getAll();
 
+      const changedEmployees = employees.map((employee) => {
+        const pathAddress = path.join(
+          process.cwd(),
+          `src/public/images/employees/${employee.image}`
+        );
+        employee.image = pathAddress.replace(/\\/g, "/");
+
+        return employee;
+      });
+
       return res.status(200).send({
         statusCode: 200,
         messages: [],
-        data: employees,
+        data: changedEmployees,
       });
     } catch (err) {
       return res.status(500).send({
