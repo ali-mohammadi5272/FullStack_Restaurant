@@ -10,7 +10,7 @@ const ChefCard: React.FC<ChefCardPropsType> = ({
   return (
     <article className="text-center text-2xl space-y-4 sm:space-y-8">
       <img
-        src={image}
+        src={`${import.meta.env.VITE_BASE_URL}${image}`}
         alt="Employee's Image"
         className="w-full h-auto rounded-[50px]"
       />
