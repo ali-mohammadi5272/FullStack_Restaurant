@@ -1,8 +1,10 @@
+import { EmployeeRoles } from "../../enum/employeeRoles.enum";
+
 interface ChefCardPropsType {
-  name: string;
-  role: string;
-  img: string;
-  imageClassName?: string;
+  firstName: string;
+  lastName: string;
+  role: EmployeeRoles;
+  image: string;
 }
 
 export type { ChefCardPropsType };
