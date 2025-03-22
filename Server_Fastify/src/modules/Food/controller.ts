@@ -66,7 +66,7 @@ const controller = {
       const foods = await foodService.getAll();
 
       const changedFoods = foods.map((food) => {
-        const pathAddress = `/src/public/images/employees/${food.image}`;
+        const pathAddress = `/src/public/images/foods/${food.image}`;
         food.image = pathAddress.replace(/\\/g, "/");
         return food;
       });
