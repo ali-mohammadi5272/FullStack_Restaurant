@@ -65,10 +65,16 @@ const controller = {
     try {
       const foods = await foodService.getAll();
 
+      const changedFoods = foods.map((food) => {
+        const pathAddress = `/src/public/images/employees/${food.image}`;
+        food.image = pathAddress.replace(/\\/g, "/");
+        return food;
+      });
+
       return res.status(200).send({
         statusCode: 200,
         messages: [],
-        data: foods,
+        data: changedFoods,
       });
     } catch (error) {
       return res.status(500).send({
