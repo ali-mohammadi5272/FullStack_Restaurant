@@ -14,7 +14,11 @@ const MenuCard: React.FC<MenuCardPropsType> = ({
   return (
     <article className="bg-gray-50 rounded-[70px] overflow-hidden">
       <section>
-        <img className="w-full h-auto" src={src} alt="Food's Image" />
+        <img
+          className="w-full h-auto"
+          src={`${import.meta.env.VITE_BASE_URL}${src}`}
+          alt="Food's Image"
+        />
       </section>
       <section className="px-7 pb-10 text-center">
         <header>
