@@ -13,7 +13,7 @@ const controller = {
       const employees = await employeeService.getAll();
 
       const changedEmployees = employees.map((employee) => {
-        const pathAddress = `/src/public/images/employees/${employee.image}`;
+        const pathAddress = `/public/images/employees/${employee.image}`;
         employee.image = pathAddress.replace(/\\/g, "/");
         return employee;
       });
