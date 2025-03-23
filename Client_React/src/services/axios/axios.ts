@@ -11,6 +11,8 @@ import {
   SuccessResponse,
 } from "./axios.type.ts";
 
+sessionStorage.clear();
+
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL_API,
 });
