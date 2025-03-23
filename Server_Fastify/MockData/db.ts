@@ -91,21 +91,23 @@ export const db: DatabaseType = {
   foods: [
     {
       id: 1,
-      title: "Veggie Garden",
-      price: 150,
+      title: "Spaghetti",
+      price: 9,
       foodType: FoodTypes.PASTA,
-      image: "default.png",
-      description: "This is a description",
+      image: "1742631686200-682.509074109571-image_4.png",
+      description:
+        "Lorem ipsum dooolllor sittt ammmet, consectetur adipiscing elit. Egestas consequat mi eget auctor diam.",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
       id: 2,
       title: "Penne Alla Vodak",
-      price: 100,
+      price: 11,
       foodType: FoodTypes.PASTA,
-      image: "default.png",
-      description: "This is a description",
+      image: "1742631628508-488.72727925433384-image_2.png",
+      description:
+        "Lorem ipsum dooolllor sittt ammmet, consectetur adipiscing elit. Egestas consequat mi eget auctor diam.",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
