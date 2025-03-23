@@ -43,7 +43,7 @@ const controller = {
       const fileName = `${Date.now()}-${Math.random() * 789}-${file.name}`;
       const pathAddress = path.join(
         process.cwd(),
-        "src/public/images/employees/",
+        "public/images/employees/",
         `${fileName}`
       );
 
