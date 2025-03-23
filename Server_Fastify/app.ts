@@ -17,7 +17,7 @@ const server = fastify();
 server.register(cors, { origin: "*" });
 server.register(fastifyStatic, {
   root: path.join(__dirname, "/public"),
-  prefix: "/public/",
+  prefix: "/public",
 });
 server.register(fastifyMultipart, { attachFieldsToBody: true });
 
