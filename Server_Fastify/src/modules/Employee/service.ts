@@ -1,5 +1,7 @@
-import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 import Employee from "./model";
+import { CreateOneEmployeeDto } from "./dto/create-one.dto";
+import { Op } from "sequelize";
+import { GetAllEmployeesQueryStringDto } from "./dto/get-all.dto";
 
 const service = {
   async createOne(body: CreateOneEmployeeDto) {
@@ -17,8 +19,24 @@ const service = {
     });
   },
 
-  async getAll() {
-    return await Employee.findAll({ raw: true });
+  async getAll(configs: GetAllEmployeesQueryStringDto) {
+    if (configs.limit && configs.page) {
+      return await Employee.findAll({
+        where: {
+          [Op.or]: configs["roles[]"].map((role) => ({ role })),
+        },
+        limit: +configs.limit,
+        offset: (+configs.page - 1) * +configs.limit,
+        raw: true,
+      });
+    }
+
+    return await Employee.findAll({
+      where: {
+        [Op.or]: configs["roles[]"].map((role) => ({ role })),
+      },
+      raw: true,
+    });
   },
 
   async removeOne(employeeId: number) {
