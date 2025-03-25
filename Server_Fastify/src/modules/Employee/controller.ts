@@ -6,11 +6,17 @@ import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 import { EmployeeRoles } from "./enum/employeeRoles.enum";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { RemoveOneEmployeeParamsDto } from "./dto/remove-one.dto";
+import { GetAllEmployeesQueryStringDto } from "./dto/get-all.dto";
 
 const controller = {
-  async getAll(_: FastifyRequest, res: FastifyReply) {
+  async getAll(
+    req: FastifyRequest<{
+      Querystring: GetAllEmployeesQueryStringDto;
+    }>,
+    res: FastifyReply
+  ) {
     try {
-      const employees = await employeeService.getAll();
+      const employees = await employeeService.getAll(req.query);
 
       const changedEmployees = employees.map((employee) => {
         const pathAddress = `/public/images/employees/${employee.image}`;
