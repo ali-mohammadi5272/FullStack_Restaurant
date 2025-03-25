@@ -3,7 +3,7 @@ import refreshTokenService from "../RefreshToken/service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType } from "../User/dto/create-one.dto";
 import { LoginDtoType } from "./dto/login.dto";
-import { AuthenticatedRequest } from "../../types/AuthenticatedRequest";
+import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
 import {
   generateAccessToken,
   generateRefreshToken,
