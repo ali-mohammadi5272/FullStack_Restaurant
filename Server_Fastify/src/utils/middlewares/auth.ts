@@ -1,7 +1,7 @@
 import userService from "./../../modules/User/service";
 import { FastifyReply } from "fastify";
 import { getAccessTokenPayload } from "../helperFuncs/helperFuncs";
-import { AuthenticatedRequest } from "../../types/AuthenticatedRequest";
+import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
 import { AccessTokenPayloadType } from "../helperFuncs/helperFuncs.type";
 
 const auth = async (req: AuthenticatedRequest, res: FastifyReply) => {
