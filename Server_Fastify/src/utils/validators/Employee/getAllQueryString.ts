@@ -5,7 +5,7 @@ const employeeRoles = Object.values(EmployeeRoles);
 
 const getAllEmployeesQueryStringSchema = object().shape({
   limit: number().min(1),
-  offset: number().min(0),
+  page: number().min(1),
   "roles[]": array()
     .of(
       mixed<EmployeeRoles>()
