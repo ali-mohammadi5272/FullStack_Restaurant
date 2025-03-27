@@ -1,3 +1,4 @@
+import { sequelize } from "../../configs/db";
 import {
   CreationOptional,
   DataTypes,
@@ -5,7 +6,6 @@ import {
   InferCreationAttributes,
   Model,
 } from "sequelize";
-import { sequelize } from "../../configs/db";
 
 class Category extends Model<
   InferAttributes<Category>,
@@ -33,19 +33,19 @@ Category.init(
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: new Date(),
+      defaultValue: DataTypes.NOW,
     },
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: new Date(),
+      defaultValue: DataTypes.NOW,
     },
   },
   {
     tableName: "categories",
     timestamps: true,
     sequelize,
-  },
+  }
 );
 
 export default Category;
