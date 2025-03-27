@@ -1,4 +1,5 @@
 import { sequelize } from "../../configs/db";
+import { Category } from "../associations";
 import { FoodTypes } from "./enum/foodTypes.enum";
 import {
   DataTypes,
@@ -17,6 +18,12 @@ class Food extends Model<InferAttributes<Food>, InferCreationAttributes<Food>> {
   declare description: string;
   declare createdAt: CreationOptional<Date>;
   declare updatedAt: CreationOptional<Date>;
+
+  declare getCategories: () => Promise<Category[]>;
+  declare addCategory: (category: Category) => Promise<Category>;
+  declare addCategories: (categories: Category[]) => Promise<Category[]>;
+  declare removeCategory: (categories: Category) => Promise<void>;
+  declare removeCategories: (categories: Category[]) => Promise<void>;
 }
 
 Food.init(
