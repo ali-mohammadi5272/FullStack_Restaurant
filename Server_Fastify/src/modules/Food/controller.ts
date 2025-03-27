@@ -47,7 +47,7 @@ const controller = {
 
       return res.status(201).send({
         statusCode: 201,
-        data: [],
+        data: null,
         messages: ["Food created successfully"],
       });
     } catch (error) {
