@@ -4,6 +4,7 @@ import Food from "./Food/model";
 import Category from "./Category/model";
 import FoodCategory from "./FoodCategory/model";
 import Contact from "./ContactUs/model";
+import Employee from "./Employee/model";
 
 User.hasMany(RefreshToken, {
   foreignKey: "user_id",
@@ -25,4 +26,4 @@ Food.belongsToMany(Category, {
   as: "categories",
 });
 
-export { User, RefreshToken, Food, Category, FoodCategory, Contact };
+export { User, RefreshToken, Food, Category, FoodCategory, Contact, Employee };
