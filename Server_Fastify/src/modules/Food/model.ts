@@ -40,12 +40,7 @@ Food.init(
     },
 
     foodType: {
-      type: DataTypes.ENUM(
-        FoodTypes.PASTA,
-        FoodTypes.PIZZA,
-        FoodTypes.RICE,
-        FoodTypes.SOUP
-      ),
+      type: DataTypes.ENUM(...Object.values(FoodTypes)),
       allowNull: false,
     },
 
