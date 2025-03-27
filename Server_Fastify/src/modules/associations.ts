@@ -9,7 +9,6 @@ import Employee from "./Employee/model";
 User.hasMany(RefreshToken, {
   foreignKey: "user_id",
 });
-
 RefreshToken.belongsTo(User, { foreignKey: "user_id" });
 
 Category.belongsToMany(Food, {
@@ -18,7 +17,6 @@ Category.belongsToMany(Food, {
   otherKey: "food_id",
   as: "foods",
 });
-
 Food.belongsToMany(Category, {
   through: FoodCategory,
   foreignKey: "food_id",
