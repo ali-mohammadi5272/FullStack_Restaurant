@@ -1,6 +1,6 @@
+import { Contact } from "../associations";
 import { CreateOneDto } from "./dto/create-one.dto";
 import { AnsweredTypes } from "./enum/answered.enum";
-import Contact from "./model";
 
 const service = {
   async getAll() {
