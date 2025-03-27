@@ -7,6 +7,10 @@ const service = {
     return await Food.create(body);
   },
 
+  async getOneByTitle(title: string) {
+    return await Food.findOne({ where: { title } });
+  },
+
   async getAll() {
     return await Food.findAll({
       where: {},
