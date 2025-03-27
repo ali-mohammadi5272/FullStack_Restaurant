@@ -5,7 +5,7 @@ const createFoodSchema = object().shape({
   title: string().min(2).required(),
   price: number().min(0).required(),
   description: string().min(2).required(),
-  categories: array().of(number().required()).required(),
+  categories: array().of(number().required()).min(1).required(),
   foodType: mixed<FoodTypes>()
     .oneOf([FoodTypes.PASTA, FoodTypes.PIZZA, FoodTypes.RICE, FoodTypes.SOUP])
     .required(),
