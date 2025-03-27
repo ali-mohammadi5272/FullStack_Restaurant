@@ -47,12 +47,7 @@ Employee.init(
     },
 
     role: {
-      type: DataTypes.ENUM(
-        EmployeeRoles.CHEF,
-        EmployeeRoles.HEAD_CHEF,
-        EmployeeRoles.MANAGER,
-        EmployeeRoles.WAITER
-      ),
+      type: DataTypes.ENUM(...Object.values(EmployeeRoles)),
       allowNull: false,
     },
 
