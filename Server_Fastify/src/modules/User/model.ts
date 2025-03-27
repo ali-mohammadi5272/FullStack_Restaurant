@@ -1,4 +1,3 @@
-import RefreshToken from "../RefreshToken/model";
 import { sequelize } from "../../configs/db";
 import { Roles } from "./enum/roles.enum";
 import { hashPassword } from "../../utils/helperFuncs/helperFuncs";
@@ -72,12 +71,6 @@ User.init(
   },
   { tableName: "users", timestamps: true, sequelize }
 );
-
-User.hasMany(RefreshToken, {
-  foreignKey: "user_id",
-});
-
-RefreshToken.belongsTo(User, { foreignKey: "user_id" });
 
 User.beforeCreate(async (user) => {
   const hashedPassword: string = await hashPassword(user.password);
