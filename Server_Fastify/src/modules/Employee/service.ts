@@ -1,4 +1,4 @@
-import Employee from "./model";
+import { Employee } from "../associations";
 import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 import { Op } from "sequelize";
 import { GetAllEmployeesQueryStringDto } from "./dto/get-all.dto";
