@@ -1,5 +1,3 @@
-import Food from "../Food/model";
-import Category from "../Category/model";
 import { sequelize } from "../../configs/db";
 import {
   CreationOptional,
@@ -29,23 +27,11 @@ FoodCategory.init(
     food_id: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      references: {
-        model: Food,
-        key: "id",
-      },
-      onDelete: "CASCADE",
-      onUpdate: "CASCADE",
     },
 
     category_id: {
       type: DataTypes.SMALLINT.UNSIGNED,
       allowNull: false,
-      references: {
-        model: Category,
-        key: "id",
-      },
-      onDelete: "CASCADE",
-      onUpdate: "CASCADE",
     },
   },
   {
