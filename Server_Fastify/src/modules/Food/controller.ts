@@ -1,10 +1,8 @@
-import FoodCategoryService from "../FoodCategory/service";
 import fs from "node:fs";
 import path from "node:path";
 import foodService from "./service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType as CreateOneFoodDtoType } from "./dto/create-one.dto";
-import { CreateOneDtoType as CreateOneFoodCategoryDtoType } from "./../FoodCategory/dto/create-one.dto";
 import { FoodTypes } from "./enum/foodTypes.enum";
 
 const controller = {
@@ -36,27 +34,16 @@ const controller = {
 
       fs.writeFileSync(pathAddress, buffer);
 
-      const body: Omit<CreateOneFoodDtoType, "categories"> = {
+      const body: CreateOneFoodDtoType = {
         title: formData.get("title") as string,
         price: JSON.parse(formData.get("price") as string) as number,
         foodType: formData.get("foodType") as FoodTypes,
         description: formData.get("description") as string,
+        categories: JSON.parse(formData.get("categories") as string),
         image: fileName,
       };
 
-      const food = await foodService.createOne(body);
-
-      const categories: number[] = JSON.parse(
-        formData.get("categories") as string
-      );
-
-      const createFoodsCategoriesDto: CreateOneFoodCategoryDtoType[] =
-        categories.map((category) => ({
-          food_id: food.id,
-          category_id: category,
-        }));
-
-      await FoodCategoryService.createMany(createFoodsCategoriesDto);
+      await foodService.createOne(body);
 
       return res.status(201).send({
         statusCode: 201,
