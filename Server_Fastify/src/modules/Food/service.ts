@@ -1,6 +1,6 @@
-import Food from "./model";
+import { Food } from "../associations";
+import { Category } from "../associations";
 import { CreateOneDtoType } from "./dto/create-one.dto";
-import Category from "../Category/model";
 
 const service = {
   async createOne(body: Omit<CreateOneDtoType, "categories">) {
