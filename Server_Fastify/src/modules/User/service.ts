@@ -1,4 +1,4 @@
-import User from "./model";
+import { User } from "../associations";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 import { Roles } from "./enum/roles.enum";
 import { Op } from "sequelize";
