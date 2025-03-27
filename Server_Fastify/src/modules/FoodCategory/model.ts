@@ -60,16 +60,4 @@ FoodCategory.init(
   }
 );
 
-Category.belongsToMany(Food, {
-  through: FoodCategory,
-  as: "foods",
-  foreignKey: "category_id",
-});
-
-Food.belongsToMany(Category, {
-  through: FoodCategory,
-  as: "categories",
-  foreignKey: "food_id",
-});
-
 export default FoodCategory;
