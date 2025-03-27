@@ -19,6 +19,14 @@ const service = {
     return await Category.findAll();
   },
 
+  async getByIds(categoryIds: number[]) {
+    return await Category.findAll({
+      where: {
+        id: categoryIds,
+      },
+    });
+  },
+
   async createOne(body: CreateOneDtoType) {
     return await Category.create(body);
   },
