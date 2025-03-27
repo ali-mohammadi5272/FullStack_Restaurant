@@ -47,7 +47,7 @@ User.init(
     },
 
     role: {
-      type: DataTypes.ENUM(Roles.ADMIN, Roles.USER),
+      type: DataTypes.ENUM(...Object.values(Roles)),
       allowNull: false,
       defaultValue: Roles.USER,
     },
