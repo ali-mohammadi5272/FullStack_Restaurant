@@ -51,11 +51,7 @@ Contact.init(
       allowNull: false,
     },
     answered: {
-      type: DataTypes.ENUM(
-        AnsweredTypes.PENDING,
-        AnsweredTypes.ANSWERED,
-        AnsweredTypes.REJECTED
-      ),
+      type: DataTypes.ENUM(...Object.values(AnsweredTypes)),
       allowNull: false,
       defaultValue: AnsweredTypes.PENDING,
     },
