@@ -1,5 +1,6 @@
 import { EmployeeRoles } from "./enum/employeeRoles.enum";
 import { sequelize } from "../../configs/db";
+import { Genders } from "../User/enum/genders.enum";
 import {
   CreationOptional,
   DataTypes,
@@ -7,7 +8,6 @@ import {
   InferCreationAttributes,
   Model,
 } from "sequelize";
-import { Genders } from "../User/enum/genders.enum";
 
 class Employee extends Model<
   InferAttributes<Employee>,
@@ -58,13 +58,13 @@ Employee.init(
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: new Date(),
+      defaultValue: DataTypes.NOW,
     },
 
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: new Date(),
+      defaultValue: DataTypes.NOW,
     },
   },
   {
