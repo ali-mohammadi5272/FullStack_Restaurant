@@ -1,4 +1,4 @@
-import RefreshToken from "./model";
+import { RefreshToken } from "../associations";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 
 const service = {
