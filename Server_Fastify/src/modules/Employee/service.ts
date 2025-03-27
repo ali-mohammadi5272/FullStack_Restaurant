@@ -20,21 +20,12 @@ const service = {
   },
 
   async getAll(configs: GetAllEmployeesQueryStringDto) {
-    if (configs.limit && configs.page) {
-      return await Employee.findAll({
-        where: {
-          [Op.or]: configs["roles[]"].map((role) => ({ role })),
-        },
-        limit: +configs.limit,
-        offset: (+configs.page - 1) * +configs.limit,
-        raw: true,
-      });
-    }
-
     return await Employee.findAll({
       where: {
         [Op.or]: configs["roles[]"].map((role) => ({ role })),
       },
+      limit: +configs.limit,
+      offset: (+configs.page - 1) * +configs.limit,
       raw: true,
     });
   },
