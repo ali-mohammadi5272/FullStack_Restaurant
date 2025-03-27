@@ -2,6 +2,7 @@ import ChefCard from "../ChefCard/ChefCard.tsx";
 import React, { memo, useEffect, useMemo, useState } from "react";
 import { EmployeeType } from "../../entities/employee.entity.ts";
 import { request } from "../../services/axios/axios.ts";
+import { EmployeeRoles } from "../../enum/employeeRoles.enum.ts";
 
 const ChefCards = (): React.ReactNode => {
   const [chefs, setChefs] = useState<EmployeeType[]>([]);
@@ -11,6 +12,13 @@ const ChefCards = (): React.ReactNode => {
       url: "/employees",
       cache: {
         key: "chefCards-component-unique-key",
+      },
+      configs: {
+        params: {
+          roles: [EmployeeRoles.HEAD_CHEF, EmployeeRoles.CHEF],
+          limit: 4,
+          page: 1,
+        },
       },
     });
 
