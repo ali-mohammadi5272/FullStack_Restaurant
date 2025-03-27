@@ -4,8 +4,8 @@ import { EmployeeRoles } from "../../../modules/Employee/enum/employeeRoles.enum
 const employeeRoles = Object.values(EmployeeRoles);
 
 const getAllEmployeesQueryStringSchema = object().shape({
-  limit: number().min(1),
-  page: number().min(1),
+  limit: number().min(1).required(),
+  page: number().min(1).required(),
   "roles[]": array()
     .of(
       mixed<EmployeeRoles>()
