@@ -1,4 +1,4 @@
-import Food from "../src/modules/Food/model";
+import { Food } from "../src/modules/associations";
 import { db } from "../MockData/db";
 
 const seed = async () => {

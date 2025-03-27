@@ -1,4 +1,4 @@
-import Employee from "../src/modules/Employee/model";
+import { Employee } from "../src/modules/associations";
 import { db } from "../MockData/db";
 
 const seed = async () => {

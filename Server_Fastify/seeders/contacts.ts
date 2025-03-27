@@ -1,4 +1,4 @@
-import Contact from "../src/modules/ContactUs/model";
+import { Contact } from "../src/modules/associations";
 import { db } from "../MockData/db";
 
 const seed = async () => {

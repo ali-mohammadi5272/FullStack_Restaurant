@@ -1,4 +1,4 @@
-import Category from "../src/modules/Category/model";
+import { Category } from "../src/modules/associations";
 import { db } from "../MockData/db";
 
 const seed = async () => {
