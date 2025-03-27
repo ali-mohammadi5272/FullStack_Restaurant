@@ -60,13 +60,13 @@ User.init(
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: new Date(),
+      defaultValue: DataTypes.NOW,
     },
 
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: new Date(),
+      defaultValue: DataTypes.NOW,
     },
   },
   { tableName: "users", timestamps: true, sequelize }
