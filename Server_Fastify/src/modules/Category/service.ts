@@ -1,4 +1,4 @@
-import Category from "./model";
+import { Category } from "../associations";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 import { UpdateOneDto } from "./dto/update-one.dto";
 
