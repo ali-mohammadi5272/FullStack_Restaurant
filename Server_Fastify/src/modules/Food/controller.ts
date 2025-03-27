@@ -11,6 +11,17 @@ const controller = {
   async createOne(req: FastifyRequest, res: FastifyReply) {
     try {
       const formData: FormData = await req.formData();
+
+      const title = formData.get("title") as string;
+      const isFoodExistsBefore = await foodService.getOneByTitle(title);
+      if (isFoodExistsBefore) {
+        return res.status(400).send({
+          statusCode: 400,
+          error: "Duplicated Food",
+          messages: ["Food already exists"],
+        });
+      }
+
       const file = formData.get("file") as File;
 
       const arrayBuffer = await file.arrayBuffer();
