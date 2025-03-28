@@ -1,5 +1,5 @@
 import { User } from "../associations";
-import { CreateOneDtoType } from "./dto/create-one.dto";
+import { RegisterUserDto } from "../Auth/dto/register.dto";
 import { Roles } from "./enum/roles.enum";
 import { Op } from "sequelize";
 
@@ -32,7 +32,7 @@ const service = {
     });
   },
 
-  async createOne(body: CreateOneDtoType) {
+  async createOne(body: RegisterUserDto) {
     const usersCount = await this.getAllCount();
 
     return await User.create({
