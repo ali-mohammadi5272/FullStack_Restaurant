@@ -1,7 +1,7 @@
 import userService from "../User/service";
 import refreshTokenService from "../RefreshToken/service";
 import { FastifyReply, FastifyRequest } from "fastify";
-import { CreateOneDtoType } from "../User/dto/create-one.dto";
+import { RegisterUserDto } from "./dto/register.dto";
 import { LoginDtoType } from "./dto/login.dto";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
 import {
@@ -12,7 +12,7 @@ import {
 
 const controller = {
   async register(
-    req: FastifyRequest<{ Body: CreateOneDtoType }>,
+    req: FastifyRequest<{ Body: RegisterUserDto }>,
     res: FastifyReply
   ) {
     try {
