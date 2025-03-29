@@ -90,6 +90,55 @@ const createServices = (instances: AxiosInstance[]): RequestsObject[] =>
         return response;
       },
 
+      GETALL: async <D>(req: Request) => {
+        if (!req.cache) {
+          const response = await instance.get<D, AxiosResponse<D>>(
+            req.url,
+            req.configs
+          );
+          return response;
+        }
+
+        const cachedResponse = sessionStorage.getItem(req.cache.key);
+
+        if (!(req.cache.revalidate && req.cache.revalidate > 0)) {
+          if (!cachedResponse) {
+            const response = await instance.get<D, AxiosResponse<D>>(
+              req.url,
+              req.configs
+            );
+            sessionStorage.setItem(req.cache.key, JSON.stringify(response));
+
+            return response;
+          }
+
+          return JSON.parse(cachedResponse);
+        }
+
+        const cachedResponseRevalidate = sessionStorage.getItem(
+          `${req.cache.key}-revalidate`
+        );
+        const needRevalidate = !(
+          cachedResponse &&
+          cachedResponseRevalidate &&
+          JSON.parse(cachedResponseRevalidate) > Date.now()
+        );
+        if (!needRevalidate) {
+          return JSON.parse(cachedResponse);
+        }
+
+        const response = await instance.get<D, AxiosResponse<D>>(
+          req.url,
+          req.configs
+        );
+        sessionStorage.setItem(req.cache.key, JSON.stringify(response));
+        sessionStorage.setItem(
+          `${req.cache.key}-revalidate`,
+          JSON.stringify(Date.now() + req.cache.revalidate)
+        );
+        return response;
+      },
+
       DELETE: async <D>(req: Omit<Request, "cache">) => {
         return await instance.delete<D, AxiosResponse<D>>(req.url, req.configs);
       },
