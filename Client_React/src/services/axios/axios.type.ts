@@ -12,6 +12,11 @@ interface ErrorResponse {
   error: string;
 }
 
+interface PaginationQueryStrings {
+  limit: number;
+  page: number;
+}
+
 interface RequestsObject {
   POST: <D, B>(
     req: RequestWithBody<B>
@@ -26,6 +31,10 @@ interface RequestsObject {
   ) => Promise<AxiosResponse<SuccessResponse<D>>>;
 
   GET: <D>(req: Request) => Promise<AxiosResponse<SuccessResponse<D>>>;
+
+  GETALL: <D>(
+    req: Request<{ params: PaginationQueryStrings }>
+  ) => Promise<AxiosResponse<SuccessResponse<D>>>;
 }
 
 interface CacheType {
@@ -33,9 +42,9 @@ interface CacheType {
   revalidate?: number;
 }
 
-interface Request {
+interface Request<Q = unknown> {
   url: string;
-  configs?: Pick<AxiosRequestConfig, "headers" | "params" | "auth">;
+  configs?: Pick<AxiosRequestConfig, "headers" | "params" | "auth"> & Q;
   cache?: CacheType;
 }
 
