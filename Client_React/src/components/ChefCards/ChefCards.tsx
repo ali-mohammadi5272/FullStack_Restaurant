@@ -8,7 +8,7 @@ const ChefCards = (): React.ReactNode => {
   const [chefs, setChefs] = useState<EmployeeType[]>([]);
 
   const getChefs = async (): Promise<void> => {
-    const response = await request.GETALL<EmployeeType[]>({
+    const response = await request.GET<EmployeeType[]>({
       url: "/employees",
       cache: {
         key: "chefCards-component-unique-key",
