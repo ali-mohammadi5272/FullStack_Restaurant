@@ -30,10 +30,8 @@ interface RequestsObject {
     req: Omit<Request, "cache">
   ) => Promise<AxiosResponse<SuccessResponse<D>>>;
 
-  GET: <D>(req: Request) => Promise<AxiosResponse<SuccessResponse<D>>>;
-
-  GETALL: <D>(
-    req: Request<{ params: PaginationQueryStrings }>
+  GET: <D>(
+    req: Request<{ params: Partial<PaginationQueryStrings> }>
   ) => Promise<AxiosResponse<SuccessResponse<D>>>;
 }
 
