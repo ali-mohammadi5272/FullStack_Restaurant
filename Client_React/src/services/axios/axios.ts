@@ -1,15 +1,11 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+import axios, { AxiosInstance } from "axios";
 import { CookieEnum } from "../../utils/helperFuncs/helperFuncs.type.ts";
 import { toast } from "react-toastify";
+import { RequestsObject } from "./axios.type.ts";
 import {
   createServices,
   getCookie,
 } from "../../utils/helperFuncs/helperFuncs.ts";
-import {
-  ErrorResponse,
-  RequestsObject,
-  SuccessResponse,
-} from "./axios.type.ts";
 
 sessionStorage.clear();
 
@@ -35,20 +31,12 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
-  (response: AxiosResponse<SuccessResponse<unknown>>) => {
-    response.data.messages.forEach((message) => {
-      toast.success(message);
-    });
+  (response) => {
+    toast.success(response.data.message);
     return response;
   },
-  (err: AxiosError<ErrorResponse>) => {
-    if (err.code === "ERR_NETWORK") {
-      toast.error(err.message);
-    } else {
-      err.response?.data.messages.forEach((message) => {
-        toast.error(message);
-      });
-    }
+  (err) => {
+    toast.error(err.response.data.message);
     return Promise.reject(err);
   }
 );
@@ -64,20 +52,12 @@ axiosInstanceWithHeader.interceptors.request.use(
 );
 
 axiosInstanceWithHeader.interceptors.response.use(
-  (response: AxiosResponse<SuccessResponse<unknown>>) => {
-    response.data.messages.forEach((message) => {
-      toast.success(message);
-    });
+  (response) => {
+    toast.success(response.data.message);
     return response;
   },
-  (err: AxiosError<ErrorResponse>) => {
-    if (err.code === "ERR_NETWORK") {
-      toast.error(err.message);
-    } else {
-      err.response?.data.messages.forEach((message) => {
-        toast.error(message);
-      });
-    }
+  (err) => {
+    toast.error(err.response.data.message);
     return Promise.reject(err);
   }
 );
