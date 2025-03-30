@@ -111,11 +111,7 @@ const controller = {
         },
       });
     } catch (error) {
-      return res.status(500).send({
-        statusCode: 500,
-        error,
-        messages: ["Internal Server Error"],
-      });
+      throw createHttpError.InternalServerError();
     }
   },
 
