@@ -3,11 +3,12 @@ import createFoodSchema from "../../utils/validators/Food/createOne";
 import { FastifyInstance } from "fastify";
 import { formDataValidator } from "../../utils/middlewares/formDataValidator";
 import { CreateOneDtoType } from "./dto/create-one.dto";
-import { ImageFormats } from "./enum/imageFormats.enum";
 import { fileValidator } from "../../utils/middlewares/fileValidator";
 import { auth } from "../../utils/middlewares/auth";
 import { roleAccess } from "../../utils/middlewares/roleAccess";
 import { Roles } from "../User/enum/roles.enum";
+import { FileTypes } from "../../enums/fileFormats.enum";
+import { ImageFormats } from "./enum/imageFormats.enum";
 
 const router = (server: FastifyInstance) => {
   server.post(
@@ -21,11 +22,11 @@ const router = (server: FastifyInstance) => {
           "categories",
         ]),
         fileValidator([
-          ImageFormats.jpeg,
-          ImageFormats.jpg,
-          ImageFormats.png,
-          ImageFormats.svg,
-          ImageFormats.webp,
+          {
+            key: "image",
+            fileType: FileTypes.IMAGE,
+            formats: Object.values(ImageFormats),
+          },
         ]),
       ],
     },
