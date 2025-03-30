@@ -10,7 +10,7 @@ const auth = async (req: AuthenticatedRequest) => {
       throw new Unauthorized();
     }
 
-    const token = req.headers.authorization.split("Bearer ")[1];
+    const token = req.headers.authorization.replace("Bearer ", "");
     if (!token) {
       throw new Unauthorized();
     }
