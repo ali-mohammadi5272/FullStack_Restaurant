@@ -1,9 +1,11 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { env } from "../env/env";
+import { FastifyReply } from "fastify";
 import {
   AccessTokenPayloadType,
   RefreshTokenPayloadType,
+  SuccessResponseConfigs,
 } from "./helperFuncs.type";
 
 const generateAccessToken = (
@@ -63,6 +65,17 @@ const isValidHashedPassword = async (
   return isValidPassword;
 };
 
+const createSuccessResponse = (
+  res: FastifyReply,
+  configs: SuccessResponseConfigs
+) => {
+  return res.status(configs.statusCode).send({
+    statusCode: configs.statusCode,
+    message: configs.message,
+    data: configs.data,
+  });
+};
+
 export {
   generateAccessToken,
   generateRefreshToken,
@@ -71,4 +84,5 @@ export {
   decodedToken,
   hashPassword,
   isValidHashedPassword,
+  createSuccessResponse,
 };

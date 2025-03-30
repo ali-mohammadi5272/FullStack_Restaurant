@@ -10,3 +10,9 @@ export interface RefreshTokenPayloadType {
   iat: number;
   exp: number;
 }
+
+export interface SuccessResponseConfigs {
+  statusCode: number;
+  message: string;
+  data: unknown;
+}
