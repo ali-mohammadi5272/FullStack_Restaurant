@@ -6,6 +6,7 @@ import { LoginDtoType } from "./dto/login.dto";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
 import createHttpError from "http-errors";
 import {
+  createSuccessResponse,
   generateAccessToken,
   generateRefreshToken,
   isValidHashedPassword,
@@ -44,7 +45,7 @@ const controller = {
         user_id: newUser.id,
       });
 
-      return res.status(201).send({
+      return createSuccessResponse(res, {
         statusCode: 201,
         message: "User registered successfully",
         data: {
