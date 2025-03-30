@@ -1,10 +1,10 @@
 import userService from "../User/service";
 import refreshTokenService from "../RefreshToken/service";
+import createHttpError from "http-errors";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { RegisterUserDto } from "./dto/register.dto";
 import { LoginDtoType } from "./dto/login.dto";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
-import createHttpError from "http-errors";
 import {
   createSuccessResponse,
   generateAccessToken,
@@ -61,7 +61,9 @@ const controller = {
     const user = await userService.getOneByIdentifier(req.body.identifier);
 
     if (!user) {
-      throw new createHttpError.NotFound("User not Found");
+      throw new createHttpError.BadRequest(
+        "Username/Email or Password is not valid"
+      );
     }
 
     const isValidPassword = await isValidHashedPassword(
