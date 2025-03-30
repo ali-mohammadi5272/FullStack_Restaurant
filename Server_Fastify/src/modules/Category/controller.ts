@@ -28,9 +28,9 @@ const controller = {
   async getAll(_: FastifyRequest, res: FastifyReply) {
     const categories = await categoryService.getAll();
 
-    return res.status(200).send({
+    return createSuccessResponse(res, {
       statusCode: 200,
-      messages: [],
+      message: null,
       data: categories,
     });
   },
