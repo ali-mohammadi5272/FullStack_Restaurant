@@ -18,28 +18,13 @@ const controller = {
     req: FastifyRequest<{ Body: CreateContactOneDto }>,
     res: FastifyReply
   ) {
-    try {
-      const contact = await contactService.createOne(req.body);
-      if (!contact) {
-        return res.status(500).send({
-          statusCode: 500,
-          error: "Internal Server Error",
-          messages: ["Internal Server Error"],
-        });
-      }
+    await contactService.createOne(req.body);
 
-      return res.status(201).send({
-        statusCode: 201,
-        data: null,
-        messages: ["Message sent successfully"],
-      });
-    } catch (error) {
-      return res.status(500).send({
-        statusCode: 500,
-        error: "Internal Server Error",
-        messages: ["Internal Server Error"],
-      });
-    }
+    return createSuccessResponse(res, {
+      statusCode: 201,
+      message: "Message sent successfully",
+      data: null,
+    });
   },
 };
 
