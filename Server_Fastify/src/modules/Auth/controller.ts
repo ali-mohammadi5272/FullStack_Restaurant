@@ -96,7 +96,7 @@ const controller = {
 
       return res.status(200).send({
         statusCode: 200,
-        messages: ["Login successfully"],
+        message: "Login successfully",
         data: {
           refreshToken,
           accessToken,
