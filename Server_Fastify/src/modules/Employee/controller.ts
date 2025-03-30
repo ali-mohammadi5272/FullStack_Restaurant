@@ -8,7 +8,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { RemoveOneEmployeeParamsDto } from "./dto/remove-one.dto";
 import { GetAllEmployeesQueryStringDto } from "./dto/get-all.dto";
 import { createSuccessResponse } from "../../utils/helperFuncs/helperFuncs";
-import { BadRequest } from "http-errors";
+import { BadRequest, NotFound } from "http-errors";
 
 const controller = {
   async getAll(
@@ -78,7 +78,12 @@ const controller = {
     req: FastifyRequest<{ Params: RemoveOneEmployeeParamsDto }>,
     res: FastifyReply
   ) {
-    await employeeService.removeOne(req.params.employeeId);
+    const employee = await employeeService.getOneById(req.params.employeeId);
+    if (!employee) {
+      throw new NotFound("Employee not found");
+    }
+
+    await employeeService.removeOne(employee.id);
 
     return createSuccessResponse(res, {
       statusCode: 200,
