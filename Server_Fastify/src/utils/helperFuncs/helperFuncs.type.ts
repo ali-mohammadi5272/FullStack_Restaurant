@@ -13,6 +13,6 @@ export interface RefreshTokenPayloadType {
 
 export interface SuccessResponseConfigs {
   statusCode: number;
-  message: string;
+  message: string | null;
   data: unknown;
 }
