@@ -1,6 +1,6 @@
 import userService from "../User/service";
 import refreshTokenService from "../RefreshToken/service";
-import createHttpError from "http-errors";
+import { BadRequest } from "http-errors";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { RegisterUserDto } from "./dto/register.dto";
 import { LoginDtoType } from "./dto/login.dto";
@@ -23,7 +23,7 @@ const controller = {
     }));
 
     if (isUserExistBefore) {
-      throw new createHttpError.BadRequest(
+      throw new BadRequest(
         "You have been registered with this Username or Email"
       );
     }
@@ -61,9 +61,7 @@ const controller = {
     const user = await userService.getOneByIdentifier(req.body.identifier);
 
     if (!user) {
-      throw new createHttpError.BadRequest(
-        "Username/Email or Password is not valid"
-      );
+      throw new BadRequest("Username/Email or Password is not valid");
     }
 
     const isValidPassword = await isValidHashedPassword(
@@ -72,9 +70,7 @@ const controller = {
     );
 
     if (!isValidPassword) {
-      throw new createHttpError.BadRequest(
-        "Username/Email or Password is not valid"
-      );
+      throw new BadRequest("Username/Email or Password is not valid");
     }
 
     const refreshToken = generateRefreshToken({
