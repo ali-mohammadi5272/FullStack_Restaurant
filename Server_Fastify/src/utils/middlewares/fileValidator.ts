@@ -1,17 +1,26 @@
 import { FastifyRequest } from "fastify";
 import { ImageFormats } from "../../modules/Food/enum/imageFormats.enum";
 import { BadRequest } from "http-errors";
+import { FileTypes } from "../../enums/fileFormats.enum";
+
+interface FileValidatorConfig {
+  fileType: FileTypes;
+  key: string;
+  formats: ImageFormats[];
+}
 
 const fileValidator =
-  (validFormats: ImageFormats[]) => async (req: FastifyRequest) => {
+  (configs: FileValidatorConfig[]) => async (req: FastifyRequest) => {
     const formData = await req.formData();
 
-    const file = formData.get("file") as File | null;
+    for (const config of configs) {
+      const file = formData.get(config.key) as File | null;
+      if (file) {
+        const isValidFormat = config.formats.includes(<ImageFormats>file.type);
 
-    if (file) {
-      const isValidFormat = validFormats.includes(file.type as ImageFormats);
-      if (!isValidFormat) {
-        throw new BadRequest("Image's Format is not valid");
+        if (!isValidFormat) {
+          throw new BadRequest(`${config.fileType}'s Format is not valid`);
+        }
       }
     }
   };
