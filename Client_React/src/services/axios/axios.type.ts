@@ -2,13 +2,13 @@ import { AxiosRequestConfig, AxiosResponse, HttpStatusCode } from "axios";
 
 interface SuccessResponse<T> {
   statusCode: HttpStatusCode;
-  messages: string[];
+  message: string;
   data: T;
 }
 
 interface ErrorResponse {
   statusCode: HttpStatusCode;
-  messages: string[];
+  message: string;
   error: string;
 }
 
