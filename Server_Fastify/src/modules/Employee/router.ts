@@ -12,6 +12,7 @@ import { CreateOneEmployeeDto } from "./dto/create-one.dto";
 import { RemoveOneEmployeeParamsDto } from "./dto/remove-one.dto";
 import { queryStringValidator } from "../../utils/middlewares/queryStringValidator";
 import { GetAllEmployeesQueryStringDto } from "./dto/get-all.dto";
+import { FileTypes } from "../../enums/fileFormats.enum";
 
 const router = (server: FastifyInstance) => {
   server.get<{ Querystring: GetAllEmployeesQueryStringDto }>(
@@ -37,11 +38,11 @@ const router = (server: FastifyInstance) => {
           []
         ),
         fileValidator([
-          ImageFormats.jpeg,
-          ImageFormats.jpg,
-          ImageFormats.png,
-          ImageFormats.svg,
-          ImageFormats.webp,
+          {
+            key: "image",
+            fileType: FileTypes.IMAGE,
+            formats: Object.values(ImageFormats),
+          },
         ]),
       ],
     },
