@@ -2,7 +2,7 @@ import categoryService from "./service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 import { UpdateOneDto, UpdateOneParamsDto } from "./dto/update-one.dto";
-import { BadRequest } from "http-errors";
+import { BadRequest, NotFound } from "http-errors";
 import { createSuccessResponse } from "../../utils/helperFuncs/helperFuncs";
 
 const controller = {
@@ -41,11 +41,7 @@ const controller = {
   ) {
     const category = await categoryService.getOneById(req.params.categoryId);
     if (!category) {
-      return res.status(404).send({
-        statusCode: 404,
-        error: "Not Found",
-        messages: ["Category not Found"],
-      });
+      throw new NotFound("Category not Found");
     }
 
     const categoryWithTitle = await categoryService.getOneByTitle(
@@ -53,13 +49,9 @@ const controller = {
     );
     if (categoryWithTitle) {
       if (category.id !== categoryWithTitle.id) {
-        return res.status(400).send({
-          statusCode: 400,
-          error: "Category Update",
-            messages: [
-              `Category with this title:'${req.body.title}' is exists`,
-            ],
-        });
+        throw new BadRequest(
+          `Category with this title:'${req.body.title}' is exists`
+        );
       }
     }
 
