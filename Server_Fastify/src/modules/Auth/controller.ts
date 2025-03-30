@@ -66,11 +66,7 @@ const controller = {
       const user = await userService.getOneByIdentifier(req.body.identifier);
 
       if (!user) {
-        return res.status(404).send({
-          statusCode: 404,
-          error: "Not Found",
-          messages: ["User not Found"],
-        });
+        throw createHttpError.NotFound("User not Found");
       }
 
       const isValidPassword = await isValidHashedPassword(
