@@ -24,7 +24,7 @@ const controller = {
       }));
 
       if (isUserExistBefore) {
-        throw createHttpError.BadRequest(
+        throw new createHttpError.BadRequest(
           "You have been registered with this Username or Email"
         );
       }
@@ -57,7 +57,7 @@ const controller = {
         },
       });
     } catch (error) {
-      throw createHttpError.InternalServerError();
+      throw new createHttpError.InternalServerError();
     }
   },
 
@@ -66,7 +66,7 @@ const controller = {
       const user = await userService.getOneByIdentifier(req.body.identifier);
 
       if (!user) {
-        throw createHttpError.NotFound("User not Found");
+        throw new createHttpError.NotFound("User not Found");
       }
 
       const isValidPassword = await isValidHashedPassword(
@@ -75,7 +75,7 @@ const controller = {
       );
 
       if (!isValidPassword) {
-        throw createHttpError.BadRequest(
+        throw new createHttpError.BadRequest(
           "Username/Email or Password is not valid"
         );
       }
@@ -106,14 +106,14 @@ const controller = {
         },
       });
     } catch (error) {
-      throw createHttpError.InternalServerError();
+      throw new createHttpError.InternalServerError();
     }
   },
 
   async logout(req: AuthenticatedRequest, res: FastifyReply) {
     try {
       if (!req.refreshToken) {
-        throw createHttpError.InternalServerError();
+        throw new createHttpError.InternalServerError();
       }
 
       await refreshTokenService.removeOne(req.refreshToken);
@@ -124,7 +124,7 @@ const controller = {
         message: "Log out successfully",
       });
     } catch (error) {
-      throw createHttpError.InternalServerError();
+      throw new createHttpError.InternalServerError();
     }
   },
 };
