@@ -17,19 +17,22 @@ const controller = {
       throw new BadRequest("Food already exists");
     }
 
-    const file = formData.get("file") as File;
+    const file = formData.get("file") as File | null;
+    let fileName = "defaultPhoto.png";
+    if (file) {
+      const arrayBuffer = await file.arrayBuffer();
+      const buffer: Buffer = Buffer.from(arrayBuffer);
 
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer: Buffer = Buffer.from(arrayBuffer);
+      fileName = `${Date.now()}-${Math.random() * 789}-${file.name}`;
 
-    const fileName = `${Date.now()}-${Math.random() * 789}-${file.name}`;
-    const pathAddress = path.join(
-      process.cwd(),
-      "public/images/foods/",
-      `${fileName}`
-    );
+      const pathAddress = path.join(
+        process.cwd(),
+        "public/images/foods/",
+        `${fileName}`
+      );
 
-    fs.writeFileSync(pathAddress, buffer);
+      fs.writeFileSync(pathAddress, buffer);
+    }
 
     const body: CreateOneFoodDtoType = {
       title: formData.get("title") as string,
