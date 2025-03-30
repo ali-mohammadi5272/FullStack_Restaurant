@@ -1,24 +1,17 @@
 import contactService from "./service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDto as CreateContactOneDto } from "./dto/create-one.dto";
+import { createSuccessResponse } from "../../utils/helperFuncs/helperFuncs";
 
 const controller = {
   async getAll(_: FastifyRequest, res: FastifyReply) {
-    try {
-      const contacts = await contactService.getAll();
+    const contacts = await contactService.getAll();
 
-      return res.status(200).send({
-        statusCode: 200,
-        messages: [],
-        data: contacts,
-      });
-    } catch (error) {
-      return res.status(500).send({
-        statusCode: 500,
-        error,
-        messages: ["Internal Server Error"],
-      });
-    }
+    return createSuccessResponse(res, {
+      statusCode: 200,
+      message: null,
+      data: contacts,
+    });
   },
 
   async createOne(
