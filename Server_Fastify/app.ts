@@ -39,8 +39,9 @@ server.setErrorHandler((error, _, reply) => {
   if (error instanceof HttpError) {
     return reply.status(error.statusCode).send(error);
   }
-
-  reply.status(500).send(new createHttpError.InternalServerError());
+  
+  const response = new createHttpError.InternalServerError();
+  reply.status(500).send(response);
 });
 
 server.listen({ port: env.port }, async (err, address) => {
