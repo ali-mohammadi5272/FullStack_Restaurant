@@ -94,7 +94,7 @@ const controller = {
         user_id: user.id,
       });
 
-      return res.status(200).send({
+      return createSuccessResponse(res, {
         statusCode: 200,
         message: "Login successfully",
         data: {
