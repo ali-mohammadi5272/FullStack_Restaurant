@@ -17,7 +17,7 @@ const controller = {
       throw new BadRequest("Food already exists");
     }
 
-    const file = formData.get("file") as File | null;
+    const file = formData.get("image") as File | null;
     let fileName: string = "defaultPhoto.png";
     if (file) {
       const arrayBuffer = await file.arrayBuffer();
