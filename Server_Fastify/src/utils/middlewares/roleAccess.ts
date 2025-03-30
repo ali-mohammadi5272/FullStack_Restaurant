@@ -1,16 +1,11 @@
-import { FastifyReply } from "fastify";
 import { Roles } from "../../modules/User/enum/roles.enum";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
+import { Forbidden } from "http-errors";
 
-const roleAccess =
-  (roles: Roles[]) => async (req: AuthenticatedRequest, res: FastifyReply) => {
-    if (!req.user || !roles.includes(req.user.role)) {
-      return res.status(403).send({
-        statusCode: 403,
-        error: "Forbidden",
-        messages: ["Forbidden"],
-      });
-    }
-  };
+const roleAccess = (roles: Roles[]) => async (req: AuthenticatedRequest) => {
+  if (!req.user || !roles.includes(req.user.role)) {
+    throw new Forbidden("You are not allowed");
+  }
+};
 
 export { roleAccess };
