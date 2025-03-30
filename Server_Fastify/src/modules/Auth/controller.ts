@@ -118,10 +118,10 @@ const controller = {
 
       await refreshTokenService.removeOne(req.refreshToken);
 
-      return res.status(200).send({
+      return createSuccessResponse(res, {
         statusCode: 200,
         data: null,
-        messages: ["Log out successfully"],
+        message: "Log out successfully",
       });
     } catch (error) {
       throw createHttpError.InternalServerError();
