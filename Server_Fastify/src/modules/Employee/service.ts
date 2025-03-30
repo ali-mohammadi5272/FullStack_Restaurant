@@ -30,6 +30,10 @@ const service = {
     });
   },
 
+  async getOneById(employeeId: number) {
+    return await Employee.findOne({ where: { id: employeeId } });
+  },
+
   async removeOne(employeeId: number) {
     return await Employee.destroy({ where: { id: employeeId } });
   },
