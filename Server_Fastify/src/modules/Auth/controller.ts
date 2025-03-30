@@ -105,11 +105,7 @@ const controller = {
   },
 
   async logout(req: AuthenticatedRequest, res: FastifyReply) {
-    if (!req.refreshToken) {
-      throw new createHttpError.InternalServerError();
-    }
-
-    await refreshTokenService.removeOne(req.refreshToken);
+    await refreshTokenService.removeOne(req.refreshToken!);
 
     return createSuccessResponse(res, {
       statusCode: 200,
