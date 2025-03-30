@@ -7,6 +7,7 @@ import { EmployeeRoles } from "./enum/employeeRoles.enum";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { RemoveOneEmployeeParamsDto } from "./dto/remove-one.dto";
 import { GetAllEmployeesQueryStringDto } from "./dto/get-all.dto";
+import { createSuccessResponse } from "../../utils/helperFuncs/helperFuncs";
 
 const controller = {
   async getAll(
@@ -15,27 +16,19 @@ const controller = {
     }>,
     res: FastifyReply
   ) {
-    try {
-      const employees = await employeeService.getAll(req.query);
+    const employees = await employeeService.getAll(req.query);
 
-      const changedEmployees = employees.map((employee) => {
-        const pathAddress = `/public/images/employees/${employee.image}`;
-        employee.image = pathAddress.replace(/\\/g, "/");
-        return employee;
-      });
+    const changedEmployees = employees.map((employee) => {
+      const pathAddress = `/public/images/employees/${employee.image}`;
+      employee.image = pathAddress.replace(/\\/g, "/");
+      return employee;
+    });
 
-      return res.status(200).send({
-        statusCode: 200,
-        messages: [],
-        data: changedEmployees,
-      });
-    } catch (err) {
-      return res.status(500).send({
-        statusCode: 500,
-        error: "Internal Server Error",
-        messages: ["Internal Server Error"],
-      });
-    }
+    return createSuccessResponse(res, {
+      statusCode: 200,
+      message: null,
+      data: changedEmployees,
+    });
   },
 
   async createOne(req: FastifyRequest, res: FastifyReply) {
