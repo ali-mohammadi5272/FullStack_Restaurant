@@ -78,21 +78,13 @@ const controller = {
     req: FastifyRequest<{ Params: RemoveOneEmployeeParamsDto }>,
     res: FastifyReply
   ) {
-    try {
-      await employeeService.removeOne(req.params.employeeId);
+    await employeeService.removeOne(req.params.employeeId);
 
-      return res.status(200).send({
-        statusCode: 200,
-        data: null,
-        messages: ["Employee removed successfully"],
-      });
-    } catch (err) {
-      return res.status(500).send({
-        statusCode: 500,
-        error: "Internal Server Error",
-        messages: ["Internal Server Error"],
-      });
-    }
+    return createSuccessResponse(res, {
+      statusCode: 200,
+      message: "Employee removed successfully",
+      data: null,
+    });
   },
 };
 
