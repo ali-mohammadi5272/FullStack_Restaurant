@@ -1,9 +1,10 @@
-import { FastifyReply, FastifyRequest } from "fastify";
+import { FastifyRequest } from "fastify";
+import { BadRequest } from "http-errors";
 import { AnyObject, ObjectSchema, ValidationError } from "yup";
 
 const bodyValidator =
   <T extends AnyObject>(schema: ObjectSchema<T>) =>
-  async (req: FastifyRequest<{ Body: T }>, res: FastifyReply) => {
+  async (req: FastifyRequest<{ Body: T }>) => {
     try {
       await schema.validate(req.body, {
         abortEarly: false,
@@ -11,10 +12,7 @@ const bodyValidator =
       });
     } catch (err) {
       if (err instanceof ValidationError) {
-        return res.status(400).send({
-          statusCode: 400,
-          messages: err.errors,
-        });
+        throw new BadRequest(err.errors[0]);
       }
     }
   };
