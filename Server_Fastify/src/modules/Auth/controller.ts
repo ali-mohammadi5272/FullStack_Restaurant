@@ -23,10 +23,9 @@ const controller = {
       }));
 
       if (isUserExistBefore) {
-        return res.status(400).send({
-          statusCode: 400,
-          messages: ["You have been registered with this Username or Email"],
-        });
+        throw createHttpError.BadRequest(
+          "You have been registered with this Username or Email"
+        );
       }
 
       const newUser = await userService.createOne(req.body);
