@@ -4,6 +4,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { RegisterUserDto } from "./dto/register.dto";
 import { LoginDtoType } from "./dto/login.dto";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
+import createHttpError from "http-errors";
 import {
   generateAccessToken,
   generateRefreshToken,
@@ -78,11 +79,9 @@ const controller = {
       );
 
       if (!isValidPassword) {
-        return res.status(400).send({
-          statusCode: 400,
-          error: "Bad Request",
-          messages: ["Userame/Email or Password is not valid"],
-        });
+        throw createHttpError.BadRequest(
+          "Username/Email or Password is not valid"
+        );
       }
 
       const refreshToken = generateRefreshToken({
