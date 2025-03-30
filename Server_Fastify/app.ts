@@ -9,10 +9,8 @@ import employeesRouter from "./src/modules/Employee/router";
 import fastifyMultipart from "@fastify/multipart";
 import fastifyStatic from "@fastify/static";
 import path from "path";
-import createHttpError from "http-errors";
 import { env } from "./src/utils/env/env";
 import { sequelize } from "./src/configs/db";
-import { HttpError } from "@fastify/sensible";
 
 const server = fastify();
 
@@ -34,15 +32,6 @@ server.register(
   },
   { prefix: env.baseUrl }
 );
-
-server.setErrorHandler((error, _, reply) => {
-  if (error instanceof HttpError) {
-    return reply.status(error.statusCode).send(error);
-  }
-  
-  const response = new createHttpError.InternalServerError();
-  reply.status(500).send(response);
-});
 
 server.listen({ port: env.port }, async (err, address) => {
   if (err) {
