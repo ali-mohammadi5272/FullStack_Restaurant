@@ -3,15 +3,15 @@ import registerSchema from "../../utils/validators/Auth/register";
 import loginSchema from "../../utils/validators/Auth/login";
 import { FastifyInstance } from "fastify";
 import { bodyValidator } from "../../utils/middlewares/bodyValidator";
-import { CreateOneDtoType } from "../User/dto/create-one.dto";
 import { LoginDtoType } from "./dto/login.dto";
 import { auth } from "../../utils/middlewares/auth";
+import { RegisterUserDto } from "./dto/register.dto";
 
 const router = (server: FastifyInstance) => {
-  server.post<{ Body: CreateOneDtoType }>(
+  server.post<{ Body: RegisterUserDto }>(
     "/register",
     {
-      preHandler: [bodyValidator<CreateOneDtoType>(registerSchema)],
+      preHandler: [bodyValidator<RegisterUserDto>(registerSchema)],
     },
     authController.register
   );
