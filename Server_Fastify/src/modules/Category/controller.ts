@@ -54,10 +54,11 @@ const controller = {
     }
 
     await categoryService.updateOne(req.body, req.params.categoryId);
-    return res.status(200).send({
+
+    return createSuccessResponse(res, {
       statusCode: 200,
       data: null,
-      messages: ["Category updated successfully"],
+      message: "Category updated successfully",
     });
   },
 };
