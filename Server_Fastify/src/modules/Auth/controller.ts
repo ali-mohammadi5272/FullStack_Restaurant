@@ -62,52 +62,48 @@ const controller = {
   },
 
   async login(req: FastifyRequest<{ Body: LoginDtoType }>, res: FastifyReply) {
-    try {
-      const user = await userService.getOneByIdentifier(req.body.identifier);
+    const user = await userService.getOneByIdentifier(req.body.identifier);
 
-      if (!user) {
-        throw new createHttpError.NotFound("User not Found");
-      }
-
-      const isValidPassword = await isValidHashedPassword(
-        req.body.password,
-        user.password
-      );
-
-      if (!isValidPassword) {
-        throw new createHttpError.BadRequest(
-          "Username/Email or Password is not valid"
-        );
-      }
-
-      const refreshToken = generateRefreshToken({
-        userId: user.id,
-      });
-
-      const accessToken = generateAccessToken({
-        refreshToken,
-        userId: user.id,
-      });
-
-      await refreshTokenService.createOne({
-        token: refreshToken,
-        user_id: user.id,
-      });
-
-      return createSuccessResponse(res, {
-        statusCode: 200,
-        message: "Login successfully",
-        data: {
-          refreshToken,
-          accessToken,
-          user: {
-            fullName: user.fullName,
-          },
-        },
-      });
-    } catch (error) {
-      throw new createHttpError.InternalServerError();
+    if (!user) {
+      throw new createHttpError.NotFound("User not Found");
     }
+
+    const isValidPassword = await isValidHashedPassword(
+      req.body.password,
+      user.password
+    );
+
+    if (!isValidPassword) {
+      throw new createHttpError.BadRequest(
+        "Username/Email or Password is not valid"
+      );
+    }
+
+    const refreshToken = generateRefreshToken({
+      userId: user.id,
+    });
+
+    const accessToken = generateAccessToken({
+      refreshToken,
+      userId: user.id,
+    });
+
+    await refreshTokenService.createOne({
+      token: refreshToken,
+      user_id: user.id,
+    });
+
+    return createSuccessResponse(res, {
+      statusCode: 200,
+      message: "Login successfully",
+      data: {
+        refreshToken,
+        accessToken,
+        user: {
+          fullName: user.fullName,
+        },
+      },
+    });
   },
 
   async logout(req: AuthenticatedRequest, res: FastifyReply) {
