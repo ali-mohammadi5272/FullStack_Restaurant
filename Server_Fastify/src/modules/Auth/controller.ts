@@ -111,21 +111,17 @@ const controller = {
   },
 
   async logout(req: AuthenticatedRequest, res: FastifyReply) {
-    try {
-      if (!req.refreshToken) {
-        throw new createHttpError.InternalServerError();
-      }
-
-      await refreshTokenService.removeOne(req.refreshToken);
-
-      return createSuccessResponse(res, {
-        statusCode: 200,
-        data: null,
-        message: "Log out successfully",
-      });
-    } catch (error) {
+    if (!req.refreshToken) {
       throw new createHttpError.InternalServerError();
     }
+
+    await refreshTokenService.removeOne(req.refreshToken);
+
+    return createSuccessResponse(res, {
+      statusCode: 200,
+      data: null,
+      message: "Log out successfully",
+    });
   },
 };
 
