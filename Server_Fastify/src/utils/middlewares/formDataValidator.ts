@@ -1,9 +1,10 @@
-import { FastifyReply, FastifyRequest } from "fastify";
+import { FastifyRequest } from "fastify";
 import { AnyObject, ObjectSchema, ValidationError } from "yup";
+import { BadRequest } from "http-errors";
 
 const formDataValidator =
   <T extends AnyObject>(schema: ObjectSchema<T>, keys: string[]) =>
-  async (req: FastifyRequest, res: FastifyReply) => {
+  async (req: FastifyRequest) => {
     try {
       const formData = await req.formData();
       const body: Record<string, unknown> = {};
@@ -20,17 +21,7 @@ const formDataValidator =
       });
     } catch (err) {
       if (err instanceof ValidationError) {
-        return res.status(400).send({
-          statusCode: 400,
-          error: err.name,
-          messages: err.errors,
-        });
-      } else {
-        return res.status(500).send({
-          statusCode: 500,
-          error: "Internal Server Error",
-          messages: ["Internal Server Error"],
-        });
+        throw new BadRequest(err.errors[0]);
       }
     }
   };
