@@ -17,48 +17,44 @@ const controller = {
     req: FastifyRequest<{ Body: RegisterUserDto }>,
     res: FastifyReply
   ) {
-    try {
-      const isUserExistBefore = !!(await userService.getOneByUserNameOrEmail({
-        userName: req.body.userName,
-        email: req.body.email,
-      }));
+    const isUserExistBefore = !!(await userService.getOneByUserNameOrEmail({
+      userName: req.body.userName,
+      email: req.body.email,
+    }));
 
-      if (isUserExistBefore) {
-        throw new createHttpError.BadRequest(
-          "You have been registered with this Username or Email"
-        );
-      }
-
-      const newUser = await userService.createOne(req.body);
-
-      const refreshToken = generateRefreshToken({
-        userId: newUser.id,
-      });
-
-      const accessToken = generateAccessToken({
-        refreshToken,
-        userId: newUser.id,
-      });
-
-      await refreshTokenService.createOne({
-        token: refreshToken,
-        user_id: newUser.id,
-      });
-
-      return createSuccessResponse(res, {
-        statusCode: 201,
-        message: "User registered successfully",
-        data: {
-          refreshToken,
-          accessToken,
-          user: {
-            fullName: newUser.fullName,
-          },
-        },
-      });
-    } catch (error) {
-      throw new createHttpError.InternalServerError();
+    if (isUserExistBefore) {
+      throw new createHttpError.BadRequest(
+        "You have been registered with this Username or Email"
+      );
     }
+
+    const newUser = await userService.createOne(req.body);
+
+    const refreshToken = generateRefreshToken({
+      userId: newUser.id,
+    });
+
+    const accessToken = generateAccessToken({
+      refreshToken,
+      userId: newUser.id,
+    });
+
+    await refreshTokenService.createOne({
+      token: refreshToken,
+      user_id: newUser.id,
+    });
+
+    return createSuccessResponse(res, {
+      statusCode: 201,
+      message: "User registered successfully",
+      data: {
+        refreshToken,
+        accessToken,
+        user: {
+          fullName: newUser.fullName,
+        },
+      },
+    });
   },
 
   async login(req: FastifyRequest<{ Body: LoginDtoType }>, res: FastifyReply) {
