@@ -3,6 +3,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 import { UpdateOneDto, UpdateOneParamsDto } from "./dto/update-one.dto";
 import { BadRequest } from "http-errors";
+import { createSuccessResponse } from "../../utils/helperFuncs/helperFuncs";
 
 const controller = {
   async createOne(
@@ -17,9 +18,9 @@ const controller = {
     }
 
     const category = await categoryService.createOne(req.body);
-    return res.status(201).send({
+    return createSuccessResponse(res, {
       statusCode: 201,
-      messages: ["Category created successfully"],
+      message: "Category created successfully",
       data: { category },
     });
   },
