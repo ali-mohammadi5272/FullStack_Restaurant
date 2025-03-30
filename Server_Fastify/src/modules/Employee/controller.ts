@@ -34,19 +34,22 @@ const controller = {
 
   async createOne(req: FastifyRequest, res: FastifyReply) {
     const formData: FormData = await req.formData();
-    const file = formData.get("image") as File;
 
-    const arrayBuffer: ArrayBuffer = await file.arrayBuffer();
-    const buffer: Buffer = Buffer.from(arrayBuffer);
+    const file = formData.get("image") as File | null;
+    let fileName: string = "defaultPhoto.jpg";
+    if (file) {
+      const arrayBuffer: ArrayBuffer = await file.arrayBuffer();
+      const buffer: Buffer = Buffer.from(arrayBuffer);
 
-    const fileName = `${Date.now()}-${Math.random() * 789}-${file.name}`;
-    const pathAddress = path.join(
-      process.cwd(),
-      "public/images/employees/",
-      `${fileName}`
-    );
+      fileName = `${Date.now()}-${Math.random() * 789}-${file.name}`;
+      const pathAddress = path.join(
+        process.cwd(),
+        "public/images/employees/",
+        `${fileName}`
+      );
 
-    fs.writeFileSync(pathAddress, buffer);
+      fs.writeFileSync(pathAddress, buffer);
+    }
 
     const body: CreateOneEmployeeDto = {
       firstName: formData.get("firstName") as string,
