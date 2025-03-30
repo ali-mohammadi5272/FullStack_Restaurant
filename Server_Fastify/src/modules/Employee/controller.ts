@@ -68,12 +68,12 @@ const controller = {
       image: fileName,
     };
 
-    await employeeService.createOne(body);
+    const employee = await employeeService.createOne(body);
 
     return createSuccessResponse(res, {
       statusCode: 201,
       message: "Employee created successfully",
-      data: null,
+      data: employee,
     });
   },
 
