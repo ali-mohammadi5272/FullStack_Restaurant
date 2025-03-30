@@ -113,11 +113,7 @@ const controller = {
   async logout(req: AuthenticatedRequest, res: FastifyReply) {
     try {
       if (!req.refreshToken) {
-        return res.status(500).send({
-          statusCode: 500,
-          error: "Server Error",
-          messages: ["Internal Server Error"],
-        });
+        throw createHttpError.InternalServerError();
       }
 
       await refreshTokenService.removeOne(req.refreshToken);
@@ -128,11 +124,7 @@ const controller = {
         messages: ["Log out successfully"],
       });
     } catch (error) {
-      return res.status(500).send({
-        statusCode: 500,
-        error,
-        messages: ["Internal Server Error"],
-      });
+      throw createHttpError.InternalServerError();
     }
   },
 };
