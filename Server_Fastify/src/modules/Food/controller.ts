@@ -50,27 +50,19 @@ const controller = {
   },
 
   async getAll(_: FastifyRequest, res: FastifyReply) {
-    try {
-      const foods = await foodService.getAll();
+    const foods = await foodService.getAll();
 
-      const changedFoods = foods.map((food) => {
-        const pathAddress = `/public/images/foods/${food.image}`;
-        food.image = pathAddress.replace(/\\/g, "/");
-        return food;
-      });
+    const changedFoods = foods.map((food) => {
+      const pathAddress = `/public/images/foods/${food.image}`;
+      food.image = pathAddress.replace(/\\/g, "/");
+      return food;
+    });
 
-      return res.status(200).send({
-        statusCode: 200,
-        messages: [],
-        data: changedFoods,
-      });
-    } catch (error) {
-      return res.status(500).send({
-        statusCode: 500,
-        error: "Internal Server Error",
-        messages: ["Internal Server Error"],
-      });
-    }
+    return createSuccessResponse(res, {
+      statusCode: 200,
+      message: null,
+      data: changedFoods,
+    });
   },
 };
 
