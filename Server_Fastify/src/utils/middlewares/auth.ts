@@ -3,7 +3,6 @@ import logger from "./../logger/logger";
 import { Unauthorized, NotFound } from "http-errors";
 import { getAccessTokenPayload } from "../helperFuncs/helperFuncs";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
-import { AccessTokenPayloadType } from "../helperFuncs/helperFuncs.type";
 
 const auth = async (req: AuthenticatedRequest) => {
   if (!req.headers.authorization) {
@@ -30,7 +29,7 @@ const auth = async (req: AuthenticatedRequest) => {
   }
 
   req.user = user;
-  req.refreshToken = (<AccessTokenPayloadType>tokenPayload).refreshToken;
+  req.refreshToken = tokenPayload.refreshToken;
 };
 
 export { auth };
