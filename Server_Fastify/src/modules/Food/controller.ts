@@ -18,7 +18,7 @@ const controller = {
     }
 
     const file = formData.get("file") as File | null;
-    let fileName = "defaultPhoto.png";
+    let fileName: string = "defaultPhoto.png";
     if (file) {
       const arrayBuffer = await file.arrayBuffer();
       const buffer: Buffer = Buffer.from(arrayBuffer);
