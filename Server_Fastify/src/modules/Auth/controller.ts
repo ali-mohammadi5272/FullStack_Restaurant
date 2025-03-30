@@ -47,7 +47,7 @@ const controller = {
 
       return res.status(201).send({
         statusCode: 201,
-        messages: ["User registered successfully"],
+        message: "User registered successfully",
         data: {
           refreshToken,
           accessToken,
