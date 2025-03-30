@@ -35,6 +35,15 @@ const controller = {
   async createOne(req: FastifyRequest, res: FastifyReply) {
     const formData: FormData = await req.formData();
 
+    const isEmployeeExistsBefore =
+      await employeeService.getOneByFirstNameAndLastName({
+        firstName: formData.get("firstName") as string,
+        lastName: formData.get("lastName") as string,
+      });
+    if (isEmployeeExistsBefore) {
+      throw new BadRequest("Employee already exists");
+    }
+
     const file = formData.get("image") as File | null;
     let fileName: string = "defaultPhoto.jpg";
     if (file) {
@@ -58,15 +67,6 @@ const controller = {
       role: formData.get("role") as EmployeeRoles,
       image: fileName,
     };
-
-    const isEmployeeExistsBefore =
-      await employeeService.getOneByFirstNameAndLastName({
-        firstName: body.firstName,
-        lastName: body.lastName,
-      });
-    if (isEmployeeExistsBefore) {
-      throw new BadRequest("Employee already exists");
-    }
 
     await employeeService.createOne(body);
 
