@@ -44,11 +44,9 @@ const controller = {
       throw new NotFound("Category not Found");
     }
 
-    const categoryWithTitle = await categoryService.getOneByTitle(
-      req.body.title
-    );
-    if (categoryWithTitle) {
-      if (category.id !== categoryWithTitle.id) {
+    const foundedCategory = await categoryService.getOneByTitle(req.body.title);
+    if (foundedCategory) {
+      if (category.id !== foundedCategory.id) {
         throw new BadRequest(
           `Category with this title:'${req.body.title}' is exists`
         );
