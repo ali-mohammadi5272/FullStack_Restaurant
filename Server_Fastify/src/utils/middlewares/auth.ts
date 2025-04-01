@@ -1,6 +1,6 @@
 import userService from "./../../modules/User/service";
 import logger from "./../logger/logger";
-import { Unauthorized, NotFound } from "http-errors";
+import { Unauthorized } from "http-errors";
 import { getAccessTokenPayload } from "../helperFuncs/helperFuncs";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
 
@@ -25,7 +25,7 @@ const auth = async (req: AuthenticatedRequest) => {
   const user = await userService.getOne(tokenPayload.userId);
   if (!user) {
     logger.warn(`User not found (ID: ${tokenPayload.userId})`);
-    throw new NotFound("User not found");
+    throw new Unauthorized();
   }
 
   req.user = user;
