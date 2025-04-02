@@ -4,6 +4,10 @@ import { Category } from "../associations";
 import { CreateOneDtoType } from "./dto/create-one.dto";
 
 const service = {
+  async getAllCount() {
+    return await Food.count();
+  },
+
   async createOne(body: CreateOneDtoType) {
     const food = await Food.create({
       title: body.title,
