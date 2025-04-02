@@ -28,9 +28,17 @@ const service = {
     return await Food.findOne({ where: { title } });
   },
 
-  async getAll(configs: Omit<GetAllFoodsQueryStringDto, "categoryId">) {
-    return await Food.findAll({
-      where: {},
+  async getAll(configs: GetAllFoodsQueryStringDto) {
+    const foods: Food[] = [];
+    if (configs.categoryId) {
+      const category = await categoryService.getOneById(configs.categoryId);
+      if (category) {
+        foods.push(...(await category.getFoods()));
+      }
+    }
+
+    return await Food.findAndCountAll({
+      where: foods.length > 0 ? { id: foods.map((food) => food.id) } : {},
       limit: +configs.limit,
       offset: (+configs.page - 1) * +configs.limit,
       attributes: { exclude: ["createdAt", "updatedAt"] },
