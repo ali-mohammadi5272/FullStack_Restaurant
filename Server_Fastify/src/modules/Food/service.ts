@@ -28,8 +28,7 @@ const service = {
   },
 
   async getAll() {
-    const count: number = await this.getAllCount();
-    const foods = await Food.findAll({
+    return await Food.findAll({
       where: {},
       attributes: { exclude: ["createdAt", "updatedAt"] },
       include: {
@@ -39,11 +38,6 @@ const service = {
         as: "categories",
       },
     });
-
-    return {
-      foods,
-      count,
-    };
   },
 };
 
