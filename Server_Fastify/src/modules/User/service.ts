@@ -9,7 +9,7 @@ const service = {
   },
 
   async getAllCount() {
-    return User.count();
+    return await User.count();
   },
 
   async getOne(userId: number) {
