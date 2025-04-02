@@ -5,16 +5,12 @@ import { createSuccessResponse } from "../../utils/helperFuncs/helperFuncs";
 
 const controller = {
   async getAll(_: FastifyRequest, res: FastifyReply) {
-    const count: number = await contactService.getAllCount();
     const contacts = await contactService.getAll();
 
     return createSuccessResponse(res, {
       statusCode: 200,
       message: null,
-      data: {
-        contacts,
-        count,
-      },
+      data: contacts,
     });
   },
 
