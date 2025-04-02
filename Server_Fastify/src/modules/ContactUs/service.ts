@@ -8,13 +8,7 @@ const service = {
   },
 
   async getAll() {
-    const count: number = await this.getAllCount();
-    const contacts = await Contact.findAll({});
-
-    return {
-      contacts,
-      count,
-    };
+    return await Contact.findAll({});
   },
 
   async createOne(body: CreateOneDto) {
