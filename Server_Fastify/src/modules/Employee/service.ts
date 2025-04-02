@@ -19,6 +19,10 @@ const service = {
     });
   },
 
+  async getAllCount() {
+    return await Employee.count();
+  },
+
   async getAll(configs: GetAllEmployeesQueryStringDto) {
     return await Employee.findAll({
       where: {
