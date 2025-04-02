@@ -6,6 +6,7 @@ const PaginationComponent: React.FC<PaginationPropsType> = ({
   defaultCurrent,
   defaultPageSize,
   pageSizeOptions,
+  disabled,
   onChange,
 }) => {
   return (
@@ -17,6 +18,7 @@ const PaginationComponent: React.FC<PaginationPropsType> = ({
         defaultPageSize={defaultPageSize}
         defaultCurrent={defaultCurrent}
         pageSizeOptions={pageSizeOptions}
+        disabled={disabled}
       />
     </div>
   );
