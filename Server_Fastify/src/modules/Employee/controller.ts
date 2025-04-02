@@ -17,9 +17,8 @@ const controller = {
     }>,
     res: FastifyReply
   ) {
-    const count: number = await employeeService.getAllCount();
     const employees = await employeeService.getAll(req.query);
-    const changedEmployees = employees.map((employee) => {
+    const changedEmployees = employees.rows.map((employee) => {
       const pathAddress = `/public/images/employees/${employee.image}`;
       employee.image = pathAddress.replace(/\\/g, "/");
       return employee;
@@ -29,8 +28,8 @@ const controller = {
       statusCode: 200,
       message: null,
       data: {
-        employees: changedEmployees,
-        count,
+        rows: changedEmployees,
+        count: employees.count,
       },
     });
   },
