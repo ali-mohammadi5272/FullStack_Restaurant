@@ -28,7 +28,7 @@ const service = {
     return await Food.findOne({ where: { title } });
   },
 
-  async getAll(configs: GetAllFoodsQueryStringDto) {
+  async getAll(configs: Omit<GetAllFoodsQueryStringDto, "categoryId">) {
     return await Food.findAll({
       where: {},
       limit: +configs.limit,
