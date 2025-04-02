@@ -24,8 +24,7 @@ const service = {
   },
 
   async getAll(configs: GetAllEmployeesQueryStringDto) {
-    const count: number = await this.getAllCount();
-    const employees = await Employee.findAll({
+    return await Employee.findAll({
       where: {
         [Op.or]: configs["roles[]"].map((role) => ({ role })),
       },
@@ -33,11 +32,6 @@ const service = {
       offset: (+configs.page - 1) * +configs.limit,
       raw: true,
     });
-
-    return {
-      employees,
-      count,
-    };
   },
 
   async getOneById(employeeId: number) {
