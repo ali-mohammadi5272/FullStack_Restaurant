@@ -24,7 +24,7 @@ const service = {
   },
 
   async getAll(configs: GetAllEmployeesQueryStringDto) {
-    return await Employee.findAll({
+    return await Employee.findAndCountAll({
       where: {
         [Op.or]: configs["roles[]"].map((role) => ({ role })),
       },
