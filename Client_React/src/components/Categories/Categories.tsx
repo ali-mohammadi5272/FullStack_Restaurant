@@ -38,14 +38,14 @@ const Categories = (): React.ReactNode => {
     const response = await request.GET<CategoryType[]>({
       url: "/categories",
       cache: {
-        key: "categories-component-uniqe-key",
+        key: "categories-component-unique-key",
       },
     });
 
     setCategories([
       {
         id: 0.12345,
-        title: "All catagory",
+        title: "All",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
