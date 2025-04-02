@@ -1,4 +1,5 @@
 import { sequelize } from "../../configs/db";
+import { Food } from "../associations";
 import {
   CreationOptional,
   DataTypes,
@@ -15,6 +16,12 @@ class Category extends Model<
   declare title: string;
   declare createdAt: CreationOptional<Date>;
   declare updatedAt: CreationOptional<Date>;
+
+  declare getFoods: () => Promise<Food[]>;
+  declare addFood: (food: Food) => Promise<Food>;
+  declare addFoods: (foods: Food[]) => Promise<Food[]>;
+  declare removeFood: (foods: Food) => Promise<void>;
+  declare removeFoods: (foods: Food[]) => Promise<void>;
 }
 
 Category.init(
