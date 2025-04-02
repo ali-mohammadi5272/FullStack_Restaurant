@@ -3,12 +3,13 @@ import React, { memo, useEffect, useMemo, useState } from "react";
 import { EmployeeType } from "../../entities/employee.entity.ts";
 import { request } from "../../services/axios/axios.ts";
 import { EmployeeRoles } from "../../enum/employeeRoles.enum.ts";
+import { GetAllEmployeesResponse } from "./chefCards.type.ts";
 
 const ChefCards = (): React.ReactNode => {
   const [chefs, setChefs] = useState<EmployeeType[]>([]);
 
   const getChefs = async (): Promise<void> => {
-    const response = await request.GET<EmployeeType[]>({
+    const response = await request.GET<GetAllEmployeesResponse>({
       url: "/employees",
       cache: {
         key: "chefCards-component-unique-key",
@@ -22,7 +23,7 @@ const ChefCards = (): React.ReactNode => {
       },
     });
 
-    setChefs(response.data.data);
+    setChefs(response.data.data.employees);
   };
 
   useEffect(() => {
