@@ -3,19 +3,20 @@ import Card from "../MenuCard/MenuCard";
 import PaginationComponent from "../Pagination/Pagination";
 import { FoodType } from "../../entities/food.entity";
 import { request } from "../../services/axios/axios";
+import { GetAllFoodsResponse } from "./menuCards.types";
 
 const MenuCards = (): React.ReactNode => {
   const [foods, setFoods] = useState<FoodType[]>([]);
 
   const getFoods = async (): Promise<void> => {
-    const response = await request.GET<FoodType[]>({
+    const response = await request.GET<GetAllFoodsResponse>({
       url: "/foods",
       cache: {
         key: "foods-component-unique-key",
       },
     });
 
-    setFoods(response.data.data);
+    setFoods(response.data.data.foods);
   };
 
   useEffect(() => {
