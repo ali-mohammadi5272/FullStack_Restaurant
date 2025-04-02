@@ -59,9 +59,8 @@ const controller = {
     }>,
     res: FastifyReply
   ) {
-    const count: number = await foodService.getAllCount();
     const foods = await foodService.getAll(req.query);
-    const changedFoods = foods.map((food) => {
+    const changedFoods = foods.rows.map((food) => {
       const pathAddress = `/public/images/foods/${food.image}`;
       food.image = pathAddress.replace(/\\/g, "/");
       return food;
@@ -71,8 +70,8 @@ const controller = {
       statusCode: 200,
       message: null,
       data: {
-        foods: changedFoods,
-        count,
+        count: foods.count,
+        rows: changedFoods,
       },
     });
   },
