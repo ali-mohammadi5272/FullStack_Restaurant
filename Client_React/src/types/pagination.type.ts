@@ -1,3 +1,4 @@
-export interface GetAllResponse {
+export interface GetAllResponse<T> {
+  rows: T[];
   count: number;
 }
