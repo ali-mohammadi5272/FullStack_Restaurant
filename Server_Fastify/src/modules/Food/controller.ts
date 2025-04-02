@@ -6,6 +6,7 @@ import { CreateOneDtoType as CreateOneFoodDtoType } from "./dto/create-one.dto";
 import { FoodTypes } from "./enum/foodTypes.enum";
 import { createSuccessResponse } from "../../utils/helperFuncs/helperFuncs";
 import { BadRequest } from "http-errors";
+import { GetAllFoodsQueryStringDto } from "./dto/get-all.dto";
 
 const controller = {
   async createOne(req: FastifyRequest, res: FastifyReply) {
@@ -52,9 +53,14 @@ const controller = {
     });
   },
 
-  async getAll(_: FastifyRequest, res: FastifyReply) {
+  async getAll(
+    req: FastifyRequest<{
+      Querystring: GetAllFoodsQueryStringDto;
+    }>,
+    res: FastifyReply
+  ) {
     const count: number = await foodService.getAllCount();
-    const foods = await foodService.getAll();
+    const foods = await foodService.getAll(req.query);
     const changedFoods = foods.map((food) => {
       const pathAddress = `/public/images/foods/${food.image}`;
       food.image = pathAddress.replace(/\\/g, "/");
