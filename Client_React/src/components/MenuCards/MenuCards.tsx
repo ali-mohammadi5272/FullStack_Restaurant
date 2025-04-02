@@ -4,9 +4,9 @@ import PaginationComponent from "../Pagination/Pagination";
 import Categories from "../Categories/Categories";
 import { FoodType } from "../../entities/food.entity";
 import { request } from "../../services/axios/axios";
-import { GetAllFoodsResponse } from "./menuCards.types";
 import { CategoryType } from "../../entities/category.entity";
 import { Empty } from "antd";
+import { GetAllResponse } from "../../types/pagination.type";
 
 const MenuCards = (): React.ReactNode => {
   const [foods, setFoods] = useState<FoodType[]>([]);
@@ -21,7 +21,7 @@ const MenuCards = (): React.ReactNode => {
   const [page, setPage] = useState<number>(1);
 
   const getFoods = async (): Promise<void> => {
-    const response = await request.GET<GetAllFoodsResponse>({
+    const response = await request.GET<GetAllResponse<FoodType>>({
       url: "/foods",
       cache: {
         key: `foods-component-page${page}-limit${pageSize}-category${selectedCategory.title}-unique-key`,
@@ -36,7 +36,7 @@ const MenuCards = (): React.ReactNode => {
       },
     });
 
-    setFoods(response.data.data.foods);
+    setFoods(response.data.data.rows);
     setAllFoodsCount(response.data.data.count);
   };
 
