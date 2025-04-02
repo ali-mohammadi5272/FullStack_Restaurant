@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import foodService from "./service";
-import categoryService from "./../Category/service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { CreateOneDtoType as CreateOneFoodDtoType } from "./dto/create-one.dto";
 import { FoodTypes } from "./enum/foodTypes.enum";
@@ -61,15 +60,7 @@ const controller = {
     res: FastifyReply
   ) {
     const count: number = await foodService.getAllCount();
-
-    let foods = await foodService.getAll(req.query);
-    if (req.query.categoryId) {
-      const category = await categoryService.getOneById(req.query.categoryId);
-      if (category) {
-        foods = await category.getFoods();
-      }
-    }
-
+    const foods = await foodService.getAll(req.query);
     const changedFoods = foods.map((food) => {
       const pathAddress = `/public/images/foods/${food.image}`;
       food.image = pathAddress.replace(/\\/g, "/");
