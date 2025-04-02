@@ -5,7 +5,13 @@ import { Op } from "sequelize";
 
 const service = {
   async getAll() {
-    return await User.findAll();
+    const count = await this.getAllCount();
+    const users = await User.findAll();
+    
+    return {
+      users,
+      count,
+    };
   },
 
   async getAllCount() {
