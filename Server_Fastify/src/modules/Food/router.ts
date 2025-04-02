@@ -9,7 +9,7 @@ import { roleAccess } from "../../utils/middlewares/roleAccess";
 import { Roles } from "../User/enum/roles.enum";
 import { FileTypes } from "../../enums/fileFormats.enum";
 import { ImageFormats } from "./enum/imageFormats.enum";
-import { GetAllEmployeesQueryStringDto } from "../Employee/dto/get-all.dto";
+import { GetAllFoodsQueryStringDto } from "./dto/get-all.dto";
 
 const router = (server: FastifyInstance) => {
   server.post(
@@ -34,7 +34,7 @@ const router = (server: FastifyInstance) => {
     foodController.createOne
   );
 
-  server.get<{ Querystring: GetAllEmployeesQueryStringDto }>(
+  server.get<{ Querystring: GetAllFoodsQueryStringDto }>(
     "/",
     foodController.getAll
   );
