@@ -3,6 +3,10 @@ import { CreateOneDto } from "./dto/create-one.dto";
 import { AnsweredTypes } from "./enum/answered.enum";
 
 const service = {
+  async getAllCount() {
+    return await Contact.count();
+  },
+
   async getAll() {
     return await Contact.findAll({});
   },
