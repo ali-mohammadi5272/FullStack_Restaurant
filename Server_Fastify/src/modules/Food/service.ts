@@ -2,6 +2,7 @@ import categoryService from "../Category/service";
 import { Food } from "../associations";
 import { Category } from "../associations";
 import { CreateOneDtoType } from "./dto/create-one.dto";
+import { GetAllFoodsQueryStringDto } from "./dto/get-all.dto";
 
 const service = {
   async getAllCount() {
@@ -27,9 +28,11 @@ const service = {
     return await Food.findOne({ where: { title } });
   },
 
-  async getAll() {
+  async getAll(configs: GetAllFoodsQueryStringDto) {
     return await Food.findAll({
       where: {},
+      limit: +configs.limit,
+      offset: (+configs.page - 1) * +configs.limit,
       attributes: { exclude: ["createdAt", "updatedAt"] },
       include: {
         model: Category,
