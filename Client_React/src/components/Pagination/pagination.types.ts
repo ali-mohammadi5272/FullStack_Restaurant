@@ -1,6 +1,8 @@
 interface PaginationPropsType {
-  current?: number;
-  total?: number;
+  total: number;
+  defaultCurrent: number;
+  defaultPageSize: number;
+  pageSizeOptions: number[];
   onChange?: (page: number, pageSize: number) => void;
 }
 
