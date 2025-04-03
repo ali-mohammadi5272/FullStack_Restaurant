@@ -4,7 +4,7 @@ import { request } from "../../services/axios/axios";
 import { CategoryType } from "../../entities/category.entity";
 import { CategoriesPropsType } from "./categories.types";
 
-const Categories: React.FC<CategoriesPropsType> = ({ setSelectedCategory }) => {
+const Categories: React.FC<CategoriesPropsType> = ({ onChangeCategory }) => {
   const [categories, setCategories] = useState<CategoryType[]>([
     {
       id: 0.12345,
@@ -64,7 +64,7 @@ const Categories: React.FC<CategoriesPropsType> = ({ setSelectedCategory }) => {
 
   const categoryClickHandler = (category: CategoryType): void => {
     changeActiveCategory(category.id);
-    setSelectedCategory(category);
+    onChangeCategory(category);
   };
 
   return (
