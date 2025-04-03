@@ -39,9 +39,10 @@ const service = {
         foods.push(...categoryFoods);
       }
     }
+    const ids = foods.map((food) => food.id);
 
     return await Food.findAndCountAll({
-      where: category ? { id: foods.map((food) => food.id) } : {},
+      where: category ? { id: ids } : {},
       limit: +configs.limit,
       offset: (+configs.page - 1) * +configs.limit,
       attributes: { exclude: ["createdAt", "updatedAt"] },
