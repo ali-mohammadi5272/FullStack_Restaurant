@@ -1,4 +1,4 @@
-import service from "./service";
+import userService from "./service";
 import { FastifyReply } from "fastify";
 import { AuthenticatedRequest } from "../../types/AuthenticatedRequest.type";
 import { createSuccessResponse } from "../../utils/helperFuncs/helperFuncs";
@@ -9,7 +9,7 @@ const controller = {
     req: AuthenticatedRequest<{ Querystring: GetAllUsersQueryStringDto }>,
     res: FastifyReply
   ) {
-    const users = await service.getAll(req.query);
+    const users = await userService.getAll(req.query);
 
     return createSuccessResponse(res, {
       statusCode: 200,
