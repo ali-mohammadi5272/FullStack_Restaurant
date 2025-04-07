@@ -1,11 +1,16 @@
 import { User } from "../associations";
 import { RegisterUserDto } from "../Auth/dto/register.dto";
+import { GetAllUsersQueryStringDto } from "./dto/get-all.dto";
 import { Roles } from "./enum/roles.enum";
 import { Op } from "sequelize";
 
 const service = {
-  async getAll() {
-    return await User.findAndCountAll();
+  async getAll(configs: GetAllUsersQueryStringDto) {
+    return await User.findAndCountAll({
+      where: {},
+      limit: +configs.limit,
+      offset: (+configs.page - 1) * +configs.limit,
+    });
   },
 
   async getAllCount() {
