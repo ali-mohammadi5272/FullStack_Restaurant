@@ -46,6 +46,7 @@ const service = {
       limit: +configs.limit,
       offset: (+configs.page - 1) * +configs.limit,
       attributes: { exclude: ["createdAt", "updatedAt"] },
+      distinct: true,
       include: {
         model: Category,
         attributes: ["id", "title"],
