@@ -6,7 +6,7 @@ import InnerContainer from "../InnerContainer/InnerContainer";
 import { NavbarLinkType } from "./navbar.types";
 import { NavigateFunction, NavLink, useNavigate } from "react-router-dom";
 import { memo, useState } from "react";
-import { Modal } from "antd";
+import { Drawer, Modal } from "antd";
 import { requestWithHeader } from "../../services/axios/axios";
 import {
   CookieEnum,
@@ -22,6 +22,7 @@ import {
 
 const Navbar = (): React.ReactNode => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [isLogin, setIsLogin] = useState<boolean>(isUserLogin());
   const navigate: NavigateFunction = useNavigate();
   const links: NavbarLinkType[] = [
@@ -56,6 +57,9 @@ const Navbar = (): React.ReactNode => {
       to: "/contact-us",
     },
   ];
+
+  const openDrawer = () => setIsDrawerOpen(true);
+  const closeDrawer = () => setIsDrawerOpen(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -129,8 +133,10 @@ const Navbar = (): React.ReactNode => {
                 onClick={authBtnClickHandler}
                 className="bg-secondary px-9 hidden lg:inline-block"
               />
+
               <img
-                className="lg:hidden"
+                onClick={openDrawer}
+                className="lg:hidden cursor-pointer"
                 src={mobileSizeMenu}
                 alt="mobileSizeMenu"
               />
@@ -152,6 +158,28 @@ const Navbar = (): React.ReactNode => {
       >
         Log out ?
       </Modal>
+      <Drawer onClose={closeDrawer} open={isDrawerOpen}>
+        <nav className="h-full flex flex-col justify-between">
+          <section className="flex flex-col">
+            {links.map((link) => (
+              <NavLink
+                key={link.id}
+                className={({ isActive }) => (isActive ? "text-primary" : "")}
+                to={link.to}
+              >
+                {link.title}
+              </NavLink>
+            ))}
+          </section>
+          <section>
+            <CustomButton
+              title={isLogin ? "Log out" : "Log in"}
+              onClick={authBtnClickHandler}
+              className="bg-secondary w-full"
+            />
+          </section>
+        </nav>
+      </Drawer>
     </>
   );
 };
