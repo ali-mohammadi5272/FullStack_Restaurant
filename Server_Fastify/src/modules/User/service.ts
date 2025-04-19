@@ -17,7 +17,7 @@ const service = {
     return await User.count();
   },
 
-  async getOne(userId: number) {
+  async getOneById(userId: number) {
     return await User.findOne({ where: { id: userId } });
   },
 
