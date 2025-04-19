@@ -22,7 +22,7 @@ const auth = async (req: AuthenticatedRequest) => {
     throw new Unauthorized();
   }
 
-  const user = await userService.getOne(tokenPayload.userId);
+  const user = await userService.getOneById(tokenPayload.userId);
   if (!user) {
     logger.warn(`User not found (ID: ${tokenPayload.userId})`);
     throw new Unauthorized();
