@@ -8,6 +8,7 @@ import MenuPage from "./pages/Menu";
 import AboutUsPage from "./pages/About_Us";
 import ReservationPage from "./pages/Reservation";
 import ContactUsPage from "./pages/Contact_Us";
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 
 const routes: RouteObject[] = [
   {
@@ -26,7 +27,11 @@ const routes: RouteObject[] = [
   },
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <AuthProvider>
+        <MainLayout />
+      </AuthProvider>
+    ),
     children: [
       {
         index: true,
