@@ -1,6 +1,6 @@
 import userService from "../User/service";
 import refreshTokenService from "../RefreshToken/service";
-import { BadRequest } from "http-errors";
+import { BadRequest, NotFound } from "http-errors";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { RegisterUserDto } from "./dto/register.dto";
 import { LoginDtoType } from "./dto/login.dto";
@@ -107,6 +107,21 @@ const controller = {
       statusCode: 200,
       data: null,
       message: "Log out successfully",
+    });
+  },
+
+  async getMe(req: AuthenticatedRequest, res: FastifyReply) {
+    const user = await userService.getOneById(req.user!.id);
+    if (!user) {
+      throw new NotFound("User not found");
+    }
+
+    Reflect.deleteProperty(user, "password");
+
+    return createSuccessResponse(res, {
+      statusCode: 200,
+      data: user,
+      message: null,
     });
   },
 };
