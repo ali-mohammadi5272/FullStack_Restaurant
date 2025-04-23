@@ -25,6 +25,8 @@ const router = (server: FastifyInstance) => {
   );
 
   server.post("/logout", { preHandler: [auth] }, authController.logout);
+
+  server.get("/me", { preHandler: [auth] }, authController.getMe);
 };
 
 export default router;
