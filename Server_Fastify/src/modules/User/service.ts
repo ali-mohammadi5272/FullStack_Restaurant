@@ -18,7 +18,7 @@ const service = {
   },
 
   async getOneById(userId: number) {
-    return await User.findOne({ where: { id: userId } });
+    return await User.findOne({ where: { id: userId }, raw: true });
   },
 
   async getOneByUserNameOrEmail(user: Pick<User, "userName" | "email">) {
