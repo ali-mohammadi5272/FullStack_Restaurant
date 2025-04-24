@@ -31,7 +31,7 @@ interface RequestsObject {
   ) => Promise<AxiosResponse<SuccessResponse<D>>>;
 
   GET: <D>(
-    req: Request<{ params: Partial<PaginationQueryStrings> }>
+    req: Request<{ params?: Partial<PaginationQueryStrings> }>
   ) => Promise<AxiosResponse<SuccessResponse<D>>>;
 }
 
