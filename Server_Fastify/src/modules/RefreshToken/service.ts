@@ -1,8 +1,8 @@
 import { RefreshToken } from "../associations";
-import { CreateOneDtoType } from "./dto/create-one.dto";
+import { CreateOneRefreshTokenDto } from "./dto/create-one.dto";
 
 const service = {
-  async createOne(body: CreateOneDtoType) {
+  async createOne(body: CreateOneRefreshTokenDto) {
     return await RefreshToken.create(body);
   },
 
