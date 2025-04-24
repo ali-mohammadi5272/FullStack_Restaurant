@@ -6,6 +6,7 @@ import usersRouter from "./src/modules/User/router";
 import foodsRouter from "./src/modules/Food/router";
 import contactsRouter from "./src/modules/ContactUs/router";
 import employeesRouter from "./src/modules/Employee/router";
+import refreshTokensRouter from "./src/modules/RefreshToken/router";
 import fastifyMultipart from "@fastify/multipart";
 import fastifyStatic from "@fastify/static";
 import path from "path";
@@ -29,6 +30,7 @@ server.register(
     server.register(foodsRouter, { prefix: "/foods" });
     server.register(contactsRouter, { prefix: "/contact-us" });
     server.register(employeesRouter, { prefix: "/employees" });
+    server.register(refreshTokensRouter, { prefix: "/refreshTokens" });
   },
   { prefix: env.baseUrl }
 );
