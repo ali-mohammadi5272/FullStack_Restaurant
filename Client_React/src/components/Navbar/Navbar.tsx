@@ -155,12 +155,6 @@ const Navbar = (): React.ReactNode => {
             </section>
             <section className="flex items-center justify-end w-[35%]">
               <ShoppingCart />
-              <CustomButton
-                title={isLogin ? "Log out" : "Log in"}
-                onClick={authBtnClickHandler}
-                className="bg-secondary px-9 hidden lg:inline-block"
-              />
-
               <img
                 onClick={openDrawer}
                 className="lg:hidden cursor-pointer"
