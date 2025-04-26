@@ -10,6 +10,7 @@ import ReservationPage from "./pages/Reservation";
 import ContactUsPage from "./pages/Contact_Us";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import UserPanelPage from "./pages/P-User";
+import AdminPanelPage from "./pages/P-Admin";
 
 const routes: RouteObject[] = [
   {
@@ -57,6 +58,10 @@ const routes: RouteObject[] = [
       {
         path: "/p-user",
         element: <UserPanelPage />,
+      },
+      {
+        path: "/p-admin",
+        element: <AdminPanelPage />,
       },
     ],
   },
