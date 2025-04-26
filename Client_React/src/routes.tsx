@@ -9,6 +9,7 @@ import AboutUsPage from "./pages/About_Us";
 import ReservationPage from "./pages/Reservation";
 import ContactUsPage from "./pages/Contact_Us";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import UserPanelPage from "./pages/P-User";
 
 const routes: RouteObject[] = [
   {
@@ -52,6 +53,10 @@ const routes: RouteObject[] = [
       {
         path: "/contact-us",
         element: <ContactUsPage />,
+      },
+      {
+        path: "/p-user",
+        element: <UserPanelPage />,
       },
     ],
   },
