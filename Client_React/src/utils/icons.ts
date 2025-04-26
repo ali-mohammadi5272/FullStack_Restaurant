@@ -14,6 +14,7 @@ import {
   faPlus,
   faAngleLeft,
   faAngleRight,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icons: Record<string, IconDefinition> = {
@@ -29,6 +30,7 @@ const icons: Record<string, IconDefinition> = {
   faInstagram,
   faFacebookF,
   faTwitter,
+  faUser,
 };
 
 export { icons };
