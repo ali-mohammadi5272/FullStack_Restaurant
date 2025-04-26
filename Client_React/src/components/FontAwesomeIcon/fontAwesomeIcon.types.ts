@@ -10,7 +10,8 @@ type IconType =
   | "faAngleRight"
   | "faInstagram"
   | "faFacebookF"
-  | "faTwitter";
+  | "faTwitter"
+  | "faUser";
 
 interface FontAwesomeIconPropsType {
   className?: string;
