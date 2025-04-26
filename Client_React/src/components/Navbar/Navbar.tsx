@@ -6,13 +6,15 @@ import InnerContainer from "../InnerContainer/InnerContainer";
 import { NavbarLinkType } from "./navbar.types";
 import { NavigateFunction, NavLink, useNavigate } from "react-router-dom";
 import { memo, useState } from "react";
-import { Drawer, Modal } from "antd";
+import { Drawer, Dropdown, Modal, Space } from "antd";
 import { requestWithHeader } from "../../services/axios/axios";
+import type { MenuProps } from "antd";
+import { UsergroupAddOutlined, UserOutlined } from "@ant-design/icons";
+import { toast } from "react-toastify";
 import {
   CookieEnum,
   LocalStorageEnum,
 } from "../../utils/helperFuncs/helperFuncs.type";
-import { toast } from "react-toastify";
 import {
   getCookie,
   isUserLogin,
@@ -55,6 +57,25 @@ const Navbar = (): React.ReactNode => {
       id: 6,
       title: "Contact us",
       to: "/contact-us",
+    },
+  ];
+  const items: MenuProps["items"] = [
+    {
+      key: "1",
+      label: "User Panel",
+      icon: <UserOutlined />,
+      onClick: () => {
+        navigate("/p-user");
+      },
+    },
+    {
+      key: "2",
+      label: "Admin Panel",
+      icon: <UsergroupAddOutlined />,
+      style: !isDrawerOpen ? { display: "none" } : {},
+      onClick: () => {
+        navigate("/p-admin");
+      },
     },
   ];
 
@@ -113,7 +134,13 @@ const Navbar = (): React.ReactNode => {
         <InnerContainer>
           <div className="flex justify-between items-center">
             <section className="w-[30%]">
-              <img src={logo} alt="logo" />
+              <Dropdown menu={{ items }}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space>
+                    <img src={logo} alt="logo" />
+                  </Space>
+                </a>
+              </Dropdown>
             </section>
             <section className="hidden lg:flex justify-between w-[65%]">
               {links.map((link) => (
